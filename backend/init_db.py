@@ -9,7 +9,7 @@ sys.path.insert(0, str(backend_dir))
 from sqlalchemy import create_engine
 from app.core.database import Base, engine
 from app.core.config import settings
-from app.models import Wine, Drink, Snack, Notification
+from app.models import Wine, Drink, Snack, Notification, User
 
 def create_tables():
     """Create all database tables"""

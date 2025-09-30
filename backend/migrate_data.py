@@ -11,7 +11,8 @@ sys.path.insert(0, str(project_root))
 
 from sqlalchemy.orm import sessionmaker
 from app.core.database import engine
-from app.models import Wine
+from app.models import Wine, User, UserRole
+from app.core.auth import get_password_hash
 
 def get_sample_wines():
     """Sample wine data for testing"""
@@ -267,8 +268,42 @@ def migrate_sample_notifications():
     finally:
         session.close()
 
+def create_default_admin():
+    """Create a default admin user"""
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    
+    try:
+        # Check if admin user already exists
+        existing_admin = session.query(User).filter(User.username == "admin").first()
+        if existing_admin:
+            print("Admin user already exists")
+            return
+        
+        # Create admin user
+        admin_user = User(
+            username="admin",
+            email="admin@casavazquez.com",
+            hashed_password=get_password_hash("admin"),  # Simple password for now
+            full_name="Casa Vazquez Administrator",
+            role=UserRole.ADMIN,
+            is_active=True
+        )
+        
+        session.add(admin_user)
+        session.commit()
+        print("Created default admin user (username: admin, password: admin123)")
+        print("⚠️  IMPORTANT: Change the admin password after first login!")
+        
+    except Exception as e:
+        session.rollback()
+        print(f"Error creating admin user: {e}")
+    finally:
+        session.close()
+
 def main():
     print("Starting data migration...")
+    create_default_admin()
     migrate_wines()
     migrate_sample_drinks()
     migrate_sample_snacks()

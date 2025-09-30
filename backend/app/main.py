@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .core.config import settings
 from .core.database import get_db
-from .api import wines, drinks, snacks, notifications
+from .api import wines, drinks, snacks, notifications, auth
 
 app = FastAPI(
     title="Casa Vazquez API",
@@ -25,6 +25,7 @@ app.add_middleware(
 )
 
 # Include API routers
+app.include_router(auth.router, prefix="/api/auth", tags=["authentication"])
 app.include_router(wines.router, prefix="/api/wines", tags=["wines"])
 app.include_router(drinks.router, prefix="/api/drinks", tags=["drinks"])
 app.include_router(snacks.router, prefix="/api/snacks", tags=["snacks"])
