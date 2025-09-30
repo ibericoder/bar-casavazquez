@@ -8,6 +8,11 @@
   "scripts": {
     "start": "npx tsx index.ts",
     "dev": "npx tsx index.ts",
+    "backend:install": "cd backend && pip install -r requirements.txt",
+    "backend:init": "cd backend && python init_db.py",
+    "backend:migrate": "cd backend && python migrate_data.py",
+    "backend:dev": "cd backend && python run.py",
+    "backend:setup": "npm run backend:install && npm run backend:init && npm run backend:migrate",
     "deploy": "npm --prefix website run build && gcloud run deploy casavazquez-website-update --source=. --region=europe-central2 --allow-unauthenticated"
   },
   "type": "module",
