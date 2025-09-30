@@ -1,9 +1,37 @@
 <template>
   <div class="admin-panel">
-    <header class="admin-header">
-      <h1>Casa Vazquez Admin</h1>
-      <p>Menu Management Interface</p>
-    </header>
+    <!-- Login Modal -->
+    <LoginModal 
+      :show="showLogin" 
+      @close="showLogin = false"
+      @login-success="handleLoginSuccess"
+    />
+
+    <!-- Not Authenticated View -->
+    <div v-if="!isAuthenticated" class="auth-required">
+      <div class="auth-message">
+        <h1>Admin Access Required</h1>
+        <p>Please log in to access the admin panel.</p>
+        <button @click="showLogin = true" class="login-trigger-btn">
+          Login to Admin Panel
+        </button>
+      </div>
+    </div>
+
+    <!-- Authenticated Admin Panel -->
+    <div v-else>
+      <header class="admin-header">
+        <div class="header-content">
+          <div>
+            <h1>Casa Vazquez Admin</h1>
+            <p>Menu Management Interface</p>
+          </div>
+          <div class="user-info">
+            <span>Welcome, {{ user?.full_name || user?.username }}</span>
+            <button @click="handleLogout" class="logout-btn">Logout</button>
+          </div>
+        </div>
+      </header>
 
     <nav class="admin-nav">
       <button 
@@ -204,7 +232,12 @@ import { useWineMenu } from './useWineMenu';
 import { useDrinksMenu } from '../composables/useDrinksMenu';
 import { useSnacksMenu } from '../composables/useSnacksMenu';
 import { useNotifications } from '../composables/useNotifications';
+import { useAuth } from '../composables/useAuth';
+import LoginModal from '../components/LoginModal.vue';
 
+const { isAuthenticated, user, login, logout, authenticatedFetch, getApiUrl } = useAuth();
+
+const showLogin = ref(false);
 const activeTab = ref('wines');
 
 const tabs = [
@@ -227,24 +260,44 @@ const { snacks, loading: snacksLoading, error: snacksError, loadSnacks } = useSn
 const { notifications, loading: notificationsLoading, error: notificationsError, loadNotifications } = useNotifications();
 
 onMounted(async () => {
+  if (isAuthenticated.value) {
+    await loadMenuData();
+  }
+});
+
+// Authentication functions
+const handleLoginSuccess = (token: string, userData: any) => {
+  login(token, userData);
+  loadMenuData();
+};
+
+const handleLogout = () => {
+  logout();
+  showLogin.value = false;
+};
+
+// Load all menu data
+const loadMenuData = async () => {
   await loadVinos();
   await loadDrinks({ available_only: false });
   await loadSnacks({ available_only: false });
   await loadNotifications({ active_only: false });
-});
+};
 
 // Wine actions
 async function toggleWineAvailability(wine: any) {
   try {
-    const apiUrl = import.meta.env.DEV ? 'http://localhost:8080' : 'https://casavazquez-website-594856899017.europe-central2.run.app';
-    const response = await fetch(`${apiUrl}/api/wines/${wine.id}/availability?available=${!wine.available}`, {
+    const response = await authenticatedFetch(`${getApiUrl()}/api/wines/${wine.id}/availability?available=${!wine.available}`, {
       method: 'PATCH'
     });
     if (response.ok) {
       wine.available = !wine.available;
+    } else {
+      throw new Error('Failed to update wine availability');
     }
   } catch (error) {
     console.error('Error toggling wine availability:', error);
+    alert('Failed to update wine availability. Please try again.');
   }
 }
 
@@ -347,7 +400,14 @@ function deleteNotification(notification: any) {
   background-color: $accent-color;
   color: white;
   padding: 2rem;
-  text-align: center;
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
   
   h1 {
     margin: 0 0 0.5rem 0;
@@ -358,6 +418,78 @@ function deleteNotification(notification: any) {
   p {
     margin: 0;
     opacity: 0.9;
+  }
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  span {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+}
+
+.logout-btn {
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.auth-required {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+}
+
+.auth-message {
+  text-align: center;
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  max-width: 400px;
+  
+  h1 {
+    color: $accent-color;
+    font-family: 'King Red', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+.login-trigger-btn {
+  padding: 1rem 2rem;
+  background-color: $accent-color;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: darken($accent-color, 10%);
   }
 }
 
