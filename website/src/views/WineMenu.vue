@@ -45,7 +45,7 @@ import {useWineMenu} from "./useWineMenu.ts";
 import {vinos as staticVinos}  from '../data/vinos.ts'
 
 const  {loadVinos, loading, vinos} = useWineMenu();
-const shouldUseApi = false;
+const shouldUseApi = true;
 
 const now = useNow();
 const isHappyHour = computed(() => {

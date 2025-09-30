@@ -39,12 +39,6 @@
           {{ loading ? 'Logging in...' : 'Login' }}
         </button>
       </form>
-      
-      <div class="login-info">
-        <p><strong>Development Credentials:</strong></p>
-        <p>Username: <code>admin</code></p>
-        <p>Password: <code>admin</code></p>
-      </div>
     </div>
   </div>
 </template>

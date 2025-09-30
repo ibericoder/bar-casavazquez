@@ -223,6 +223,7 @@
         </div>
       </section>
     </main>
+    </div>
   </div>
 </template>
 
@@ -399,7 +400,7 @@ function deleteNotification(notification: any) {
 .admin-header {
   background-color: $accent-color;
   color: white;
-  padding: 2rem;
+  padding: 1rem;
   
   .header-content {
     display: flex;
@@ -407,17 +408,24 @@ function deleteNotification(notification: any) {
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
   
   h1 {
     margin: 0 0 0.5rem 0;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-family: 'King Red', serif;
+    
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
   
   p {
     margin: 0;
     opacity: 0.9;
+    font-size: 0.9rem;
   }
 }
 
@@ -425,10 +433,15 @@ function deleteNotification(notification: any) {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
   
   span {
-    font-size: 1rem;
+    font-size: 0.9rem;
     opacity: 0.9;
+    
+    @media (max-width: 480px) {
+      font-size: 0.8rem;
+    }
   }
 }
 
@@ -444,6 +457,11 @@ function deleteNotification(notification: any) {
   
   &:hover {
     background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -499,7 +517,13 @@ function deleteNotification(notification: any) {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+    gap: 0.25rem;
+  }
 }
 
 .nav-btn {
@@ -516,24 +540,47 @@ function deleteNotification(notification: any) {
     background-color: $accent-color;
     color: white;
   }
+  
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
 }
 
 .admin-content {
-  padding: 2rem;
+  padding: 1rem;
   max-width: 1400px;
   margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+  }
 }
 
 .admin-section {
   background-color: white;
   border-radius: 8px;
-  padding: 2rem;
+  padding: 1.5rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   
   h2 {
     margin: 0 0 1.5rem 0;
     color: $accent-color;
     font-size: 1.8rem;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+    
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
   }
 }
 
@@ -542,6 +589,11 @@ function deleteNotification(notification: any) {
     text-align: center;
     padding: 2rem;
     font-size: 1.1rem;
+    
+    @media (max-width: 768px) {
+      padding: 1rem;
+      font-size: 1rem;
+    }
   }
   
   .error {
@@ -551,14 +603,50 @@ function deleteNotification(notification: any) {
 
 .grid-header, .grid-row {
   display: grid;
-  grid-template-columns: 80px 200px 120px 120px 120px 120px 200px;
-  gap: 1rem;
+  grid-template-columns: 60px 1fr 100px 100px 100px 120px 140px;
+  gap: 0.5rem;
   padding: 1rem;
   align-items: center;
   border-bottom: 1px solid #eee;
   
   span {
     font-size: 0.9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: 50px 1fr 80px 100px 120px;
+    gap: 0.25rem;
+    padding: 0.75rem 0.5rem;
+    
+    span:nth-child(4), span:nth-child(5) {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+    
+    span:nth-child(1), span:nth-child(3), span:nth-child(4), span:nth-child(5) {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 1rem;
+    
+    span {
+      white-space: normal;
+      word-wrap: break-word;
+    }
   }
 }
 
@@ -567,6 +655,28 @@ function deleteNotification(notification: any) {
   font-weight: 600;
   color: #495057;
   border-radius: 6px 6px 0 0;
+  
+  @media (max-width: 768px) {
+    span:nth-child(2)::before {
+      content: "Name";
+      font-weight: bold;
+      display: block;
+    }
+    span:nth-child(6)::before {
+      content: "Status";
+      font-weight: bold;
+      display: block;
+    }
+    span:nth-child(7)::before {
+      content: "Actions";
+      font-weight: bold;
+      display: block;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    display: none;
+  }
 }
 
 .grid-row {
@@ -576,6 +686,23 @@ function deleteNotification(notification: any) {
   
   &.inactive {
     opacity: 0.6;
+  }
+  
+  @media (max-width: 480px) {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background: white;
+    
+    span {
+      padding: 0.25rem 0;
+    }
+    
+    span:nth-child(2) {
+      font-weight: bold;
+      font-size: 1rem;
+      color: $accent-color;
+    }
   }
 }
 
@@ -595,6 +722,16 @@ function deleteNotification(notification: any) {
   &.inactive {
     background-color: #dc3545;
     color: white;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+  
+  @media (max-width: 480px) {
+    width: 100%;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -618,6 +755,21 @@ function deleteNotification(notification: any) {
   
   &:hover {
     opacity: 0.8;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    margin-right: 0.25rem;
+  }
+  
+  @media (max-width: 480px) {
+    width: calc(50% - 0.25rem);
+    margin: 0.25rem 0.25rem 0.25rem 0;
+    
+    &:nth-child(even) {
+      margin-right: 0;
+    }
   }
 }
 
