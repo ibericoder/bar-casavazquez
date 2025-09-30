@@ -1,0 +1,30 @@
+{
+  "name": "casavazquez",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "start": "npx tsx index.ts",
+    "dev": "npx tsx index.ts",
+    "deploy": "npm --prefix website run build && gcloud run deploy casavazquez-website-update --source=. --region=europe-central2 --allow-unauthenticated"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.3",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}
