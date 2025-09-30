@@ -2,32 +2,32 @@
   <div v-if="show" class="login-modal-overlay" @click="closeModal">
     <div class="login-modal" @click.stop>
       <div class="login-header">
-        <h2>Admin Login</h2>
+        <h2>Admin Anmeldung</h2>
         <button @click="closeModal" class="close-btn">&times;</button>
       </div>
       
       <form @submit.prevent="handleLogin" class="login-form">
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="username">Benutzername</label>
           <input
             id="username"
             v-model="loginData.username"
             type="text"
             required
             :disabled="loading"
-            placeholder="Enter username"
+            placeholder="Benutzername eingeben"
           />
         </div>
         
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">Passwort</label>
           <input
             id="password"
             v-model="loginData.password"
             type="password"
             required
             :disabled="loading"
-            placeholder="Enter password"
+            placeholder="Passwort eingeben"
           />
         </div>
         
@@ -36,7 +36,7 @@
         </div>
         
         <button type="submit" :disabled="loading" class="login-btn">
-          {{ loading ? 'Logging in...' : 'Login' }}
+          {{ loading ? 'Anmeldung läuft...' : 'Anmelden' }}
         </button>
       </form>
     </div>

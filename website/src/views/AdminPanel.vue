@@ -10,10 +10,10 @@
     <!-- Not Authenticated View -->
     <div v-if="!isAuthenticated" class="auth-required">
       <div class="auth-message">
-        <h1>Admin Access Required</h1>
-        <p>Please log in to access the admin panel.</p>
+        <h1>Admin-Zugang erforderlich</h1>
+        <p>Bitte melden Sie sich an, um das Admin-Panel zu verwenden.</p>
         <button @click="showLogin = true" class="login-trigger-btn">
-          Login to Admin Panel
+          Anmelden
         </button>
       </div>
     </div>
@@ -24,11 +24,11 @@
         <div class="header-content">
           <div>
             <h1>Casa Vazquez Admin</h1>
-            <p>Menu Management Interface</p>
+            <p>Menü-Verwaltung</p>
           </div>
           <div class="user-info">
-            <span>Welcome, {{ user?.full_name || user?.username }}</span>
-            <button @click="handleLogout" class="logout-btn">Logout</button>
+            <span>Willkommen, {{ user?.full_name || user?.username }}</span>
+            <button @click="handleLogout" class="logout-btn">Abmelden</button>
           </div>
         </div>
       </header>
@@ -47,9 +47,9 @@
     <main class="admin-content">
       <!-- Wines Management -->
       <section v-if="activeTab === 'wines'" class="admin-section">
-        <h2>Wines Management</h2>
+        <h2>Weine Verwaltung</h2>
         <div class="data-grid">
-          <div v-if="winesLoading" class="loading">Loading wines...</div>
+          <div v-if="winesLoading" class="loading">Lade Weine...</div>
           <div v-else-if="winesError" class="error">{{ winesError }}</div>
           <div v-else>
             <div class="grid-header">
@@ -242,10 +242,10 @@ const showLogin = ref(false);
 const activeTab = ref('wines');
 
 const tabs = [
-  { id: 'wines', label: 'Wines' },
-  { id: 'drinks', label: 'Drinks' },
+  { id: 'wines', label: 'Weine' },
+  { id: 'drinks', label: 'Getränke' },
   { id: 'snacks', label: 'Snacks' },
-  { id: 'notifications', label: 'Notifications' }
+  { id: 'notifications', label: 'Benachrichtigungen' }
 ];
 
 // Wines
