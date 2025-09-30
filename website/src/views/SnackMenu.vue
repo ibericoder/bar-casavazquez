@@ -29,10 +29,7 @@
       <h1 class="snacks-title">SNACKS</h1>
       <!--      <p class="snacks-subtitle">FÜR DEN KLEINEN HUNGER</p>-->
     </header>
-    <div v-if="showTopToast" class="top-toast" role="status" aria-live="polite">
-      <span>Saludos desde Madrid – Diesen Samstag bekommt ihr zu jedem Getränk eine kleine Tapita, ganz wie ihr es aus der Hauptstadt Spaniens kennt.</span>
-      <button class="toast-close" @click="showTopToast = false" aria-label="Schließen">×</button>
-    </div>
+
 
 
     <div class="scrollContainer">
@@ -139,7 +136,7 @@ import cocaImage from "../assets/images/coca.png";
 const veggie = ref(false)
 const showOnmInfo = ref(false)
 const showCocaInfo = ref(false)
-const showTopToast = ref(true)
+
 
 const snacks = [
   {name: 'Nachos mit Aioli Dip', description: '', price: '5', veggie: true},

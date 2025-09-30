@@ -12,11 +12,7 @@
     </button>
   </div>
 
-  <!-- Top announcement toast -->
-  <div v-if="showTopToast" class="top-toast" role="status" aria-live="polite">
-    <span>Saludos desde Madrid – Diesen Samstag bekommt ihr zu jedem Getränk eine kleine Tapita, ganz wie ihr es aus der Hauptstadt Spaniens kennt.</span>
-    <button class="toast-close" @click="showTopToast = false" aria-label="Schließen">×</button>
-  </div>
+
   <!--    Softdrinks-->
   <section class="drinks-menu-section">
     <header class="drinks-header">
@@ -264,7 +260,6 @@
 import {ref} from "vue";
 
 const nonAlcoholic = ref(false);
-const showTopToast = ref(true);
 
 function toggleNonAlcoholic() {
   nonAlcoholic.value = !nonAlcoholic.value;

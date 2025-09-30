@@ -3,11 +3,10 @@
     <header class="wine-header">
       <h1 class="wine-title">Vino</h1>
     </header>
-    <div v-if="showTopToast" class="top-toast" role="status" aria-live="polite">
-      <span>Saludos desde Madrid – Diesen Samstag bekommt ihr zu jedem Getränk eine kleine Tapita, ganz wie ihr es aus der Hauptstadt Spaniens kennt.</span>
-      <button class="toast-close" @click="showTopToast = false" aria-label="Schließen">×</button>
-    </div>
     <p class="note">Unsere Hausweine gibt es für<br> 7€ (0.2l) bzw. 19€ (0.75l).</p>
+    <div class="wine-tasting-link">
+      <router-link to="/wine-tasting" class="tasting-link">🍷Die Weine aus unserer letzten Weinverkostung findest du hier >></router-link>
+    </div>
     <div v-if="selectedColor === 'rosé' && false" class="happy-hour-hint">🎉 Happy Hour 🎉! Mo-Fr bis 19 Uhr zu
       jeder Flasche Rosé eine Plato Mixto aufs Haus.
     </div>
@@ -56,7 +55,6 @@ const isHappyHour = computed(() => {
 });
 
 const wines = ref<Wine[]>([]);
-const showTopToast = ref(true);
 const selectedColor = ref<string>('');
 
 onMounted(async () => {
@@ -84,6 +82,28 @@ const filteredWines = computed(() => {
 
 .note {
   font-size:  1rem;
+}
+
+.wine-tasting-link {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tasting-link {
+  color: #8b4513;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 16px;
+  border: 2px solid #8b4513;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.tasting-link:hover {
+  background-color: #8b4513;
+  color: white;
 }
 
 .wine-menu-section {
