@@ -6,6 +6,7 @@ import DrinkMenu from '../views/DrinkMenu.vue';
 import Showroom from '../views/Showroom.vue';
 import WineTasting from '../views/WineTasting.vue';
 import Legals from '../views/Legals.vue';
+import AdminPanel from '../views/AdminPanel.vue';
 
 const routes = [
     {
@@ -46,6 +47,11 @@ const routes = [
         path: '/legals',
         name: 'Legals',
         component: Legals,
+    },
+    {
+        path: '/admin',
+        name: 'AdminPanel',
+        component: AdminPanel,
     },
     {
         path: '/:pathMatch(.*)*',
