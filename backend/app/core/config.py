@@ -21,6 +21,13 @@ class Settings(BaseSettings):
     environment: str = "development"
     debug: bool = True
     
+    # Features
+    enable_chatbot: bool = True
+    
+    # MCP Configuration
+    mcp_model_name: str = "gpt-4"
+    mcp_api_key: Optional[str] = None
+    
     class Config:
         env_file = ".env"
         case_sensitive = False

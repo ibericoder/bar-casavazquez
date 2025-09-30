@@ -8,6 +8,7 @@ from pathlib import Path
 from .core.config import settings
 from .core.database import get_db
 from .api import wines, drinks, snacks, notifications, auth
+from .routers import chat
 
 app = FastAPI(
     title="Casa Vazquez API",
@@ -30,6 +31,7 @@ app.include_router(wines.router, prefix="/api/wines", tags=["wines"])
 app.include_router(drinks.router, prefix="/api/drinks", tags=["drinks"])
 app.include_router(snacks.router, prefix="/api/snacks", tags=["snacks"])
 app.include_router(notifications.router, prefix="/api/notifications", tags=["notifications"])
+app.include_router(chat.router, prefix="/api/chat", tags=["chat"])
 
 # Legacy endpoint for compatibility
 app.include_router(wines.router, prefix="/casavazquez/api", tags=["legacy"])
