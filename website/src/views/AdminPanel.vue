@@ -87,6 +87,74 @@
         </div>
       </section>
 
+      <!-- Edit Wine Modal -->
+      <div v-if="isEditingWine" class="modal-backdrop">
+        <div class="modal">
+          <h3>Wein bearbeiten</h3>
+          <div class="form-grid">
+            <label>
+              Name
+              <input v-model="editForm.name" type="text" />
+            </label>
+            <label>
+              Farbe
+              <select v-model="editForm.color">
+                <option value="red">Rot</option>
+                <option value="white">Weiß</option>
+                <option value="rosé">Rosé</option>
+              </select>
+            </label>
+            <label>
+              Traube
+              <input v-model="editForm.grape" type="text" />
+            </label>
+            <label>
+              Herkunft
+              <input v-model="editForm.origin" type="text" />
+            </label>
+          </div>
+
+          <h4>Preise</h4>
+          <div class="prices-grid">
+            <label>
+              0.1l
+              <input v-model="editForm.prices['0.1l']" type="text" placeholder="z.B. 4,00€" />
+            </label>
+            <label>
+              0.2l
+              <input v-model="editForm.prices['0.2l']" type="text" placeholder="z.B. 7,50€" />
+            </label>
+            <label>
+              0.25l
+              <input v-model="editForm.prices['0.25l']" type="text" />
+            </label>
+            <label>
+              Glas
+              <input v-model="editForm.prices['glas']" type="text" />
+            </label>
+            <label>
+              Flasche
+              <input v-model="editForm.prices['flasche']" type="text" placeholder="z.B. 25,00€" />
+            </label>
+          </div>
+
+          <div v-if="otherPriceKeys.length" class="other-prices">
+            <h5>Weitere Preisfelder</h5>
+            <div class="prices-grid">
+              <label v-for="k in otherPriceKeys" :key="k">
+                {{ k }}
+                <input v-model="editForm.prices[k]" type="text" />
+              </label>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button class="action-btn save" @click="saveWine">Speichern</button>
+            <button class="action-btn cancel" @click="closeEdit">Abbrechen</button>
+          </div>
+        </div>
+      </div>
+
       <!-- Drinks Management -->
       <section v-if="activeTab === 'drinks'" class="admin-section">
         <h2>Drinks Management</h2>
@@ -228,7 +296,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { useWineMenu } from './useWineMenu';
 import { useDrinksMenu } from '../composables/useDrinksMenu';
 import { useSnacksMenu } from '../composables/useSnacksMenu';
@@ -286,6 +354,9 @@ const loadMenuData = async () => {
 };
 
 // Wine actions
+const isEditingWine = ref(false);
+const editForm = ref<any | null>(null);
+
 async function toggleWineAvailability(wine: any) {
   try {
     const response = await authenticatedFetch(`${getApiUrl()}/api/wines/${wine.id}/availability?available=${!wine.available}`, {
@@ -303,7 +374,62 @@ async function toggleWineAvailability(wine: any) {
 }
 
 function editWine(wine: any) {
-  alert(`Edit wine: ${wine.name} (Feature coming soon)`);
+  isEditingWine.value = true;
+  editForm.value = {
+    id: wine.id,
+    name: wine.name,
+    color: wine.color,
+    grape: wine.grape,
+    origin: wine.origin || '',
+    short_description: wine.short_description || '',
+    long_description: wine.long_description || '',
+    characteristics: wine.characteristics || '',
+    available: !!wine.available,
+    prices: { ...(wine.prices || {}) }
+  };
+}
+
+function closeEdit() {
+  isEditingWine.value = false;
+  editForm.value = null;
+}
+
+const commonPriceKeys = ['0.1l','0.2l','0.25l','glas','flasche'];
+const otherPriceKeys = computed(() => {
+  if (!editForm.value?.prices) return [] as string[];
+  return Object.keys(editForm.value.prices).filter(k => !commonPriceKeys.includes(k));
+});
+
+async function saveWine() {
+  if (!editForm.value) return;
+  try {
+    const payload: any = {
+      name: editForm.value.name,
+      color: editForm.value.color,
+      grape: editForm.value.grape,
+      origin: editForm.value.origin,
+      short_description: editForm.value.short_description,
+      long_description: editForm.value.long_description,
+      characteristics: editForm.value.characteristics,
+      available: editForm.value.available,
+      prices: editForm.value.prices || {}
+    };
+    const res = await authenticatedFetch(`${getApiUrl()}/api/wines/${editForm.value.id}`, {
+      method: 'PUT',
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    // Update list locally
+    const updated = await res.json();
+    const idx = wines.value.findIndex(w => w.id === updated.id);
+    if (idx >= 0) {
+      wines.value[idx] = { ...wines.value[idx], ...updated } as any;
+    }
+    closeEdit();
+  } catch (e) {
+    console.error('Failed to save wine', e);
+    alert('Speichern fehlgeschlagen.');
+  }
 }
 
 function deleteWine(wine: any) {
@@ -396,6 +522,47 @@ function deleteNotification(notification: any) {
   background-color: #f5f5f5;
   font-family: $font-family;
 }
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.modal {
+  width: 680px;
+  max-width: 95vw;
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+  label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+  input, select { padding: 8px; border: 1px solid #ddd; border-radius: 6px; }
+}
+.prices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+  label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+  input { padding: 8px; border: 1px solid #ddd; border-radius: 6px; }
+}
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.action-btn.save { background: #2e7d32; color: #fff; }
+.action-btn.cancel { background: #9e9e9e; color: #fff; }
 
 .admin-header {
   background-color: $accent-color;

@@ -1,0 +1,539 @@
+[
+  {
+    "id": "r32",
+    "name": "Cal y Canto Tinto",
+    "color": "red",
+    "grape": "Tempranillo, Merlot, Syrah",
+    "origin": "Spanien",
+    "short_description": "Weich, fruchtig, ausgewogen mit sanften Tanninen.",
+    "long_description": "Cal y Canto Tinto ist eine spanische Rotwein-Cuvée aus Tempranillo, Merlot und Syrah. Im Glas zeigt er sich in tiefem Rubinrot. Das Bouquet überzeugt mit intensiven Aromen von dunklen Beeren, Kirschen und feinen Gewürznoten. Am Gaumen präsentiert sich der Wein weich, fruchtig und ausgewogen, mit sanften Tanninen und einem angenehmen Abgang. Ein unkomplizierter, moderner Rotwein, der sowohl solo als auch zu mediterranen Gerichten hervorragend passt.",
+    "image": null,
+    "characteristics": "Trocken, weich, fruchtig, ausgewogen",
+    "available": true,
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "22,00€"
+    }
+  },
+  {
+    "id": "r29",
+    "name": "the guv`nor",
+    "color": "red",
+    "grape": "100% Saint Laurent",
+    "origin": "Spanien",
+    "short_description": "Syrah, Tempranillo.",
+    "long_description": "Diese unkomplizierte Cuvée aus Tempranillo und Syrah ist der perfekte Rotwein für den Feierabend oder eine gemütliche Runde mit Freunden. Da auf einen Barrique-Ausbau bewusst verzichtet wurde, kommen die intensiven Fruchtaromen voll zur Geltung, und der ordentliche Restzuckergehalt macht ihn ausgesprochen süffig. Im Glas strahlt er in sattem Kirschrot, im Bouquet entfalten sich Noten dunkler Beeren und Früchte, untermalt von feinen Röstnuancen. Am Gaumen zeigt er einen guten Körper, bleibt dabei sehr ausgewogen und hinterlässt ein rundes, harmonisches Gesamtbild.",
+    "image": null,
+    "characteristics": "Halbtrocken, fruchtig, interessant",
+    "available": true,
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "25,00€"
+    }
+  },
+  {
+    "id": "r2",
+    "name": "David Moreno",
+    "color": "red",
+    "grape": "Tempranillo",
+    "origin": "Rioja DOCa",
+    "short_description": "Trocken, kirschrot mit rubinrotem Schimmer – intensiv, elegant, mit reifen Beeren und feinen Röstaromen.",
+    "long_description": "Dieser Rotwein ist trocken und besticht durch eine tief kirschrote Farbe mit einem rubinroten Schimmer. Im Bouquet entfalten sich intensive, elegante Aromen von reifen roten Beeren, ergänzt durch Trockenfrüchte (wie Pfirsich), feine Röstaromen, Vanille und Nuancen von weichem Eichenholz. Am Gaumen präsentiert sich der Wein seidig, würzig, rund und ausgeglichen, mit reifen Tanninen, die in einem lang anhaltenden Abgang münden. Hergestellt aus handverlesenen Trauben, von denen 75 % entrappt wurden, durchläuft er einen 14-monatigen Barriqueausbau – 8 Monate in amerikanischen und 6 Monate in französischen Eichenfässern – gefolgt von weiterer Flaschenreife.",
+    "image": null,
+    "characteristics": "Trocken, elegant, rund",
+    "available": true,
+    "prices": {
+      "0.1l": "4,50€",
+      "0.2l": "8,00€",
+      "flasche": "€25,00"
+    }
+  },
+  {
+    "id": "r31",
+    "name": "Viña Albali - Gran Reserva",
+    "color": "red",
+    "grape": "Tempranillo",
+    "origin": "Valdepenas, Spanien",
+    "short_description": "trocken, rauchig, holzig.",
+    "long_description": "Ein Gran Reserva muss insgesamt fünf Jahre reifen, davon mindestens zwei Jahre im Eichenfass. Der Viña Albali Gran Reserva aus dem Jahr erfüllt diese Vorgaben mühelos. Er stammt aus der spanischen Region Valdepeñas in Kastilien-La Mancha und wird ausschließlich aus der Tempranillo-Traube gekeltert. Valdepeñas liegt im Süden der Hochebene Zentralspaniens, geschützt von der Sierra Morena, was zu einem gemäßigten, stark kontinental geprägten Klima führt – im Sommer steigen die Temperaturen oft auf bis zu 40 °C, im Winter können sie bis auf –10 °C fallen. Die Weinberge stehen auf etwa 700 Metern Höhe auf überwiegend kalkhaltigen Böden mit älteren Kreideablagerungen. Der Viña Albali Gran Reserva gehört zur Albali-Linie des Weinguts Félix Solis. Seinen Namen trägt er nach einem Stern im Sternbild des Wassermanns und soll laut Félix Solis die Lebensfreude und Lebendigkeit der Spanier verkörpern.",
+    "image": null,
+    "characteristics": "trocken, rauchig, holzig, Körper",
+    "available": true,
+    "prices": {
+      "0.1l": "4,50€",
+      "0.2l": "9",
+      "flasche": "28,50€"
+    }
+  },
+  {
+    "id": "3",
+    "name": "Marques de Cáceres",
+    "color": "red",
+    "grape": "Tempranillo",
+    "origin": "Rioja DOCa",
+    "short_description": "Fruchtig-frischer Wein mit dunklen Früchten und würzigem Holz im Geschmack.",
+    "long_description": "Marqués de Cáceres – ein Synonym für herausragende Qualität – präsentiert in diesem Wein eine harmonische Vereinigung der Rebsorten Tempranillo, Garnacha und Graciano. Diese Crianza besticht durch ein Bouquet dunkler Früchte und sonnenreifer Kirschen, untermalt von würzigen Nuancen von Vanille, Nelke und Lakritze, die durch den Einsatz von gewürztem Eichenholz noch intensiviert werden. Am Gaumen zeigt sich der Wein frisch und fruchtig, mit feinen Anklängen von Erdbeeren und Himbeeren, während seine festen Tannine für eine strukturierte Textur sorgen, die hervorragend zu gerösteten Nüssen und mineralischen Noten passt.",
+    "image": null,
+    "characteristics": "Trocken, würzig",
+    "available": true,
+    "prices": {
+      "flasche": "€37,50"
+    }
+  },
+  {
+    "id": "r30",
+    "name": "Aventura - Vinos del Viento",
+    "color": "red",
+    "grape": "60% Grenache, 30% Syrah, 10% Cabernet Sauvignon",
+    "origin": "Campo de Borja, Spanien",
+    "short_description": "trocken, saftig.",
+    "long_description": "Der Aventura präsentiert sich im Glas in tiefem Rubinrot. In der Nase entfalten sich intensive Noten von roten und schwarzen Beeren, ergänzt durch würzige Anklänge von Thymian und schwarzem Pfeffer. Am Gaumen überzeugt er mit weicher, saftiger Textur, reifen Tanninen und einer sehr ausgewogenen Balance. Diese spanische Cuvée vereint drei Rebsorten und ist als Hommage an die nördliche Rhône gedacht. Garnacha und Syrah schenken ihm florale Würze und seinen charakteristischen Pfeffer-Touch, während Cabernet Sauvignon eine reichhaltige, konzentrierte Fülle beisteuert, die die Tannine harmonisch ausgleicht.",
+    "image": null,
+    "characteristics": "trocken, saftig, leicht, sommerlich",
+    "available": false,
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "25,00€"
+    }
+  },
+  {
+    "id": "17",
+    "name": "Barón de Ley Rioja Reserva ",
+    "color": "red",
+    "grape": "Tempranillo, Graciano, Maturana",
+    "origin": "Spanien, Rioja DOCa",
+    "short_description": "Ein klassischer Rioja Reserva mit ausgewogener Fruchtigkeit und eleganter Tanninstruktur – klassisch trocken.",
+    "long_description": "Der Barón de Ley Rioja Reserva 2019 präsentiert sich in einem tiefen Rubinrot und entfaltet ein komplexes Bouquet aus reifen roten Früchten, feinen Gewürznoten und dezenten Eichenakzenten. Am Gaumen überzeugt er mit einer harmonischen Balance zwischen Fruchtigkeit und strukturierten Tanninen, die in einem langen, eleganten Abgang mündet. Ein Wein, der die Tradition der Rioja DOCa authentisch widerspiegelt.",
+    "image": null,
+    "characteristics": "Trocken, klassisch, elegant, ausgewogen",
+    "available": true,
+    "prices": {
+      "flasche": "€39,50"
+    }
+  },
+  {
+    "id": "1",
+    "name": "EMBOCADERO",
+    "color": "red",
+    "grape": "100% Tinto Fino",
+    "origin": "Ribera del Duero",
+    "short_description": "Eleganter, trockener Rotwein mit lebendigen Beeren- und Zedernholznoten.",
+    "long_description": "Embocadero Ribera del Duero 2021 – Dieser trockene Rotwein aus der renommierten Region Ribera del Duero besticht durch eine elegante, feinkörnige Tanninstruktur und animierende Säure. Sein lang anhaltender Abgang ist von Nuancen geprägt, die an Zedernholz erinnern. Im Bouquet entfalten sich lebendige Fruchtnoten von Schlehen, dunklen Beeren und Pflaumen, ergänzt durch subtile Anklänge von Lorbeer, Süßholz und einem Hauch Vanille. Am Gaumen setzt sich der Wein mit einer weichen Holznote in saftige Aromen von Kirsch, Schlehen und Beeren fort – ein harmonischer Wein, der Tiefe und Finesse vereint.",
+    "image": null,
+    "characteristics": "Trocken, vollmundig, tiefrot, ehrlich",
+    "available": false,
+    "prices": {
+      "flasche": "€39,50"
+    }
+  },
+  {
+    "id": "16",
+    "name": "Borgo Scopeto Chianti Classico Riserva 2017 DOCG",
+    "color": "red",
+    "grape": "Sangiovese",
+    "origin": "Italien, Toskana",
+    "short_description": "Ein kraftvoller Chianti Classico Riserva mit reifen Fruchtnoten, würzigen Akzenten und strukturierten Tanninen – klassisch trocken.",
+    "long_description": "Der Borgo Scopeto Chianti Classico Riserva 2017 DOCG präsentiert sich in einem tiefen Rubinrot mit einem komplexen Bouquet aus reifen roten Früchten, getrockneten Kräutern und würzigen Noten. Die gut integrierten Tannine und die ausgewogene Säure verleihen ihm eine beeindruckende Struktur und einen langen, eleganten Abgang, der Kenner toskanischer Weine begeistert.",
+    "image": null,
+    "characteristics": "Trocken, kraftvoll, strukturiert, elegant",
+    "available": true,
+    "prices": {
+      "flasche": "€45,00"
+    }
+  },
+  {
+    "id": "15",
+    "name": "Raineri Zovetto Dogliani 2018",
+    "color": "red",
+    "grape": "Barbera | Dolcetto",
+    "origin": "Italien, Piemont",
+    "short_description": "Ein intensiver Rotwein mit reifen Fruchtaromen und feiner Tanninstruktur – klassisch trocken.",
+    "long_description": "Der Raineri Zovetto Dogliani 2018 zeigt sich in einem tiefen Rotton mit einem Bouquet aus dunklen Beeren, reifen Kirschen und feinen Gewürznoten. Er ist absolut trocken, mit einer ausgewogenen Säure und samtigen Tanninen, die ihm eine elegante Struktur verleihen – typisch für die Weinregion des Piemont.",
+    "image": null,
+    "characteristics": "Trocken, intensiv, fruchtig, elegant",
+    "available": true,
+    "prices": {
+      "flasche": "€32,50"
+    }
+  },
+  {
+    "id": "14",
+    "name": "CASTELLO DI BIBBIONE Chianti Classico Riserva 2017",
+    "color": "red",
+    "grape": "Sangiovese",
+    "origin": "Italien, Toskana",
+    "short_description": "Ein traditioneller Chianti Classico Riserva mit komplexen, reifen Fruchtnoten und würzigen Akzenten – klassisch trocken.",
+    "long_description": "Der Chianti Classico Riserva aus dem Castello di Bibbione Castelli del Grevepesa zeigt sich in einem rubinroten Farbton. Das Bouquet vereint Aromen von reifen Kirschen, getrockneten Kräutern und subtilen Gewürznoten, während die strukturierte Tanninführung und ausgewogene Säure einen langen, eleganten Abgang bieten – ein Wein, der die Tradition der Toskana widerspiegelt.",
+    "image": null,
+    "characteristics": "Trocken, traditionell, komplex, elegant",
+    "available": true,
+    "prices": {
+      "flasche": "€39,00"
+    }
+  },
+  {
+    "id": "13",
+    "name": "1934 CVS Canicatti 2019",
+    "color": "red",
+    "grape": "Nero d'Avola",
+    "origin": "Italien, Sizilien (Canicatti)",
+    "short_description": "Ein kraftvoller, vollmundiger Rotwein mit intensiven Fruchtaromen – klassisch trocken.",
+    "long_description": "Der \"1934\" CVS Canicatti 2019 präsentiert sich in einem tiefen Rubinrot mit einem Bouquet aus dunklen Kirschen, Pflaumen und einem Hauch Gewürzen. Er ist absolut trocken, mit weichen Tanninen und einer harmonischen Struktur, die das Terroir Siziliens eindrucksvoll widerspiegelt.",
+    "image": null,
+    "characteristics": "Trocken, kraftvoll, vollmundig, elegant",
+    "available": true,
+    "prices": {
+      "flasche": "€39,50"
+    }
+  },
+  {
+    "id": "11",
+    "name": "Barolo Terre dei Roveri 2020",
+    "color": "red",
+    "grape": "Nebbiolo",
+    "origin": "Italien, Piemont",
+    "short_description": "Ein intensiver Barolo mit komplexem Aromenspektrum und markanten Tanninen – klassisch trocken.",
+    "long_description": "Der Barolo Terre dei Roveri 2020 besticht durch sein tiefes Rubinrot und ein Bouquet aus reifen roten Früchten, Teer und Gewürzen. Er ist absolut trocken, kraftvoll und elegant, mit intensiven Tanninen, die ihn zu einem anspruchsvollen Wein für Kenner der piemonteschen Weinkultur machen.",
+    "image": null,
+    "characteristics": "Trocken, kraftvoll, elegant, tanninreich",
+    "available": true,
+    "prices": {
+      "flasche": "€55,00"
+    }
+  },
+  {
+    "id": "w173",
+    "name": "Dicatum",
+    "color": "red",
+    "grape": "Sangiovese",
+    "origin": "Italien, Toskana",
+    "short_description": "Ein kraftvoll gereifter Sangiovese mit Tiefe und Eleganz aus der toskanischen Fattoria Montellori.",
+    "long_description": "Der Dicatum 2010 von Fattoria Montellori ist ein reinsortiger Sangiovese aus einem exzellenten Jahrgang. In der Nase zeigt er Aromen von getrockneten Kirschen, Leder, Gewürzen und einem Hauch Tabak. Am Gaumen überzeugt er mit dichter Struktur, feinkörnigem Tannin und einer beeindruckenden Länge. Die Reife verleiht ihm eine komplexe, fast samtige Tiefe. Ein Wein für besondere Anlässe – elegant, charaktervoll und langlebig.",
+    "image": null,
+    "characteristics": "Trocken, gereift, Kirsche, Leder, Tabak",
+    "available": true,
+    "prices": {
+      "flasche": "69,00€"
+    }
+  },
+  {
+    "id": "w19",
+    "name": "Marqués de Riscal",
+    "color": "white",
+    "grape": "100% Verdejo",
+    "origin": "Rueda, Spanien",
+    "short_description": "Trocken, fruchtbetonter Weißwein aus Rueda mit eleganten Kräuter- und Zitrusnoten.",
+    "long_description": "Der Marqués de Riscal Verdejo aus der spanischen Region Rueda ist ein erfrischender, trockener Weißwein mit intensiven Aromen von tropischen Früchten und Zitrus. Noten von Fenchel und frischen Kräutern verleihen ihm eine elegante Komplexität, während seine lebhafte Säure für eine angenehme Frische sorgt. Perfekt als Aperitif oder zu leichten Speisen und Meeresfrüchten.",
+    "image": null,
+    "characteristics": "Trocken, fruchtbetont, elegant, weiß, erfrischend",
+    "available": true,
+    "prices": {
+      "flasche": "34,50€"
+    }
+  },
+  {
+    "id": "w_epicuro_chardonnay_fiano",
+    "name": "",
+    "color": "white",
+    "grape": "70% Chardonnay, 30% Fiano",
+    "origin": "Italien, Apulien (Puglia IGT)",
+    "short_description": "WENIG SÄURE - Trocken‑ bis halbtrockene Cuvée mit exotischen Früchten und feiner Würze.",
+    "long_description": "Der Epicuro Chardonnay‑Fiano von Femar Vini aus Apulien vereint die frische Saftigkeit des Chardonnay mit den würzig‑aromatischen Akzenten der einheimischen Fiano‑Traube. In der Nase mischen sich Aromen von Birne, Apfel, Ananas, Limette und Bananen mit Anklängen von Akazienhonig und grünen Kräutern. Am Gaumen präsentiert sich der Wein frisch und saftig mit viel Schmelz, feiner Zitrus‑Frische und einer seidigen Textur – ideal zu Meeresfrüchten, Fisch, Antipasti oder leichten Salaten.",
+    "image": null,
+    "characteristics": "trocken‑halbtrocken, exotisch‑fruchtig, würzig, frisch, geschmeidig",
+    "available": false,
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "24,00€"
+    }
+  },
+  {
+    "id": "w18",
+    "name": "Karl Pfaffmann Grauer Burgunder",
+    "color": "white",
+    "grape": "100% Grauburgunder (Pinot Gris)",
+    "origin": "Pfalz, Deutschland",
+    "short_description": "Trocken, weicher Grauburgunder mit dezenter Säure und fruchtigen Aromen.",
+    "long_description": "Ein feiner, trockener Grauburgunder vom Weingut Karl Pfaffmann in der Pfalz, der mit seiner milden Säure und zarten Fruchtaromen besticht. Er präsentiert sich weich am Gaumen, mit Noten von Birne, Apfel und einem Hauch von Zitrus. Seine dezente Mineralität unterstreicht den klaren Charakter dieses Weißweins und macht ihn zum idealen Begleiter leichter Speisen.",
+    "image": null,
+    "characteristics": "Trocken, weich, wenig Säure, weiß, fruchtig",
+    "available": true,
+    "prices": {
+      "0.1l": "4,50€",
+      "0.2l": "8,50€",
+      "flasche": "29,90€"
+    }
+  },
+  {
+    "id": "w20",
+    "name": "Colli Vaibò Lugana",
+    "color": "white",
+    "grape": "100% Trebbiano di Lugana (Turbiana)",
+    "origin": "Lombardei, Italien",
+    "short_description": "Trocken, fruchtig-frischer Lugana aus dem lombardischen Anbaugebiet.",
+    "long_description": "Der Colli Vaibò Lugana DOC ist ein lebendiger Weißwein aus der Lombardei, der sich durch seine fruchtigen Aromen von Zitrus und Pfirsich auszeichnet. Mit seiner ausgewogenen Säure und dezenten Mineralität eignet er sich hervorragend als Begleiter zu Fisch- und Pastagerichten. Die charakteristischen Noten der Turbiana-Traube verleihen diesem Lugana eine angenehme Frische und Eleganz.",
+    "image": null,
+    "characteristics": "Trocken, fruchtig, frisch, weiß, italienisch",
+    "available": false,
+    "prices": {
+      "0.1l": "5,50€",
+      "0.2l": "10,50€",
+      "flasche": "32,50€"
+    }
+  },
+  {
+    "id": "w118",
+    "name": "Nebla Vicente Gandia Verdejo",
+    "color": "white",
+    "grape": "Verdejo",
+    "origin": "Spanien, Valencia",
+    "short_description": "Der Nebla Verdejo von Vicente Gandia überzeugt durch lebhafte Frische und ausgewogene Eleganz..",
+    "long_description": "Der Nebla Verdejo präsentiert sich in einem klaren, goldgrün schimmernden Ton, der für die Verdejo-Traube charakteristisch ist. In der Nase entfalten sich lebendige Aromen von Zitrusfrüchten und frisch geernteten grünen Äpfeln, fein untermalt von dezenten Kräuteranklängen, die dem Duft eine elegante Frische verleihen. Am Gaumen überzeugt er durch sein harmonisches Gleichgewicht: Noten von saftiger Ananas und reifer Melone verschmelzen mit einer feinen, belebenden Säure zu einem dynamischen, zugleich ausgewogenen Trinkvergnügen. Ein Wein, der mit seiner spritzigen Lebhaftigkeit und feinen Raffinesse Kenner und Genießer gleichermaßen begeistert.",
+    "image": null,
+    "characteristics": "Trocken, leicht, Mango, grünes Gras",
+    "available": true,
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "25,00€"
+    }
+  },
+  {
+    "id": "w1",
+    "name": "El Coto Blanco",
+    "color": "white",
+    "grape": "ca. 93 % Viura, 4 % Sauvignon Blanc, 3 % Verdejo",
+    "origin": "Spanien, Rioja DOCa",
+    "short_description": "Frisch‑fruchtiger Weißwein mit Aromen von Zitrus, Apfel und Pfirsich.",
+    "long_description": "Der El Coto Blanco zeigt sich in hellem Strohgelb mit grünen Reflexen. In der Nase dominieren Aromen von Zitrusfrüchten, grünem Apfel, Pfirsich und weißen Blüten. Am Gaumen lebendig und ausgewogen bei mittlerem Körper, geprägt von frischer Säure, einer dezenten Mineralität und einem klaren, erfrischenden Abgang. Ideal zu Meeresfrüchten, gegrilltem Fisch, Salaten oder leichten Tapas. Serviertemperatur: 7–8 °C.",
+    "image": null,
+    "characteristics": "Trocken, frisch, fruchtig, mineralisch",
+    "available": false,
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "25,00€"
+    }
+  },
+  {
+    "id": "174",
+    "name": "Julian",
+    "color": "white",
+    "grape": "Bronner",
+    "origin": "Italien, Südtirol",
+    "short_description": "Ein charaktervoller Orange Wine aus der pilzwiderstandsfähigen Bronner-Traube – bio, elegant und naturbelassen.",
+    "long_description": "Der Julian von Lieselehof ist ein maischevergorener Weißwein aus der PIWI-Rebsorte Bronner. Er stammt aus dem Weinbaugebiet Vigneti delle Dolomiti IGT und wird nach ökologischen Richtlinien produziert. In der Nase zeigen sich Noten von exotischen Früchten, Zitrus und floralen Aromen. Am Gaumen ist er vollmundig, leicht tanninhaltig, mit animierender Säure und eleganter Mineralität. Ein naturnaher Wein mit Anspruch und Tiefe – ideal für Entdecker und Fans von Orange Wines.",
+    "image": null,
+    "characteristics": "Trocken, Orange Wine, exotisch, floral, mineralisch",
+    "available": true,
+    "prices": {
+      "0.1l": "6,50€",
+      "0.2l": "9,50€",
+      "flasche": "32,50€"
+    }
+  },
+  {
+    "id": "27",
+    "name": "Pompaelo Blanc de Noir",
+    "color": "white",
+    "grape": "100% Garnacha",
+    "origin": "Spanien, Navarra",
+    "short_description": "Von K&D wine stories. Etwas ganz Besonderes! Trocken, fruchtiger Weißwein aus roten Garnacha-Trauben mit Noten von roten Früchten, Pfirsich und einem Hauch Lakritz.",
+    "long_description": "Besucht Danyel in seinem Shop in der Schlesienstraße 3! Er hat dort noch viel mehr Schätze wie diesen. Der Pompaelo Blanc de Noirs wird aus 100% Garnacha-Trauben hergestellt, die hell gekeltert werden, um einen weißen Wein zu erzeugen. Er präsentiert sich mit einem hellen, blassen Farbspiel mit leicht goldenen oder lachsfarbenen Tönen. In der Nase zeigt er Noten von frischen roten Früchten, Pfirsich und leichten Anklängen von Lakritz. Am Gaumen ist er frisch und sehr fruchtig, mit einem angenehmen Gleichgewicht von Körper und Säure. Ein vielseitiger Begleiter für leichte Gerichte oder als Aperitif.",
+    "image": null,
+    "characteristics": "Trocken, fruchtig, frisch, weiß, Garnacha, elegant",
+    "available": false,
+    "prices": {
+      "0.1l": "6,50€",
+      "0.2l": "11,90€",
+      "flasche": "37,50€"
+    }
+  },
+  {
+    "id": "w21",
+    "name": "Eguren Ugarte Rioja Blanca",
+    "color": "white",
+    "grape": "Viura, Malvasia, Tempranillo Blanco",
+    "origin": "Spanien, Rioja DOCa",
+    "short_description": "Frisch, trocken, mit feiner Säure und Zitrusnoten.",
+    "long_description": "Eguren Ugarte Rioja Blanca ist ein frischer, trockener Weißwein aus der Rioja. Er überzeugt mit Aromen von Zitrusfrüchten, grünem Apfel und weißen Blüten. Am Gaumen zeigt er sich lebendig und ausgewogen, mit einer feinen Säure und einem klaren, erfrischenden Abgang. Ein eleganter Begleiter zu Fisch, Meeresfrüchten und leichten Vorspeisen.",
+    "image": null,
+    "characteristics": "trocken, frisch, elegant, zitrus, weiß",
+    "available": true,
+    "prices": {
+      "0.1l": "4,50€",
+      "0.2l": "8,00€",
+      "flasche": "25,00€"
+    }
+  },
+  {
+    "id": "rose7",
+    "name": "Allure Pink Pinot Grigio (halbtrocken)",
+    "color": "rosé",
+    "grape": "Pinot Grigio",
+    "origin": "Italien",
+    "short_description": "Fruchtig, halbtrocken, frisch und leicht.",
+    "long_description": "Allure Pink Pinot Grigio ist ein halbtrockener, fruchtiger Roséwein mit zarten Noten von roten Beeren und einem Hauch von Zitrus. Am Gaumen zeigt er sich frisch und leicht, mit einer angenehmen Restsüße und einem harmonischen Abgang. Ideal als Aperitif oder zu leichten Gerichten.",
+    "image": null,
+    "characteristics": "halbtrocken, fruchtig, frisch",
+    "available": true,
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "21,00€"
+    }
+  },
+  {
+    "id": "21",
+    "name": "Calalenta (\"Kühle Nacht\")",
+    "color": "rosé",
+    "grape": "100% Merlot",
+    "origin": "Abruzzen, Italien",
+    "short_description": "Trocken, leichter Rosé aus Merlot-Trauben mit zartem Hellrosa und feinen Fruchtaromen.",
+    "long_description": "Der Calalenta Rosé (auch \"Kühle Nacht\" genannt) stammt aus den Abruzzen und wird aus 100% Merlot gekeltert. Dank kühler Nachtlese bewahrt er seine frischen Aromen von Erdbeeren, Kirschen und einem Hauch floraler Noten. Ein leichtes, trockenes Geschmacksprofil mit dezenter Säure und einem angenehm fruchtigen Abgang – ideal als Aperitif oder zu leichten Gerichten.",
+    "image": null,
+    "characteristics": "trocken, leicht, hellrosa, rosé, fruchtig, erfrischend",
+    "available": true,
+    "prices": {
+      "flasche": "25,00€"
+    }
+  },
+  {
+    "id": "822",
+    "name": "Knipser 'Rosé 24'",
+    "color": "rosé",
+    "grape": "60% Spätburgunder, 20% Dornfelder, 20% Cabernet‑Sorten",
+    "origin": "Laumersheim, Pfalz, Deutschland",
+    "short_description": "Trocken, frisch‑fruchtiger VDP‑Gutsrosé mit knackigen roten & gelben Fruchtnoten.",
+    "long_description": "Ein eleganter Rosé‑Gutswein aus Laumersheim (Pfalz), cuvée aus Spätburgunder, Dornfelder und Cabernet‑Sorten. Feines kupfer‑/antikrosa, Aromen von Beeren, Zitrus und Kräutern. Am Gaumen saftig, harmonisch und rund – ideal pur oder zu Gegrilltem, Salaten und Antipasti.",
+    "image": null,
+    "characteristics": "Trocken, fruchtig, frisch",
+    "available": false,
+    "prices": {
+      "0.1l": "6,50€",
+      "0.2l": "12,50€",
+      "flasche": "39,50€"
+    }
+  },
+  {
+    "id": "22",
+    "name": "Rosa Dei Frati",
+    "color": "rosé",
+    "grape": "Gropello, Marzemino, Sangiovese, Barbera",
+    "origin": "Lombardia, Italien",
+    "short_description": "Trocken, komplexer Rosé mit griffiger Struktur und intensiven Fruchtnoten.",
+    "long_description": "Der Rosa Dei Frati ist ein charaktervoller Rosé aus der Lombardei. Durch die Kombination der Rebsorten Gropello, Marzemino, Sangiovese und Barbera entsteht ein komplexes Aroma von roten Beeren, frischen Blüten und feinen Gewürznoten. Eine lebhafte Säure und eine griffige Struktur verleihen ihm eine vielseitige Einsetzbarkeit, ob als Aperitif oder zu Antipasti und leichten Pastagerichten.",
+    "image": null,
+    "characteristics": "Trocken, komplex, griffig, rosé, italienisch, aromatisch",
+    "available": false,
+    "prices": {
+      "0.1l": "6,00€",
+      "0.2l": "11,50€",
+      "flasche": "37,50€"
+    }
+  },
+  {
+    "id": "23",
+    "name": "Arrogant Frog",
+    "color": "rosé",
+    "grape": "Syrah",
+    "origin": "Coteaux du Languedoc, Frankreich",
+    "short_description": "Trocken, erfrischender Syrah Rosé mit intensiven Aromen von roten Beeren und Zitrus.",
+    "long_description": "Der Arrogant Frog Syrah Rosé aus dem Languedoc besticht durch seine lebendige Frische und elegante Struktur. Er entfaltet Aromen von roten Beeren, Zitrusfrüchten und floralen Nuancen, was ihm einen einzigartigen Charakter verleiht. Feine Tannine und eine ausgewogene Säure machen ihn zum idealen Begleiter zu leichten Gerichten und sommerlichen Anlässen.",
+    "image": null,
+    "characteristics": "Trocken, knackig, fruchtig, rosé, erfrischend, elegant",
+    "available": true,
+    "prices": {
+      "0.1l": "4,80€",
+      "0.2l": "8,90€",
+      "flasche": "29,50€"
+    }
+  },
+  {
+    "id": "28",
+    "name": "Guv’nor Rosé",
+    "color": "rosé",
+    "grape": "Blend aus Garnacha, Tempranillo und Bobal",
+    "origin": "Spanien",
+    "short_description": "Pale Rosé mit roten Beeren, frischer Säure und cremigem Finish.",
+    "long_description": "Helles, attraktives Rosé, geprägt von Aromen roter Früchte wie Erdbeere, Himbeere und Johannisbeere. Am Gaumen frisch, mundfüllend mit feiner Säure und weichem, anhaltendem Abgang. Leicht und mehrish, ideal zu Tapas, Meeresfrüchten oder solo. 13 % Vol, Trinktemperatur 8–10 °C.",
+    "image": null,
+    "characteristics": "trocken, fruchtig, frisch, geschmeidig",
+    "available": true,
+    "prices": {
+      "0.1l": "4,50€",
+      "0.2l": "8,50€",
+      "flasche": "29,00€"
+    }
+  },
+  {
+    "id": "26",
+    "name": "El Coto Rosado",
+    "color": "rosé",
+    "grape": "90% Tempranillo, 10% Garnacha",
+    "origin": "Spanien, Rioja DOCa",
+    "short_description": "Frischer, eleganter Rosé mit Aromen von Erdbeeren und roten Johannisbeeren.",
+    "long_description": "Der El Coto Rosado präsentiert sich in einem blassen Lachsrosa und besticht durch ein Bouquet von frischen Erdbeeren und roten Johannisbeeren. Am Gaumen zeigt er sich rund und elegant mit einer lebendigen Frische, die ihn zu einem idealen Begleiter für Salate, Geflügelgerichte und Meeresfrüchte macht. Genießen Sie ihn gut gekühlt.",
+    "image": null,
+    "characteristics": "Trocken, frisch, fruchtig, elegant",
+    "available": true,
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "25,00€"
+    }
+  },
+  {
+    "id": "24",
+    "name": "Minuty Rosé",
+    "color": "rosé",
+    "grape": "Grenache, Cinsault, Syrah",
+    "origin": "Frankreich, Côtes de Provence",
+    "short_description": "Frischer, eleganter Rosé mit zarten Frucht- und Zitrusnoten.",
+    "long_description": "Der M de Minuty Rosé ist ein eleganter Roséwein aus der Provence mit einer zarten, lachsfarbenen Erscheinung. Er verführt mit feinen Aromen von weißen Blüten, Erdbeeren, Johannisbeeren und einem Hauch Zitrus. Leicht, trocken und lebendig am Gaumen – mit einem frischen Abgang und ausgewogener Säure. Ideal zu mediterraner Küche oder als stilvoller Aperitif.",
+    "image": null,
+    "characteristics": "Trocken, frisch, leicht, zitrus, floral",
+    "available": false,
+    "prices": {
+      "0.1l": "6,50€",
+      "0.2l": "11,50€",
+      "flasche": "€38,50"
+    }
+  },
+  {
+    "id": "28",
+    "name": "PINK St. Laurent Rosé",
+    "color": "rosé",
+    "grape": "100% Saint Laurent",
+    "origin": "Pfalz, Deutschland",
+    "short_description": "Halbtrocken, fruchtig, leicht und aromatisch.",
+    "long_description": "Der PINK St. Laurent Rosé von Tina Pfaffmann aus der Pfalz präsentiert sich halbtrocken mit lebendigen Aromen von Rumtopf, Mon Cheri-Kirsche und wildem Beerenmus. Eine Restsüße von 11,7 g/l sowie eine feine Säurestruktur sorgen für ein ausgewogenes Mundgefühl und erfrischenden Abgang.",
+    "image": null,
+    "characteristics": "Halbtrocken, fruchtig, leicht, aromatisch, rosé, frisch",
+    "available": false,
+    "prices": {
+      "0.1l": "4,50€",
+      "0.2l": "8,50€",
+      "flasche": "27,50€"
+    }
+  },
+  {
+    "id": "117",
+    "name": "Miraval",
+    "color": "rosé",
+    "grape": "Cinsault, Grenache, Syrah, Rolle",
+    "origin": "Frankreich, Provence",
+    "short_description": "Eleganter Rosé mit Frische, Frucht und feiner Mineralität.",
+    "long_description": "Der Miraval Rosé aus der Provence ist ein erfrischender, eleganter Wein mit zarter Lachsfarbe. In der Nase zeigen sich Aromen von frischen Himbeeren, weißen Blüten und einem Hauch Limette. Am Gaumen überzeugt er mit einer lebendigen Frische, feiner Mineralität und einer harmonischen Balance aus Frucht und Säure. Ein stilvoller Rosé, perfekt für warme Tage und mediterrane Speisen.",
+    "image": null,
+    "characteristics": "Trocken, frisch, floral, mineralisch",
+    "available": false,
+    "prices": {
+      "flasche": "€49,00"
+    }
+  }
+]

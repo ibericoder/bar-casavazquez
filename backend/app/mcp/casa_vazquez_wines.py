@@ -1,10 +1,4 @@
-"""
-Casa Vazquez Wine Knowledge Base - Specific training for your wine collection
-"""
-
-# Your specific Casa Vazquez wine profiles and characteristics
 CASA_VAZQUEZ_WINE_PROFILES = {
-    # RED WINES (Tintos)
     'David Moreno': {
         'taste_profile': ['trocken', 'elegant', 'rund', 'würzig', 'reife beeren'],
         'characteristics': ['kirschrot', 'intensive aromen', 'barrique', 'tempranillo'],
@@ -26,8 +20,6 @@ CASA_VAZQUEZ_WINE_PROFILES = {
         'price_level': 'basic',
         'intensity': 'mittel'
     },
-    
-    # WHITE WINES (Blancos)
     'Marqués de Riscal': {
         'taste_profile': ['trocken', 'fruchtbetont', 'elegant', 'frisch'],
         'characteristics': ['verdejo', 'rueda', 'zitrus', 'kräuter'],
@@ -49,8 +41,6 @@ CASA_VAZQUEZ_WINE_PROFILES = {
         'price_level': 'mittel',
         'intensity': 'niedrig'
     },
-    
-    # ROSÉ WINES (Rosados)
     'Calalenta': {
         'taste_profile': ['trocken', 'leicht', 'fruchtig', 'elegant'],
         'characteristics': ['merlot', 'abruzzen', 'hellrosa', 'feine frucht'],
@@ -60,7 +50,6 @@ CASA_VAZQUEZ_WINE_PROFILES = {
     }
 }
 
-# Casa Vazquez specific taste mapping
 CASA_VAZQUEZ_TASTE_KEYWORDS = {
     'trocken': {
         'keywords': ['trocken', 'dry', 'herb', 'nicht süß'],
@@ -92,7 +81,6 @@ CASA_VAZQUEZ_TASTE_KEYWORDS = {
     }
 }
 
-# Specific food pairing recommendations for Casa Vazquez wines
 CASA_VAZQUEZ_FOOD_PAIRINGS = {
     'David Moreno': ['rindfleisch', 'lamm', 'käse', 'tapas', 'chorizo'],
     'Viña Albali - Gran Reserva': ['steaks', 'wild', 'kräftiger käse', 'paella', 'jamón'],
@@ -104,7 +92,6 @@ CASA_VAZQUEZ_FOOD_PAIRINGS = {
 }
 
 def get_casa_vazquez_wine_recommendation(wine_name: str) -> dict:
-    """Get specific information about a Casa Vazquez wine"""
     profile = CASA_VAZQUEZ_WINE_PROFILES.get(wine_name, {})
     pairings = CASA_VAZQUEZ_FOOD_PAIRINGS.get(wine_name, [])
     
@@ -115,7 +102,6 @@ def get_casa_vazquez_wine_recommendation(wine_name: str) -> dict:
     }
 
 def find_wines_by_taste_casa_vazquez(taste_description: str) -> list:
-    """Find Casa Vazquez wines based on taste description"""
     description_lower = taste_description.lower()
     recommended_wines = set()
     

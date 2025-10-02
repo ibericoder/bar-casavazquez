@@ -10,20 +10,25 @@
         <button @click="toggleChat" class="close-button" title="Schließen">✕</button>
       </div>
     </div>
+    <!-- Debug banner: visible count of messages and last snippet -->
+    <div class="chat-debug" v-if="features.chatbot.debug" style="padding:6px 12px; font-size:12px; color:#fff; background:rgba(0,0,0,0.08);">
+      <strong>DBG</strong> messages: {{ messages ? messages.length : 0 }} — last: {{ (messages && messages.length) ? messages[messages.length-1].content.slice(0,40) : '—' }}
+    </div>
     
     <div class="chat-messages" ref="messagesContainer">
-      <div
-        v-for="message in messages"
-        :key="message.id"
-        class="message"
-        :class="{ 'user-message': message.isUser, 'bot-message': !message.isUser }"
-      >
+      <transition-group name="message" tag="div" class="messages-list">
+        <div
+          v-for="message in messages"
+          :key="message.id"
+          class="message"
+          :class="{ 'user-message': message.isUser, 'bot-message': !message.isUser }"
+        >
         <div class="message-content">
           <div class="message-text" v-html="formatMessage(message.content)"></div>
           
           <!-- Wine Recommendations -->
           <div v-if="message.recommendations && message.recommendations.length > 0" class="recommendations">
-            <h4>🍷 Meine Empfehlungen:</h4>
+            <h4>🍷 Auch sehr lecker:</h4>
             <div
               v-for="rec in message.recommendations"
               :key="rec.wine.id"
@@ -33,9 +38,10 @@
                 <h5>{{ rec.wine.name }}</h5>
                 <p class="wine-description">{{ rec.wine.description }}</p>
                 <div class="wine-details">
-                  <span class="price">{{ rec.wine.price }}€</span>
+                  <span class="price" v-if="rec.wine.price_bottle">Flasche: {{ rec.wine.price_bottle }}€</span>
                   <span class="color-badge" :class="rec.wine.color">{{ getColorLabel(rec.wine.color) }}</span>
                 </div>
+                <div v-if="rec.wine.price_labels" class="price-line">{{ rec.wine.price_labels }}</div>
                 <div v-if="rec.reasons && rec.reasons.length > 0" class="reasons">
                   <p><strong>Warum dieser Wein:</strong></p>
                   <ul>
@@ -51,7 +57,8 @@
           {{ formatTime(message.timestamp) }}
         </div>
       </div>
-      
+      </transition-group>
+
       <div v-if="isLoading" class="message bot-message">
         <div class="message-content">
           <div class="typing-indicator">
@@ -64,6 +71,13 @@
     </div>
     
     <div class="chat-input">
+      <!-- Quick intent chips -->
+      <div class="quick-chips">
+        <button class="chip" @click="quickAsk('Rosé halbtrocken unter 25')">Rosé halbtrocken</button>
+        <button class="chip" @click="quickAsk('Rot trocken günstig')">Rot trocken günstig</button>
+        <button class="chip" @click="quickAsk('Weiß halbtrocken glasweise')">Weiß halbtrocken (Glas)</button>
+        <button class="chip" @click="quickAsk('Hauswein')">Hauswein</button>
+      </div>
       <form @submit.prevent="handleSendMessage">
         <input
           v-model="currentMessage"
@@ -105,11 +119,31 @@ const handleSendMessage = async () => {
   scrollToBottom();
 };
 
+const quickAsk = async (text: string) => {
+  if (isLoading.value) return;
+  currentMessage.value = '';
+  await sendMessage(text);
+  scrollToBottom();
+};
+
 const scrollToBottom = async () => {
+  // Wait two ticks to make sure DOM updated (helps when complex content is rendered)
+  await nextTick();
   await nextTick();
   if (messagesContainer.value) {
-    messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight;
+    try {
+      messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight;
+    } catch (e) {
+      console.debug('[ChatBot] scrollToBottom error', e);
+    }
   }
+};
+
+// Debug: log observed messages when autoscroll fires
+const logMessages = () => {
+  try {
+    console.debug('[ChatBot] observed messages', messages.value.map(m => ({ id: m.id, isUser: m.isUser, content: m.content.slice(0,40) })));
+  } catch (e) {}
 };
 
 const formatMessage = (content: string): string => {
@@ -135,10 +169,17 @@ const getColorLabel = (color: string): string => {
   return labels[color as keyof typeof labels] || color;
 };
 
-// Auto-scroll when new messages arrive
-watch(() => messages.length, () => {
-  scrollToBottom();
-});
+// Auto-scroll when new messages arrive - messages is a ref to the array
+watch(
+  () => (messages.value ? messages.value.length : 0),
+  () => {
+    scrollToBottom();
+    logMessages();
+  }
+);
+
+// Also log on mount
+try { console.debug('[ChatBot] mounted, initial messages', (messages.value || []).length); } catch (e) {}
 </script>
 
 <style lang="scss" scoped>
@@ -207,6 +248,38 @@ watch(() => messages.length, () => {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  scroll-behavior: smooth; /* smooth scrolling when new messages arrive */
+}
+
+/* Transition-group message transitions */
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.message-enter-active, .message-leave-active {
+  transition: all 280ms cubic-bezier(.2,.8,.2,1);
+  overflow: hidden;
+}
+.message-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+  max-height: 0;
+}
+.message-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 1000px;
+}
+.message-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 1000px;
+}
+.message-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+  max-height: 0;
 }
 
 .message {
@@ -290,6 +363,11 @@ watch(() => messages.length, () => {
     align-items: center;
     margin-bottom: 8px;
   }
+  .price-line {
+    font-size: 11px;
+    color: #444;
+    margin-bottom: 8px;
+  }
   
   .price {
     font-weight: bold;
@@ -370,6 +448,24 @@ watch(() => messages.length, () => {
   form {
     display: flex;
     gap: 8px;
+  }
+
+  .quick-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .chip {
+    background: #f0e6de;
+    color: #5a3a25;
+    border: 1px solid #e0d2c7;
+    border-radius: 16px;
+    padding: 4px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+    &:hover { background: #e8d9ce; }
   }
   
   .message-input {

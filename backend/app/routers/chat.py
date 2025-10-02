@@ -3,10 +3,15 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from pydantic import BaseModel
 from typing import List, Dict, Any, Optional
 from ..core.database import get_db
-from ..mcp.wine_recommender import WineRecommender
+# from ..mcp.wine_recommender import WineRecommender  # Temporarily disabled
 from ..core.config import settings
 
 router = APIRouter()
+
+@router.get("/test")
+async def test_endpoint():
+    """Test endpoint to verify routing works"""
+    return {"message": "Chat router is working!"}
 
 class ChatMessage(BaseModel):
     message: str
@@ -18,44 +23,22 @@ class ChatResponse(BaseModel):
     context: Optional[Dict[str, Any]] = None
 
 @router.post("/chat", response_model=ChatResponse)
-async def chat_with_bot(
-    chat_message: ChatMessage,
-    db: AsyncSession = Depends(get_db)
-):
+async def chat_with_bot(chat_message: ChatMessage):
     """
     Chat with the wine recommendation bot.
     """
-    if not settings.enable_chatbot:
-        raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="Chatbot feature is currently disabled"
-        )
-    
     try:
-        wine_recommender = WineRecommender()
-        
-        # Check if this is a wine recommendation request
+        # Temporary simple response to test if routing works
         message_lower = chat_message.message.lower()
-        wine_keywords = [
-            'wein', 'wine', 'empfehlung', 'recommendation', 'schmeckt', 'taste',
-            'süß', 'trocken', 'rot', 'weiß', 'rosé', 'fruchtig', 'herb'
-        ]
         
-        is_wine_request = any(keyword in message_lower for keyword in wine_keywords)
-        
-        if is_wine_request:
-            # Get wine recommendations
-            result = await wine_recommender.recommend_wines(chat_message.message, db)
-            
+        if any(keyword in message_lower for keyword in ['rot', 'red', 'rotwein']):
             return ChatResponse(
-                response=result.get("explanation", "Hier sind meine Weinempfehlungen für Sie."),
-                recommendations=result.get("recommendations", []),
-                context=result.get("taste_analysis", {})
+                response="Ich sehe, Sie mögen Rotwein! Hier sind einige Empfehlungen: Marqués de Riscal ist ein ausgezeichneter spanischer Rotwein aus unserem Sortiment."
             )
         else:
-            # Handle general chat
-            response = await _handle_general_chat(chat_message.message)
-            return ChatResponse(response=response)
+            return ChatResponse(
+                response="Vielen Dank für Ihre Nachricht! Ich bin Ihr Weinsommelier und helfe gerne bei der Weinauswahl."
+            )
             
     except Exception as e:
         raise HTTPException(

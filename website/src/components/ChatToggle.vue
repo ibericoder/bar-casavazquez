@@ -1,7 +1,7 @@
 <template>
-  <div v-if="features.chatbot.enabled" class="chat-toggle">
+  <div class="chat-toggle">
     <button
-      @click="toggleChat"
+      @click="handleToggleChat"
       class="chat-toggle-button"
       :class="{ 'has-notification': !isOpen && hasNewMessage }"
       aria-label="Wine Chat öffnen"
@@ -17,18 +17,18 @@ import { ref, onMounted } from 'vue';
 import { features } from '../config/features';
 import { useChat } from '../composables/useChat';
 
-const { isOpen, toggleChat, checkChatbotStatus } = useChat();
+const { isOpen, toggleChat } = useChat();
 const hasNewMessage = ref(false);
-const isEnabled = ref(false);
+const isEnabled = ref(true);
+
+const handleToggleChat = () => {
+  toggleChat();
+};
 
 onMounted(async () => {
-  // Check if chatbot is enabled on the backend
-  isEnabled.value = await checkChatbotStatus();
-  
-  // Override frontend feature flag if backend has it disabled
-  if (!isEnabled.value) {
-    features.chatbot.enabled = false;
-  }
+  // Temporarily always enable for debugging
+  isEnabled.value = true;
+  features.chatbot.enabled = true;
 });
 </script>
 

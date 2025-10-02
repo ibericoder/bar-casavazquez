@@ -139,14 +139,17 @@ import osterei from "../assets/images/icons8-easter-64.png";
 const extraNotes = [
   {
     title: "Live Musik im Casa Vazquez. Ohne Reservierung. Eifnach vorbeikommen und genießen",
+    text: "Entspannte Live-Musik Abende mit lokalen Künstlern. Kommen Sie vorbei und genießen Sie gute Musik bei einem Glas Wein.",
     createdAt: "2025-10-26"
   },
   {
     title: "Live Musik im Casa Vazquez. Ohne Reservierung. Eifnach vorbeikommen und genießen",
+    text: "Entspannte Live-Musik Abende mit lokalen Künstlern. Kommen Sie vorbei und genießen Sie gute Musik bei einem Glas Wein.",
     createdAt: "2025-11-04"
   },
   {
     title: "Live Musik im Casa Vazquez. Ohne Reservierung. Eifnach vorbeikommen und genießen",
+    text: "Entspannte Live-Musik Abende mit lokalen Künstlern. Kommen Sie vorbei und genießen Sie gute Musik bei einem Glas Wein.",
     createdAt: "2025-12-02"
   }
 ];
