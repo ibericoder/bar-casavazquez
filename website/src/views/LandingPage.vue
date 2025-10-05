@@ -136,22 +136,7 @@ import {notifications} from "../../../data/notifications.ts";
 import NotificationCard from "../components/NotificationCard.vue";
 import osterei from "../assets/images/icons8-easter-64.png";
 
-const extraNotes = [
-  {
-    title: "Live Musik im Casa Vazquez. Ohne Reservierung. Eifnach vorbeikommen und genießen",
-    createdAt: "2025-10-26"
-  },
-  {
-    title: "Live Musik im Casa Vazquez. Ohne Reservierung. Eifnach vorbeikommen und genießen",
-    createdAt: "2025-11-04"
-  },
-  {
-    title: "Live Musik im Casa Vazquez. Ohne Reservierung. Eifnach vorbeikommen und genießen",
-    createdAt: "2025-12-02"
-  }
-];
-
-const combinedNotifications = [...extraNotes, ...notifications] as typeof notifications;
+const combinedNotifications = [...notifications] as typeof notifications;
 
 const clickCount = ref(0);
 const scale = ref(1);
@@ -182,7 +167,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/styles/main.scss";
+@use "../assets/styles/main" as *;
 
 h1, h2, h3 {
   font-family: "King Red";

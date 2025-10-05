@@ -2,6 +2,12 @@ import type {Notification} from "../website/src/interfaces/notification";
 
 export const notifications: Array<Notification> = [
     {
+        title: "Live Musik ",
+        text: "Am 28.10. | 04.11. | 02.12. - Keine Reservierung. Einfach vorbeikommen!",
+        image: undefined,
+        createdAt: new Date('2025-04-08T10:24:00')
+    },
+    {
         title: "Rabatt für Studies 🙌💸 ",
         text: "Fragt nach unseren Rabatten und erzählt es weiter.",
         image: undefined,

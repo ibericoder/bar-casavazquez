@@ -1,7 +1,7 @@
 import {ref} from 'vue';
 import type {Wine} from '../interfaces/vino.ts';
 
-const API_URL = 'https://casavazquez-website-594856899017.europe-central2.run.app/casavazquez/api/vinos';
+const API_URL = import.meta.env.VITE_API_URL ?? '/api/vinos';
 
 export function useWineMenu() {
 

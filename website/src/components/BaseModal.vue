@@ -23,8 +23,8 @@ function close() {
 }
 </script>
 
-<style scoped>
-@import "../assets/styles/main.scss";
+<style scoped lang="scss">
+@use "../assets/styles/main" as *;
 
 .modal-overlay {
   position: fixed;

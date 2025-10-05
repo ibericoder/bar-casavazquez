@@ -55,7 +55,7 @@ const timeAgo = useTimeAgo(new Date(props.createdAt), {
 </script>
 
 <style scoped lang="scss">
-@import "../assets/styles/main.scss";
+@use "../assets/styles/main" as *;
 
 .notification-card {
   transition: box-shadow 0.2s ease-in-out;

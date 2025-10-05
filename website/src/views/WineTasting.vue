@@ -163,7 +163,7 @@ function flyToIndex(i: number) {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/styles/main.scss";
+@use "../assets/styles/main" as *;
 
 .tasting-page {
   background-color: $background-color;

@@ -198,7 +198,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/styles/main.scss";
+@use "../assets/styles/main" as *;
 
 .coca-image {
   height: 28px;

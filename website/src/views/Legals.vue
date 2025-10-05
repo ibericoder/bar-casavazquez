@@ -110,7 +110,7 @@
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/styles/main.scss";
+@use "../assets/styles/main" as *;
 
 .legals {
   padding: 1rem;

@@ -1,13 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import LandingPage from '../views/LandingPage.vue';
-import WineMenu from '../views/WineMenu.vue';
-import SnackMenu from '../views/SnackMenu.vue';
-import DrinkMenu from '../views/DrinkMenu.vue';
-import Showroom from '../views/Showroom.vue';
-import WineTasting from '../views/WineTasting.vue';
-import Legals from '../views/Legals.vue';
+import type { RouteRecordRaw } from 'vue-router';
+import sitemapRoutesJson from './sitemap-routes.json';
 
-const routes = [
+export interface RouteMetaInfo {
+    path: string;
+    name?: string | null;
+    changefreq: 'weekly' | 'monthly' | 'yearly';
+    priority: number;
+}
+
+export const sitemapRoutes: RouteMetaInfo[] = sitemapRoutesJson as RouteMetaInfo[];
+
+const routes: RouteRecordRaw[] = [
     {
         path: '/',
         redirect: '/home',
@@ -15,37 +19,37 @@ const routes = [
     {
         path: '/wine-tasting',
         name: 'WineTasting',
-        component: WineTasting,
+        component: () => import('../views/WineTasting.vue'),
     },
     {
         path: '/home',
         name: 'LandingPage',
-        component: LandingPage,
+        component: () => import('../views/LandingPage.vue'),
     },
     {
         path: '/vino',
         name: 'WineMenu',
-        component: WineMenu,
+        component: () => import('../views/WineMenu.vue'),
     },
     {
         path: '/drinks',
         name: 'DrinkMenu',
-        component: DrinkMenu,
+        component: () => import('../views/DrinkMenu.vue'),
     },
     {
         path: '/snacks',
         name: 'SnackMenu',
-        component: SnackMenu,
+        component: () => import('../views/SnackMenu.vue'),
     },
     {
         path: '/showroom',
         name: 'Showroom',
-        component: Showroom,
+        component: () => import('../views/Showroom.vue'),
     },
     {
         path: '/legals',
         name: 'Legals',
-        component: Legals,
+        component: () => import('../views/Legals.vue'),
     },
     {
         path: '/:pathMatch(.*)*',
@@ -54,7 +58,7 @@ const routes = [
 ];
 
 const router = createRouter({
-    history: createWebHistory('/casavazquez/'),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes,
     scrollBehavior(_to, _from, savedPosition) {
         if (savedPosition) {

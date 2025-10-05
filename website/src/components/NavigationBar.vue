@@ -22,7 +22,7 @@
 </script>
 
 <style scoped lang="scss">
-@import "../assets/styles/main.scss";
+@use "../assets/styles/main" as *;
 
 .navigation-bar {
   position: fixed;

@@ -1,0 +1,10 @@
+[
+  { "path": "/", "name": null, "changefreq": "weekly", "priority": 1.0 },
+  { "path": "/home", "name": "LandingPage", "changefreq": "weekly", "priority": 0.9 },
+  { "path": "/vino", "name": "WineMenu", "changefreq": "weekly", "priority": 0.9 },
+  { "path": "/drinks", "name": "DrinkMenu", "changefreq": "weekly", "priority": 0.8 },
+  { "path": "/snacks", "name": "SnackMenu", "changefreq": "weekly", "priority": 0.8 },
+  { "path": "/showroom", "name": "Showroom", "changefreq": "monthly", "priority": 0.6 },
+  { "path": "/wine-tasting", "name": "WineTasting", "changefreq": "monthly", "priority": 0.6 },
+  { "path": "/legals", "name": "Legals", "changefreq": "yearly", "priority": 0.4 }
+]

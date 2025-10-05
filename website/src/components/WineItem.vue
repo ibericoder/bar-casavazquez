@@ -59,7 +59,7 @@ function toggle() {
 </script>
 
 <style scoped lang="scss">
-@import "../assets/styles/main.scss";
+@use "../assets/styles/main" as *;
 
 .bottle-only-hint {
   color: $accent-color;
