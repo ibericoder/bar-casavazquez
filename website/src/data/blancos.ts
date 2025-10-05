@@ -141,6 +141,24 @@ export const blancos: Wine[] = [
         "available": false
     },
 
+    {
+        name: 'Paparuda Fetească Regală',
+        id: 'w_paparuda_feteasca_regala',
+        prices: {
+            '0.1l': '5,00€',
+            '0.2l': '9,50€',
+            'flasche': '28,00€'
+        },
+        color: 'white',
+        grape: 'Fetească Regală',
+        origin: 'Rumänien, Transsilvanien',
+        shortDescription: 'Halbtrocken, lebendig und aromatisch mit Noten von weißen Blüten, Birne und Zitrus.',
+        longDescription: 'Der Paparuda Fetească Regală stammt aus den kühlen Höhenlagen Transsilvaniens und zeigt den autochthonen Charakter der Fetească-Regală-Traube. In der Nase entfalten sich Duftnoten von Akazienblüten, Lindenhonig und reifer Birne, begleitet von frischer Zitrone und Grapefruit. Am Gaumen präsentiert er sich halbtrocken und knackig, mit lebendiger Säure, saftiger Steinfrucht, einem Hauch Rest­süße und einem mineralischen, leicht würzigen Nachhall – ideal als Aperitif oder zu aromatischem Fisch, Salaten und hellem Fleisch.',
+        image: null,
+        characteristics: 'Halbtrocken, aromatisch, weiße Blüten, Birne, Zitrus, mineralisch',
+        available: true
+    },
+
     // {
     //     name: 'Dr. Bürklin-Wolf Riesling 2022',
     //     id: 4,

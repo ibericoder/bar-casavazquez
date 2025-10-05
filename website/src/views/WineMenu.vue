@@ -56,7 +56,7 @@ const isHappyHour = computed(() => {
 });
 
 const wines = ref<Wine[]>([]);
-const showTopToast = ref(true);
+const showTopToast = ref(false);
 const selectedColor = ref<string>('');
 
 onMounted(async () => {

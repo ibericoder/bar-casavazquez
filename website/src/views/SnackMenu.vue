@@ -139,7 +139,7 @@ import cocaImage from "../assets/images/coca.png";
 const veggie = ref(false)
 const showOnmInfo = ref(false)
 const showCocaInfo = ref(false)
-const showTopToast = ref(true)
+const showTopToast = ref(false)
 
 const snacks = [
   {name: 'Nachos mit Aioli Dip', description: '', price: '5', veggie: true},

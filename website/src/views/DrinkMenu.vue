@@ -264,7 +264,7 @@
 import {ref} from "vue";
 
 const nonAlcoholic = ref(false);
-const showTopToast = ref(true);
+const showTopToast = ref(false);
 
 function toggleNonAlcoholic() {
   nonAlcoholic.value = !nonAlcoholic.value;

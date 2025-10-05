@@ -56,7 +56,7 @@ const routes = [
 const router = createRouter({
     history: createWebHistory('/casavazquez/'),
     routes,
-    scrollBehavior(to, from, savedPosition) {
+    scrollBehavior(_to, _from, savedPosition) {
         if (savedPosition) {
             return savedPosition;
         }
