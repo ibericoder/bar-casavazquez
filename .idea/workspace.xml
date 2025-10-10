@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c0d1370d-ade0-492d-b387-9d9000e91fa4" name="Changes" comment="clean git before setting up ep">
+      <change afterPath="$PROJECT_DIR$/website/src/interfaces/blancos.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/src/interfaces/notifications.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/src/interfaces/rosados.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/src/interfaces/tintos.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/src/interfaces/vinos.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/components/WineItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/components/WineItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/data/blancos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/data/blancos.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/data/notifications.ts" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/data/notifications.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/data/rosados.ts" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/data/rosados.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/data/tintos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/data/tintos.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/data/vinos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/data/vinos.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/views/DrinkMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/views/DrinkMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/views/SnackMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/views/SnackMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/views/WineMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/views/WineMenu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/src/views/neu.txt" beforeDir="false" afterPath="$PROJECT_DIR$/website/src/views/neu.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/website" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "DevGrumpiness"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:DevGrumpiness/casavazquez.git",
+    "accountId": "3c254ea7-5e36-4f88-b845-43a274e8d9dc"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2uAkjJs04L0wOVKUnpXYWCWFl5T" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/_repos/casavazquez/website/src/assets/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\_repos\\casavazquez - Kopie\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\_repos\casavazquez\website\src\assets\images" />
+      <recent name="C:\_repos\casavazquez\src\assets\fonts" />
+      <recent name="C:\_repos\casavazquez\src\assets\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\_repos\casavazquez\website\src\views" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-PS-242.20224.427" />
+        <option value="bundled-php-predefined-a98d8de5180a-d6acee4cb394-com.jetbrains.php.sharedIndexes-PS-242.20224.427" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c0d1370d-ade0-492d-b387-9d9000e91fa4" name="Changes" comment="" />
+      <created>1741698899937</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741698899937</updated>
+      <workItem from="1741698901048" duration="3707000" />
+      <workItem from="1741937802948" duration="26000" />
+      <workItem from="1742137954984" duration="4268000" />
+      <workItem from="1742288665489" duration="20329000" />
+      <workItem from="1742490900770" duration="7387000" />
+      <workItem from="1742666453320" duration="16507000" />
+      <workItem from="1742888736689" duration="5000" />
+      <workItem from="1742892692956" duration="1062000" />
+      <workItem from="1742913368125" duration="2080000" />
+      <workItem from="1742920820150" duration="15580000" />
+      <workItem from="1742980197116" duration="22000" />
+      <workItem from="1742993049147" duration="25000" />
+      <workItem from="1743013775323" duration="1181000" />
+      <workItem from="1743015903125" duration="641000" />
+      <workItem from="1743064767486" duration="1109000" />
+      <workItem from="1743425691618" duration="14625000" />
+      <workItem from="1743448691575" duration="9559000" />
+      <workItem from="1743492928426" duration="1859000" />
+      <workItem from="1743536226792" duration="3642000" />
+      <workItem from="1743598942017" duration="5268000" />
+      <workItem from="1744208803996" duration="1182000" />
+      <workItem from="1744299142373" duration="16968000" />
+      <workItem from="1744729152252" duration="1343000" />
+      <workItem from="1744784064642" duration="40000" />
+      <workItem from="1744802387534" duration="346000" />
+      <workItem from="1744817250026" duration="721000" />
+      <workItem from="1744989523059" duration="1493000" />
+      <workItem from="1745079214815" duration="3298000" />
+      <workItem from="1745510342846" duration="7724000" />
+      <workItem from="1745911788583" duration="598000" />
+      <workItem from="1745942673563" duration="3766000" />
+      <workItem from="1746000924857" duration="594000" />
+      <workItem from="1746610122649" duration="1067000" />
+      <workItem from="1746622128788" duration="98000" />
+      <workItem from="1746642070650" duration="189000" />
+      <workItem from="1746714246992" duration="2843000" />
+      <workItem from="1746787373187" duration="347000" />
+      <workItem from="1746965911972" duration="4308000" />
+      <workItem from="1747030588215" duration="4000" />
+      <workItem from="1747075807306" duration="59000" />
+      <workItem from="1747118957083" duration="58000" />
+      <workItem from="1747143913428" duration="8000" />
+      <workItem from="1747237286338" duration="299000" />
+      <workItem from="1747288973823" duration="366000" />
+      <workItem from="1747289724089" duration="301000" />
+      <workItem from="1747321374420" duration="388000" />
+      <workItem from="1747376583312" duration="714000" />
+      <workItem from="1747407602555" duration="394000" />
+      <workItem from="1747422500930" duration="599000" />
+      <workItem from="1747469478305" duration="1993000" />
+      <workItem from="1747573781167" duration="660000" />
+      <workItem from="1747583231745" duration="246000" />
+      <workItem from="1747633150962" duration="394000" />
+      <workItem from="1747722744205" duration="2079000" />
+      <workItem from="1747754143886" duration="475000" />
+      <workItem from="1747765334131" duration="592000" />
+      <workItem from="1747829647665" duration="1414000" />
+      <workItem from="1747933376442" duration="694000" />
+      <workItem from="1748096203731" duration="610000" />
+      <workItem from="1748186255616" duration="1034000" />
+      <workItem from="1748263043562" duration="3550000" />
+      <workItem from="1748342290199" duration="2591000" />
+      <workItem from="1748408724369" duration="3824000" />
+      <workItem from="1748583240573" duration="2956000" />
+      <workItem from="1748690005749" duration="989000" />
+      <workItem from="1748800061866" duration="1027000" />
+      <workItem from="1748875453824" duration="1933000" />
+      <workItem from="1748930941059" duration="125000" />
+      <workItem from="1748961309670" duration="11000" />
+      <workItem from="1749058776660" duration="27000" />
+      <workItem from="1749103391128" duration="595000" />
+      <workItem from="1749219640277" duration="924000" />
+      <workItem from="1749311714189" duration="635000" />
+      <workItem from="1749315747529" duration="5663000" />
+      <workItem from="1749543677685" duration="5257000" />
+      <workItem from="1749579805671" duration="1798000" />
+      <workItem from="1749614978081" duration="647000" />
+      <workItem from="1749640472757" duration="2936000" />
+      <workItem from="1749714818946" duration="2152000" />
+      <workItem from="1749816622836" duration="1247000" />
+      <workItem from="1749927928387" duration="641000" />
+      <workItem from="1749981149707" duration="2591000" />
+      <workItem from="1750083789962" duration="14000" />
+      <workItem from="1750137186868" duration="5382000" />
+      <workItem from="1750238621364" duration="2556000" />
+      <workItem from="1750411862051" duration="5458000" />
+      <workItem from="1750506844335" duration="4547000" />
+      <workItem from="1750516605922" duration="607000" />
+      <workItem from="1756976367817" duration="889000" />
+    </task>
+    <task id="LOCAL-00001" summary="add some vinos">
+      <option name="closed" value="true" />
+      <created>1742323955755</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742323955755</updated>
+    </task>
+    <task id="LOCAL-00002" summary="create static snacks menu">
+      <option name="closed" value="true" />
+      <created>1742330618259</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742330618259</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add veggi filter">
+      <option name="closed" value="true" />
+      <created>1742332479646</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742332479646</updated>
+    </task>
+    <task id="LOCAL-00004" summary="code cleanup">
+      <option name="closed" value="true" />
+      <created>1742333302905</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742333302905</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add dishes">
+      <option name="closed" value="true" />
+      <created>1742806350614</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742806350614</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add basic navigation">
+      <option name="closed" value="true" />
+      <created>1742928356582</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742928356582</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add DrinkMenu">
+      <option name="closed" value="true" />
+      <created>1742934533777</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1742934533777</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add 0 alc">
+      <option name="closed" value="true" />
+      <created>1742934648680</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1742934648680</updated>
+    </task>
+    <task id="LOCAL-00009" summary="styling adjustments">
+      <option name="closed" value="true" />
+      <created>1742935827070</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1742935827070</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add filter for none alcoholic drinks">
+      <option name="closed" value="true" />
+      <created>1742936727412</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1742936727412</updated>
+    </task>
+    <task id="LOCAL-00011" summary="code cleanup">
+      <option name="closed" value="true" />
+      <created>1743426374896</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743426374896</updated>
+    </task>
+    <task id="LOCAL-00012" summary="adjust weine item design">
+      <option name="closed" value="true" />
+      <created>1743430084966</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743430084966</updated>
+    </task>
+    <task id="LOCAL-00013" summary="styling adjustments">
+      <option name="closed" value="true" />
+      <created>1743432640956</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743432640956</updated>
+    </task>
+    <task id="LOCAL-00014" summary="improve menu overall">
+      <option name="closed" value="true" />
+      <created>1744552699987</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1744552699987</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add bundles">
+      <option name="closed" value="true" />
+      <created>1744729333575</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1744729333575</updated>
+    </task>
+    <task id="LOCAL-00016" summary="clean git before setting up ep">
+      <option name="closed" value="true" />
+      <created>1750508300885</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1750508300885</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add some vinos" />
+    <MESSAGE value="create static snacks menu" />
+    <MESSAGE value="add veggi filter" />
+    <MESSAGE value="add dishes" />
+    <MESSAGE value="add basic navigation" />
+    <MESSAGE value="add DrinkMenu" />
+    <MESSAGE value="add 0 alc" />
+    <MESSAGE value="add filter for none alcoholic drinks" />
+    <MESSAGE value="code cleanup" />
+    <MESSAGE value="adjust weine item design" />
+    <MESSAGE value="styling adjustments" />
+    <MESSAGE value="improve menu overall" />
+    <MESSAGE value="add bundles" />
+    <MESSAGE value="clean git before setting up ep" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean git before setting up ep" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/WineMenu.vue</url>
+          <line>18</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
