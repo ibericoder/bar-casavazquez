@@ -30,27 +30,25 @@
       <!--      <p class="snacks-subtitle">FÜR DEN KLEINEN HUNGER</p>-->
     </header>
     <div v-if="showTopToast" class="top-toast" role="status" aria-live="polite">
-      <span>Saludos desde Madrid – Diesen Samstag bekommt ihr zu jedem Getränk eine kleine Tapita, ganz wie ihr es aus der Hauptstadt Spaniens kennt.</span>
+      <span>Saludos desde Madrid – Diesen Samstag bekommt ihr zu jedem Getränk eine kleine Tapita, ganz wie ihr es aus
+        der Hauptstadt Spaniens kennt.</span>
       <button class="toast-close" @click="showTopToast = false" aria-label="Schließen">×</button>
     </div>
 
 
     <div class="scrollContainer">
       <div class="snack-section">
-        <li
-            v-for="snack in filteredSnacks"
-            :key="snack.name"
-            class="basic-snacks-item"
-        >
+        <li v-for="snack in filteredSnacks" :key="snack.name" class="basic-snacks-item">
           <div class="snack-text">
             <span class="snacks-name">{{ snack.name }}</span>
-            <img v-if="snack.onm" class="onmLogo" :src="onmLogo" alt="Olive und Meer" @click="showOnmInfo = true"/>
+            <img v-if="snack.onm" class="onmLogo" :src="onmLogo" alt="Olive und Meer" @click="showOnmInfo = true" />
             <BaseModal v-model="showOnmInfo">
               <div style="display: flex;margin-bottom: 1rem; gap: 1rem">
                 <h2>Von <i>Olive & Meer</i></h2>
-                <img class="onmLogo" :src="onmLogo"/>
+                <img class="onmLogo" :src="onmLogo" />
               </div>
-              <p>Unser Lieblings-Laden für Spanische Weine und Feinkost. Dir schmecken die Oliven? Dann statte doch <i>Raquel</i>
+              <p>Unser Lieblings-Laden für Spanische Weine und Feinkost. Dir schmecken die Oliven? Dann statte doch
+                <i>Raquel</i>
                 mal
                 einen Besuch ab. </p>
               <p style="text-align: right">Warendorfer Str. 61, 48145 Münster</p>
@@ -76,25 +74,45 @@
         </ul>
       </div>
 
+      <div class="snack-section" v-if="!veggie">
+        <hr />
+        <br />
+        <h3 class="snacks-subtitle">Albondigas</h3>
+        <p class="snacks-note">
+          Albondigas (Fleischbällchen) in aromatischer Tomaten-Salsa – dazu reichen wir Brot. Perfekt für den kleinen Hunger auf etwas Deftiges.
+        </p>
+        <ul class="snacks-extras">
+          <li class="snacks-item extra">
+            <span class="snacks-name">Albondigas – Portion</span>
+            <span class="snacks-price">8,50</span>
+          </li>
+        </ul>
+      </div>
+
       <div class="snack-section">
-        <hr/>
-        <br/>
-  <h3 class="snacks-subtitle">Coca <img class="coca-image" :src="cocaImage" alt="Coca" @click="showCocaInfo = true" style="cursor:pointer;vertical-align:middle;height:28px;margin-left:8px;"/></h3>
+        <hr />
+        <br />
+        <h3 class="snacks-subtitle">Coca <img class="coca-image" :src="cocaImage" alt="Coca"
+            @click="showCocaInfo = true" style="cursor:pointer;vertical-align:middle;height:28px;margin-left:8px;" />
+        </h3>
         <p class="snacks-note">
           Coca ist ein traditionelles spanisches Flachbrot, das mit mediterranen Zutaten belegt wird. Die Portion ist
           vergleichbar mit einer Pizza.
         </p>
-        
-              <BaseModal v-model="showCocaInfo">
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                  <h2>Coca – Spanisches Flachbrot</h2>
-                  <img :src="cocaImage" alt="Coca" style="max-width: 300px; border-radius: 8px;"/>
-                </div>
-                <p>Die Coca ist ein traditionelles spanisches Flachbrot, das mit mediterranen Zutaten belegt wird. Sie ist besonders beliebt in Katalonien und auf den Balearen. Die Portion ist vergleichbar mit einer Pizza und eignet sich perfekt zum Teilen.</p>
-              </BaseModal>
+
+        <BaseModal v-model="showCocaInfo">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <h2>Coca – Spanisches Flachbrot</h2>
+            <img :src="cocaImage" alt="Coca" style="max-width: 300px; border-radius: 8px;" />
+          </div>
+          <p>Die Coca ist ein traditionelles spanisches Flachbrot, das mit mediterranen Zutaten belegt wird. Sie ist
+            besonders beliebt in Katalonien und auf den Balearen. Die Portion ist vergleichbar mit einer Pizza und
+            eignet sich perfekt zum Teilen.</p>
+        </BaseModal>
         <ul class="snacks-extras">
           <li class="snacks-item extra veggie">
-            <span class="snacks-name"><b>Vegetarisch</b><br/>mit Tomatensauce und Mozarella und mit guten Dingen aus dem meditarrenen Garten belegt (auf Wunsch Vegan)</span>
+            <span class="snacks-name"><b>Vegetarisch</b><br />mit Tomatensauce und Mozarella und mit guten Dingen aus
+              dem meditarrenen Garten belegt (auf Wunsch Vegan)</span>
             <span class="snacks-price">12,90</span>
           </li>
           <li class="snacks-item extra veggie">
@@ -116,12 +134,12 @@
       </div>
 
       <div class="snack-section bundle">
-        <hr/>
-        <br/>
+        <hr />
+        <br />
         <h3 class="snacks-subtitle">Bundle</h3>
         <ul class="snacks-extras">
           <li class="snacks-item extra veggie">
-            <span class="snacks-name"><b>1 Flasche Hauswein + Plato Queso ODER Serrano</b><br/></span>
+            <span class="snacks-name"><b>1 Flasche Hauswein + Plato Queso ODER Serrano</b><br /></span>
             <span class="snacks-price">26,50</span>
           </li>
         </ul>
@@ -131,7 +149,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref, computed, onMounted} from "vue";
+import { ref, computed, onMounted } from "vue";
 import onmLogo from "../assets/images/Logo-Olive-Meer_klein.png"
 import BaseModal from "../components/BaseModal.vue";
 import cocaImage from "../assets/images/coca.png";
@@ -142,16 +160,16 @@ const showCocaInfo = ref(false)
 const showTopToast = ref(false)
 
 const snacks = [
-  {name: 'Nachos mit Aioli Dip', description: '', price: '5', veggie: true},
-  {name: 'Brot Aioli Dip', description: '', price: '5', veggie: true},
-  {name: 'Oliven Mix', description: '', price: '5', veggie: true, onm: true},
-  {name: 'Plato de Jamón', description: '(80g) + Brot', price: '9,5', veggie: false},
-  {name: 'Plato de Quesos', description: '(80g) + Brot', price: '9,5', veggie: true},
-  {name: 'Plato Mixto', description: 'Gemischte Platte mit Jamón & Quesos + Brot', price: '16,5', veggie: false},
+  { name: 'Nachos mit Aioli Dip', description: '', price: '5', veggie: true },
+  { name: 'Brot Aioli Dip', description: '', price: '5', veggie: true },
+  { name: 'Oliven Mix', description: '', price: '5', veggie: true, onm: true },
+  { name: 'Plato de Jamón', description: '(80g) + Brot', price: '9,5', veggie: false },
+  { name: 'Plato de Quesos', description: '(80g) + Brot', price: '9,5', veggie: true },
+  { name: 'Plato Mixto', description: 'Gemischte Platte mit Jamón & Quesos + Brot', price: '16,5', veggie: false },
 ];
 
 const filteredSnacks = computed(() =>
-    veggie.value ? snacks.filter(s => s.veggie) : snacks
+  veggie.value ? snacks.filter(s => s.veggie) : snacks
 );
 
 function toggleVeggie() {
@@ -334,16 +352,19 @@ hr {
   }
 }
 
-.snack-enter-active, .snack-leave-active {
+.snack-enter-active,
+.snack-leave-active {
   transition: max-height 0.41s ease-in-out;
   overflow: hidden;
 }
 
-.snack-enter-from, .snack-leave-to {
+.snack-enter-from,
+.snack-leave-to {
   max-height: 0;
 }
 
-.snack-enter-to, .snack-leave-from {
+.snack-enter-to,
+.snack-leave-from {
   max-height: 100px;
 }
 

@@ -52,6 +52,11 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/Legals.vue'),
     },
     {
+        path: '/admin/flyer-sectors',
+        name: 'FlyerSectors',
+        component: () => import('../views/FlyerSectors.vue'),
+    },
+    {
         path: '/:pathMatch(.*)*',
         redirect: '/home',
     },

@@ -30,6 +30,7 @@ Vue 3 + TypeScript + Vite single-page app for Casa Vazquez (Weinbar & Cocktails 
 ## Notable features
 
 - Wine Tasting page with stories and a Leaflet/OpenStreetMap map showing wine regions
+- Hidden admin tool (`/admin/flyer-sectors`) with Leaflet-based flyer distribution sectors (unlock via triple-click on the Impressum heading)
 - Top toasts/announcements on menu pages
 - Image assets bundled via Vite; local bottles in `src/assets/images/tinified (6)`
 - Router scroll behavior resets to top on navigation
@@ -38,6 +39,7 @@ Vue 3 + TypeScript + Vite single-page app for Casa Vazquez (Weinbar & Cocktails 
 
 - Vite base is set to `/casavazquez/` in `vite.config.ts` for correct asset paths on GitHub Pages or similar
 - Strict TypeScript settings via `@vue/tsconfig`
+- Hidden route remains off the public navigation; trigger it by triple-clicking “Impressum” on the landing page.
 
 ## Scripts
 

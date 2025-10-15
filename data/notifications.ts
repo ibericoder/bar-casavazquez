@@ -2,6 +2,12 @@ import type {Notification} from "../website/src/interfaces/notification";
 
 export const notifications: Array<Notification> = [
     {
+        title: "Albondigas sind back ",
+        text: "Ab sofort gibt es wieder Fleischbällchen in unserer Hausgemachten Salsa",
+        image: undefined,
+        createdAt: new Date('2025-04-08T10:24:00')
+    },
+    {
         title: "Live Musik ",
         text: "Am 26.10. | 04.11. | 02.12. - Keine Reservierung. Einfach vorbeikommen!",
         image: undefined,

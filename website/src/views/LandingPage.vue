@@ -62,7 +62,7 @@
     </section>
 
     <div class="impressum">
-      <h1>Impressum</h1>
+      <h1 @click="handleImpressumSecret">Impressum</h1>
       <p>
         Angaben gemäß § 5 TMG:<br>
         Casa Vazquez Münster – José Benjamin Marco Joaquin Guerrero Vazquez<br>
@@ -131,7 +131,8 @@
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted} from "vue";
+import {ref, onMounted, onBeforeUnmount} from "vue";
+import { useRouter } from 'vue-router';
 import {notifications} from "../../../data/notifications.ts";
 import NotificationCard from "../components/NotificationCard.vue";
 import osterei from "../assets/images/icons8-easter-64.png";
@@ -141,6 +142,9 @@ const combinedNotifications = [...notifications] as typeof notifications;
 const clickCount = ref(0);
 const scale = ref(1);
 const isShaking = ref(false);
+const impressumClicks = ref(0);
+const impressumTimer = ref<number | null>(null);
+const router = useRouter();
 
 function handleClick() {
   if (clickCount.value < 2) {
@@ -161,8 +165,34 @@ function handleClick() {
   }, 500);
 }
 
+function handleImpressumSecret() {
+  impressumClicks.value += 1;
+  if (impressumClicks.value >= 3) {
+    impressumClicks.value = 0;
+    if (impressumTimer.value) {
+      window.clearTimeout(impressumTimer.value);
+      impressumTimer.value = null;
+    }
+    router.push({ name: 'FlyerSectors' });
+    return;
+  }
+  if (impressumTimer.value) {
+    window.clearTimeout(impressumTimer.value);
+  }
+  impressumTimer.value = window.setTimeout(() => {
+    impressumClicks.value = 0;
+    impressumTimer.value = null;
+  }, 1500);
+}
+
 onMounted(() => {
   // Announcement currently disabled
+});
+
+onBeforeUnmount(() => {
+  if (impressumTimer.value) {
+    window.clearTimeout(impressumTimer.value);
+  }
 });
 </script>
 
@@ -234,6 +264,10 @@ h1, h2, h3 {
   margin-top: 5rem;
   padding: 1rem;
   font-size: 0.9rem;
+
+  h1 {
+    cursor: pointer;
+  }
 
   address {
     font-style: normal;
