@@ -7,6 +7,9 @@
       <span>Saludos desde Madrid – Diesen Samstag bekommt ihr zu jedem Getränk eine kleine Tapita, ganz wie ihr es aus der Hauptstadt Spaniens kennt.</span>
       <button class="toast-close" @click="showTopToast = false" aria-label="Schließen">×</button>
     </div>
+    <p class="tasting-notice">
+      Besondere Weißweine findet ihr auf unserer <router-link to="/wine-tasting" class="tasting-link">Tasting Seite</router-link>
+    </p>
     <p class="note">Unsere Hausweine gibt es für<br> 7€ (0.2l) bzw. 19€ (0.75l).</p>
     <div v-if="selectedColor === 'rosé' && false" class="happy-hour-hint">🎉 Happy Hour 🎉! Mo-Fr bis 19 Uhr zu
       jeder Flasche Rosé eine Plato Mixto aufs Haus.
@@ -81,6 +84,23 @@ const filteredWines = computed(() => {
 
 <style lang="scss" scoped>
 @use "../assets/styles/main" as *;
+
+.tasting-notice {
+  font-size: 0.85rem;
+  text-align: center;
+  color: $text-color;
+  margin: 0.75rem auto;
+  
+  .tasting-link {
+    color: $accent-color;
+    text-decoration: underline;
+    font-weight: 600;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
 
 .note {
   font-size:  1rem;
