@@ -7,6 +7,10 @@
     "strict": true,
     "skipLibCheck": true
   },
+  "include": [
+    "data/**/*.ts",
+    "*.ts"
+  ],
   "ts-node": {
     "esm": true
   }
