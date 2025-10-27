@@ -6,15 +6,23 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sess
 from .config import settings
 
 # Sync database setup
+connect_args = {}
+if "sqlite" in settings.database_url:
+    connect_args = {"check_same_thread": False}
+
 engine = create_engine(
     settings.database_url,
-    connect_args={"check_same_thread": False} if "sqlite" in settings.database_url else {}
+    connect_args=connect_args,
+    pool_pre_ping=True
 )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # Async database setup
-async_engine = create_async_engine(settings.async_database_url)
+async_engine = create_async_engine(
+    settings.async_database_url,
+    pool_pre_ping=True
+)
 AsyncSessionLocal = async_sessionmaker(
     async_engine, class_=AsyncSession, expire_on_commit=False
 )
