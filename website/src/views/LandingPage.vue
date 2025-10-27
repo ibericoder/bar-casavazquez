@@ -31,32 +31,24 @@
         <div class="navigation-tile">Tasting</div>
       </router-link>
     </section>
-    <br >
-    <br >
+    <br>
+    <br>
     <section aria-label="Aktuelle Neuigkeiten">
       <h2>Aktuelles aus der Casa Vazquez</h2>
       <div class="landing-page container">
-        <NotificationCard
-            v-for="note in combinedNotifications"
-            :key="note.title"
-            :title="note.title"
-            :created-at="note.createdAt"
-            :image="note.image"
-            :text="note.text"
-            :roundedImage="note.roundedImage"
-            :linkText="note.linkText"
-            :linkTo="note.linkTo"
-        />
+        <NotificationCard v-for="note in combinedNotifications" :key="note.title" :title="note.title"
+          :created-at="note.createdAt" :image="note.image" :text="note.text" :roundedImage="note.roundedImage"
+          :linkText="note.linkText" :linkTo="note.linkTo" />
       </div>
     </section>
 
     <section aria-label="Über Casa Vazquez">
       <h2>Willkommen bei unserer Bar in Münster!</h2>
       <p>
-        Du warst noch nie bei uns und fragst dich, was wir bieten?<br/>
-        Wir laden zum gemütlichen Verweilen an der Warendorfer Straße ein. <br/>
+        Du warst noch nie bei uns und fragst dich, was wir bieten?<br />
+        Wir laden zum gemütlichen Verweilen an der Warendorfer Straße ein. <br />
         Leckere Drinks und Snacks und eine Auswahl an besonderen Weinen
-        versüßen dir den Feierabend. <br/>
+        versüßen dir den Feierabend. <br />
         Ganz ungezwungen – wie bei Freunden.
       </p>
     </section>
@@ -109,18 +101,20 @@
       </p>
 
     </div>
-      <div v-if="false" class="easter-egg" @click="handleClick" :style="{ transform: 'scale(' + scale + ')' }" :class="{ 'shake': isShaking }">
-        <template v-if="clickCount < 5">
-          <img :src="osterei" alt="Osertei" class="egg-icon" />
-        </template>
-        <template v-else>
-          <div class="voucher">
-            <h2>Gutschein!</h2>
-            <p>Herzlichen Glückwunsch – Du hast ein Osterei gefunden! Zeig uns diesen Gutschein und du erhältst ein gratis Osterbier!</p>
-            <p>(pro Person 1x einlösbar)</p>
-          </div>
-        </template>
-      </div>
+    <div v-if="false" class="easter-egg" @click="handleClick" :style="{ transform: 'scale(' + scale + ')' }"
+      :class="{ 'shake': isShaking }">
+      <template v-if="clickCount < 5">
+        <img :src="osterei" alt="Osertei" class="egg-icon" />
+      </template>
+      <template v-else>
+        <div class="voucher">
+          <h2>Gutschein!</h2>
+          <p>Herzlichen Glückwunsch – Du hast ein Osterei gefunden! Zeig uns diesen Gutschein und du erhältst ein gratis
+            Osterbier!</p>
+          <p>(pro Person 1x einlösbar)</p>
+        </div>
+      </template>
+    </div>
 
     <footer>
       <div class="sources-link">
@@ -131,9 +125,9 @@
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted, onBeforeUnmount} from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useRouter } from 'vue-router';
-import {notifications} from "../../../data/notifications.ts";
+import { notifications } from "../../../data/notifications.ts";
 import NotificationCard from "../components/NotificationCard.vue";
 import osterei from "../assets/images/icons8-easter-64.png";
 
@@ -199,12 +193,18 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 @use "../assets/styles/main" as *;
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: "King Red";
   text-align: center;
   font-weight: 100;
   color: $accent-color;
   font-style: italic;
+}
+
+.hero {
+  padding: 0 1rem;
 }
 
 .landing-page {
@@ -298,12 +298,16 @@ h1, h2, h3 {
 }
 
 @keyframes shake {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(0deg);
   }
+
   25% {
     transform: rotate(5deg);
   }
+
   75% {
     transform: rotate(-5deg);
   }

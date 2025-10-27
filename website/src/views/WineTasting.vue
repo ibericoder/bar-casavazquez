@@ -174,11 +174,11 @@ function flyToIndex(i: number) {
 
 .tasting-header {
   text-align: center;
-  padding: 5rem 1rem 2rem;
+  padding: 2rem 1rem 2rem;
 }
 
 .tasting-map {
-  height: 420px;
+  height: 33vh;
   margin: 0 1rem 2rem;
   border: 2px solid $accent-color;
   border-radius: 10px;
