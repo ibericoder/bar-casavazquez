@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: casavazquez-db
+    environment:
+      POSTGRES_USER: casavazquez
+      POSTGRES_PASSWORD: casavazquez123
+      POSTGRES_DB: casavazquez
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U casavazquez"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: 
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: casavazquez-backend
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_URL: postgresql://casavazquez:casavazquez123@postgres:5432/casavazquez
+      SECRET_KEY: dev-secret-key-change-in-production
+      ALLOWED_ORIGINS: "*"
+      ENVIRONMENT: development
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+
+volumes:
+  postgres_data:
