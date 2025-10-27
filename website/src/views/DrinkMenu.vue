@@ -313,6 +313,14 @@ const beers = [
     allergens: [4, 9, 10]
   },
   {
+    name: "Paulaner Weißbier-Zitrone 0,0%",
+    volume: "0,50l",
+    price: "5,5€",
+    category: "Bier",
+    alcoholic: false,
+    allergens: [4, 9, 10]
+  },
+  {
     name: "Estrella de Galicia Especial",
     volume: "0,20l",
     price: "2,5€",
@@ -345,7 +353,7 @@ const beers = [
     category: "Bier",
     alcoholic: true,
     allergens: [4, 10],
-    available: false
+    available: true
   },
   {
     name: "Krombacher Pils",
@@ -363,7 +371,7 @@ const beers = [
     category: "Bier",
     alcoholic: true,
     allergens: [4, 10],
-    available: false
+    available: true
   }
 ];
 
@@ -387,6 +395,14 @@ const softdrinks = [
   {name: "Thomas Henry", volume: "0,20l", price: "2,5€", category: "Softdrink", alcoholic: false, allergens: [24]},
   {
     name: "Coca Cola Zero",
+    volume: "0,33l",
+    price: "3,9€",
+    category: "Softdrink",
+    alcoholic: false,
+    allergens: [1, 7, 8]
+  },
+  {
+    name: "Paulaner Spezi",
     volume: "0,33l",
     price: "3,9€",
     category: "Softdrink",
@@ -425,6 +441,7 @@ const spritz = [
   {name: "*Aperol", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4]},
   {name: "Sarti", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4]},
   {name: "Yuzu", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4]},
+  {name: "Lillet Wild Berry", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4]},
 ];
 
 const no3 = [
