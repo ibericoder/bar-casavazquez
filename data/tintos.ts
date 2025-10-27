@@ -47,7 +47,7 @@ export const tintos: Wine[] = [
         longDescription: 'Ein Gran Reserva muss insgesamt fünf Jahre reifen, davon mindestens zwei Jahre im Eichenfass. Der Viña Albali Gran Reserva aus dem Jahr erfüllt diese Vorgaben mühelos. Er stammt aus der spanischen Region Valdepeñas in Kastilien-La Mancha und wird ausschließlich aus der Tempranillo-Traube gekeltert. Valdepeñas liegt im Süden der Hochebene Zentralspaniens, geschützt von der Sierra Morena, was zu einem gemäßigten, stark kontinental geprägten Klima führt – im Sommer steigen die Temperaturen oft auf bis zu 40 °C, im Winter können sie bis auf –10 °C fallen. Die Weinberge stehen auf etwa 700 Metern Höhe auf überwiegend kalkhaltigen Böden mit älteren Kreideablagerungen. Der Viña Albali Gran Reserva gehört zur Albali-Linie des Weinguts Félix Solis. Seinen Namen trägt er nach einem Stern im Sternbild des Wassermanns und soll laut Félix Solis die Lebensfreude und Lebendigkeit der Spanier verkörpern.',
         image: null,
         characteristics: 'trocken, rauchig, holzig, Körper',
-        available: true
+        available: false
     },
     {
         name: 'Marques de Cáceres',
@@ -96,17 +96,17 @@ export const tintos: Wine[] = [
         available: true
     },
     {
-        name: 'EMBOCADERO',
+        name: 'Embocadero',
         id: 1,
-        prices: {'flasche': '€39,50'},
+        prices: {'0.1l': '5,00€', '0.2l': '10,50€', 'flasche': '€33,00'},
         color: 'red',
         grape: '100% Tinto Fino',
-        origin: 'Ribera del Duero',
+        origin: 'Ribera del Duero DO',
         shortDescription: 'Eleganter, trockener Rotwein mit lebendigen Beeren- und Zedernholznoten.',
-        longDescription: 'Embocadero Ribera del Duero 2021 – Dieser trockene Rotwein aus der renommierten Region Ribera del Duero besticht durch eine elegante, feinkörnige Tanninstruktur und animierende Säure. Sein lang anhaltender Abgang ist von Nuancen geprägt, die an Zedernholz erinnern. Im Bouquet entfalten sich lebendige Fruchtnoten von Schlehen, dunklen Beeren und Pflaumen, ergänzt durch subtile Anklänge von Lorbeer, Süßholz und einem Hauch Vanille. Am Gaumen setzt sich der Wein mit einer weichen Holznote in saftige Aromen von Kirsch, Schlehen und Beeren fort – ein harmonischer Wein, der Tiefe und Finesse vereint.',
+        longDescription: 'Der San Pedro Regalado Embocadero aus der Ribera del Duero besticht durch eine elegante, feinkörnige Tanninstruktur und animierende Säure. Sein lang anhaltender Abgang ist von Nuancen geprägt, die an Zedernholz erinnern. Im Bouquet entfalten sich lebendige Fruchtnoten von Schlehen, dunklen Beeren und Pflaumen, ergänzt durch subtile Anklänge von Lorbeer, Süßholz und einem Hauch Vanille. Am Gaumen setzt sich der Wein mit einer weichen Holznote fort und geht in saftige Aromen von Kirsch, Schlehen und Beeren über – ein harmonischer Wein mit 14% Alkohol, der Tiefe und Finesse vereint. Ausgezeichnet mit 92 Punkten von Robert Parker (Jg. 2009).',
         image: null,
-        characteristics: 'Trocken, vollmundig, tiefrot, ehrlich',
-        available: false
+        characteristics: 'Trocken, vollmundig, elegant, fruchtig',
+        available: true
     },
 
     {

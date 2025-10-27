@@ -249,6 +249,6 @@ export const blancos: Wine[] = [
         longDescription: 'Eguren Ugarte Rioja Blanca ist ein frischer, trockener Weißwein aus der Rioja. Er überzeugt mit Aromen von Zitrusfrüchten, grünem Apfel und weißen Blüten. Am Gaumen zeigt er sich lebendig und ausgewogen, mit einer feinen Säure und einem klaren, erfrischenden Abgang. Ein eleganter Begleiter zu Fisch, Meeresfrüchten und leichten Vorspeisen.',
         image: null,
         characteristics: 'trocken, frisch, elegant, zitrus, weiß',
-        available: true
+        available: false
     }
 ]
