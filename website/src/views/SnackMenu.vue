@@ -1,5 +1,5 @@
 <template>
-  <!-- <div class="hint" style="display: block">
+  <div v-show="false" class="hint" style="display: block">
     Heute <b> Buffet</b> mit Selbstbedienung <br/>
     <p>Beim Buffet findest du Bambus-Schälchen, die du mit deinen Lieblings Snacks <b>voll</b>machen kannst.</p>
     <p>Am Ende zählen wir einfach die Schälchen und berechnen jeweils 2,50€ (mit Brot-Flatrate - solange der Vorrat reicht)</p>
@@ -15,7 +15,7 @@
         <button @click="incrementCounter" style="font-size: 1.5rem">+</button>
       </div>
     </details>
-  </div> -->
+  </div>
 
   <div class="filter-buttons" style="display: none">
     <button class="filter-button" :class="{ active: veggie }" @click="toggleVeggie">
@@ -57,7 +57,7 @@
           </div>
           <span class="snacks-price">{{ snack.price }}</span>
         </li>
-
+<br />
         <ul class="snacks-extras">
           <li class="snacks-item extra veggie">
             <span class="snacks-name">Extra Aioli Dip</span>
@@ -126,7 +126,7 @@
             <span class="snacks-name">+ Serrano</span>
             <span class="snacks-price">+ 3,90</span>
           </li>
-          <li class="snacks-item extra" v-if="!veggie">
+          <li class="snacks-item extra veggie" >
             <span class="snacks-name">Doppelt Mozarella</span>
             <span class="snacks-price">+ 2,50</span>
           </li>
@@ -141,6 +141,21 @@
           <li class="snacks-item extra veggie">
             <span class="snacks-name"><b>1 Flasche Hauswein + Plato Queso ODER Serrano</b><br /></span>
             <span class="snacks-price">26,50</span>
+          </li>
+        </ul>
+      </div>
+      <div v-show=false class="snack-section bundle">
+        <hr />
+        <br />
+        <h3 class="snacks-subtitle">Dessert</h3>
+        <ul class="snacks-extras">
+          <li class="snacks-item extra veggie">
+            <span class="snacks-name"><b>Tartufo mit Schoko-Kern und Haselnussmantel</b><br /></span>
+            <span class="snacks-price">8,50</span>
+          </li>
+            <li class="snacks-item extra veggie">
+            <span class="snacks-name"><b>Antojos de Dulcinea - Biskuitkuchen mit fruchtiger Sauce</b><br /></span>
+            <span class="snacks-price">6,50</span>
           </li>
         </ul>
       </div>
@@ -165,6 +180,10 @@ const snacks = [
   { name: 'Oliven Mix', description: '', price: '5', veggie: true, onm: true },
   { name: 'Plato de Jamón', description: '(80g) + Brot', price: '9,5', veggie: false },
   { name: 'Plato de Quesos', description: '(80g) + Brot', price: '9,5', veggie: true },
+  { name: 'Dátiles con Bacon', description: 'Datteln im Speckmantel', price: '7,5', veggie: false },
+  { name: 'Kroketten + Dip', description: 'gefüllt mit Kräuterfrischkäse', price: '6,5', veggie: false },
+  { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '6,5', veggie: false },
+  { name: 'Deditos de pollo', description: 'saftige panierte Hähnchen-Sticks', price: '6,5', veggie: false },
   { name: 'Plato Mixto', description: 'Gemischte Platte mit Jamón & Quesos + Brot', price: '16,5', veggie: false },
 ];
 
