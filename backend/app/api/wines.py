@@ -92,6 +92,19 @@ def toggle_wine_availability(wine_id: str, available: bool, db: Session = Depend
     db.refresh(db_wine)
     return {"message": f"Wine availability updated to {available}"}
 
+@router.patch("/bulk/prices")
+def bulk_update_prices(updates: dict, db: Session = Depends(get_db)):
+    """Bulk update wine prices"""
+    updated_count = 0
+    for wine_id, new_prices in updates.items():
+        db_wine = db.query(WineModel).filter(WineModel.id == wine_id).first()
+        if db_wine:
+            db_wine.prices = new_prices
+            updated_count += 1
+    
+    db.commit()
+    return {"message": f"Updated {updated_count} wines", "count": updated_count}
+
 @router.get("/colors/available")
 def get_available_colors(db: Session = Depends(get_db)):
     """Get all available wine colors"""
