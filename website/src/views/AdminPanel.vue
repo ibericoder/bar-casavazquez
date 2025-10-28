@@ -880,6 +880,9 @@ function deleteNotification(notification: any) {
   cursor: pointer;
   font-size: 0.8rem;
   font-weight: 500;
+  min-height: 44px;
+  min-width: 100px;
+  touch-action: manipulation;
   
   &.active {
     background-color: #28a745;
@@ -892,13 +895,16 @@ function deleteNotification(notification: any) {
   }
   
   @media (max-width: 768px) {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    min-height: 48px;
   }
   
   @media (max-width: 480px) {
     width: 100%;
     margin-bottom: 0.5rem;
+    min-height: 52px;
+    font-size: 0.9rem;
   }
 }
 
@@ -909,6 +915,8 @@ function deleteNotification(notification: any) {
   cursor: pointer;
   font-size: 0.8rem;
   margin-right: 0.5rem;
+  min-height: 38px;
+  touch-action: manipulation;
   
   &.edit {
     background-color: #007bff;
@@ -925,14 +933,17 @@ function deleteNotification(notification: any) {
   }
   
   @media (max-width: 768px) {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
     margin-right: 0.25rem;
+    min-height: 44px;
   }
   
   @media (max-width: 480px) {
     width: calc(50% - 0.25rem);
     margin: 0.25rem 0.25rem 0.25rem 0;
+    min-height: 48px;
+    font-size: 0.85rem;
     
     &:nth-child(even) {
       margin-right: 0;
