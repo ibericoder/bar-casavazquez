@@ -14,7 +14,8 @@
 
   <!-- Top announcement toast -->
   <div v-if="showTopToast" class="top-toast" role="status" aria-live="polite">
-    <span>Saludos desde Madrid – Diesen Samstag bekommt ihr zu jedem Getränk eine kleine Tapita, ganz wie ihr es aus der Hauptstadt Spaniens kennt.</span>
+    <span>Saludos desde Madrid – Diesen Samstag bekommt ihr zu jedem Getränk eine kleine Tapita, ganz wie ihr es aus der
+      Hauptstadt Spaniens kennt.</span>
     <button class="toast-close" @click="showTopToast = false" aria-label="Schließen">×</button>
   </div>
   <!--    Softdrinks-->
@@ -26,7 +27,7 @@
     <div class="drinks-content" :class="nonAlcoholic && 'non-alcoholic'">
       <transition-group name="drink" tag="ul" class="drinks-list">
         <li v-for="drink in nonAlcoholic ? softdrinks.filter(d => !d.alcoholic) : softdrinks" :key="drink.name"
-            class="drinks-item">
+          class="drinks-item">
           <div class="drink-text">
             <span class="drinks-name">{{ drink.name }} &nbsp;{{ drink.volume }}
               <sup v-if="drink.allergens" class="allergen-indices">{{ drink.allergens.join(',') }}</sup>
@@ -50,10 +51,10 @@
     <div class="drinks-content" :class="nonAlcoholic && 'non-alcoholic'">
       <transition-group name="drink" tag="ul" class="drinks-list">
         <li v-for="drink in nonAlcoholic ? beers.filter(d => !d.alcoholic) : beers" :key="drink.name"
-            class="drinks-item">
+          class="drinks-item">
           <div v-if="drink.available !== false" class="drink-text">
             <span class="drinks-name">{{ drink.name }}
-            <sup v-if="drink.allergens" class="allergen-indices">{{ drink.allergens.join(',') }}</sup>
+              <sup v-if="drink.allergens" class="allergen-indices">{{ drink.allergens.join(',') }}</sup>
             </span>
           </div>
           <span v-if="drink.available !== false" class="drinks-price">{{ drink.price }}</span>
@@ -72,10 +73,10 @@
     <div class="drinks-content" :class="nonAlcoholic && 'non-alcoholic'">
       <transition-group name="drink" tag="ul" class="drinks-list">
         <li v-for="drink in nonAlcoholic ? spritz.filter(d => !d.alcoholic) : spritz" :key="drink.name"
-            class="drinks-item">
+          class="drinks-item">
           <div class="drink-text">
             <span class="drinks-name">{{ drink.name }}
-            <sup v-if="drink.allergens" class="allergen-indices">{{ drink.allergens.join(',') }}</sup>
+              <sup v-if="drink.allergens" class="allergen-indices">{{ drink.allergens.join(',') }}</sup>
             </span>
           </div>
           <span class="drinks-price">{{ drink.price }}</span>
@@ -99,13 +100,13 @@
       Unsere Gin-Cocktails und Longdrinks bereiten wir mit dem hochwertigen N°3 Gin zu.
     </p>
     <br>
-    <img src="../assets/images/no32.png" class="no3bottle" alt="no3 Gin"/>
+    <img src="../assets/images/no32.png" class="no3bottle" alt="no3 Gin" />
     <div class="drinks-content" :class="nonAlcoholic && 'non-alcoholic'">
       <transition-group name="drink" tag="ul" class="drinks-list">
         <li v-for="drink in nonAlcoholic ? no3.filter(d => !d.alcoholic) : no3" :key="drink.name" class="drinks-item">
           <div class="drink-text">
             <span class="drinks-name">{{ drink.name }}
-            <sup v-if="drink.allergens" class="allergen-indices">{{ drink.allergens.join(',') }}</sup>
+              <sup v-if="drink.allergens" class="allergen-indices">{{ drink.allergens.join(',') }}</sup>
             </span>
           </div>
           <span class="drinks-price">{{ drink.price }}</span>
@@ -114,7 +115,7 @@
     </div>
 
     <div class="no3-desc">
-      <img src="../assets/images/no3.png" alt="no3 Gin"/>
+      <img src="../assets/images/no3.png" alt="no3 Gin" />
       <p class="note">
         “No. 3 ist ein unvergleichlicher Ultra-Premium London Dry Gin, entstanden aus dem Streben nach Perfektion, um
         den besten Gin der Welt zu kreieren. Er bietet die perfekte Balance aus drei entscheidenden Aromen: Wacholder,
@@ -132,7 +133,7 @@
     <div class="drinks-content" :class="nonAlcoholic && 'non-alcoholic'">
       <transition-group name="drink" tag="ul" class="drinks-list">
         <li v-for="drink in nonAlcoholic ? cocktails.filter(d => !d.alcoholic) : cocktails" :key="drink.name"
-            class="drinks-item">
+          class="drinks-item">
           <div class="drink-text">
             <span class="drinks-name">{{ drink.name }}
               <sup v-if="drink.allergens" class="allergen-indices">{{ drink.allergens.join(',') }}
@@ -158,10 +159,10 @@
     <div class="drinks-content" :class="nonAlcoholic && 'non-alcoholic'">
       <transition-group name="drink" tag="ul" class="drinks-list">
         <li v-for="drink in nonAlcoholic ? zeroAlc.filter(d => !d.alcoholic) : zeroAlc" :key="drink.name"
-            class="drinks-item">
+          class="drinks-item">
           <div class="drink-text">
             <span class="drinks-name">{{ drink.name }}
-            <sup v-if="drink.allergens" class="allergen-indices">{{ drink.allergens.join(',') }}</sup>
+              <sup v-if="drink.allergens" class="allergen-indices">{{ drink.allergens.join(',') }}</sup>
             </span>
           </div>
           <span class="drinks-price">{{ drink.price }}</span>
@@ -180,80 +181,80 @@
     </p>
     <table class="allergen-table">
       <thead>
-      <tr>
-        <th>Index</th>
-        <th>Hinweis</th>
-      </tr>
+        <tr>
+          <th>Index</th>
+          <th>Hinweis</th>
+        </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>1</td>
-        <td>mit Farbstoff</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>mit Konservierungsstoff</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>mit Geschmacksverstärker</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>geschwefelt / enthält Sulfit</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>geschwärzt</td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>mit Phosphat</td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>mit Süßungsmitteln</td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>koffeinhaltig</td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td>enthält Gluten (Weizen)</td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td>enthält Gluten (Gerste)</td>
-      </tr>
-      <tr>
-        <td>11</td>
-        <td>enthält Ei</td>
-      </tr>
-      <tr>
-        <td>12</td>
-        <td>enthält Nüsse / Erdnüsse</td>
-      </tr>
-      <tr>
-        <td>13</td>
-        <td>enthält Laktose / Milch</td>
-      </tr>
-      <tr>
-        <td>14</td>
-        <td>enthält Sellerie</td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>enthält Senf</td>
-      </tr>
-      <tr>
-        <td>24</td>
-        <td>chininhaltig</td>
-      </tr>
-      <tr>
-        <td>25</td>
-        <td>enthält Gluten (Roggen)</td>
-      </tr>
+        <tr>
+          <td>1</td>
+          <td>mit Farbstoff</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>mit Konservierungsstoff</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>mit Geschmacksverstärker</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>geschwefelt / enthält Sulfit</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>geschwärzt</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>mit Phosphat</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>mit Süßungsmitteln</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>koffeinhaltig</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>enthält Gluten (Weizen)</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>enthält Gluten (Gerste)</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>enthält Ei</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>enthält Nüsse / Erdnüsse</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>enthält Laktose / Milch</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>enthält Sellerie</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>enthält Senf</td>
+        </tr>
+        <tr>
+          <td>24</td>
+          <td>chininhaltig</td>
+        </tr>
+        <tr>
+          <td>25</td>
+          <td>enthält Gluten (Roggen)</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -261,7 +262,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
+import { ref } from "vue";
 
 const nonAlcoholic = ref(false);
 const showTopToast = ref(false);
@@ -321,30 +322,12 @@ const beers = [
     allergens: [4, 9, 10]
   },
   {
-    name: "Estrella de Galicia Especial",
-    volume: "0,20l",
-    price: "2,5€",
-    category: "Bier",
-    alcoholic: true,
-    allergens: [4, 10],
-    available: false,
-  },
-  {
     name: "Krombacher Pils (0,0%)",
     volume: "0,33l",
     price: "3,5€",
     category: "Bier",
     alcoholic: false,
     allergens: [4, 10]
-  },
-  {
-    name: "Brinkshoff's N°1",
-    volume: "0,33l",
-    price: "3,5€",
-    category: "Bier",
-    alcoholic: true,
-    allergens: [4, 10],
-    available: false,
   },
   {
     name: "San Miguel",
@@ -356,16 +339,7 @@ const beers = [
     available: true
   },
   {
-    name: "Krombacher Pils",
-    volume: "0,33l",
-    price: "3,9",
-    category: "Bier",
-    alcoholic: true,
-    allergens: [4, 10],
-    available: false,
-  },
-  {
-    name: "Estrella de Galicia",
+    name: "Estrella Damm",
     volume: "0,33l",
     price: "3,9€",
     category: "Bier",
@@ -392,7 +366,7 @@ const softdrinks = [
     alcoholic: false,
     allergens: []
   },
-  {name: "Thomas Henry", volume: "0,20l", price: "2,5€", category: "Softdrink", alcoholic: false, allergens: [24]},
+  { name: "Thomas Henry", volume: "0,20l", price: "2,5€", category: "Softdrink", alcoholic: false, allergens: [24] },
   {
     name: "Coca Cola Zero",
     volume: "0,33l",
@@ -410,52 +384,51 @@ const softdrinks = [
     allergens: [1, 7, 8]
   },
   {
-    name: "Wasser Classic/Naturell",
-    volume: "0,75l",
+    name: "Wasser Classic 1l Karaffe",
+    volume: "1l",
     price: "6,9€",
     category: "Softdrink",
     alcoholic: false,
     allergens: []
   },
   {
-    name: "Vital-Wasser",
-    volume: "1l Karaffe",
+    name: "Wasser Naturell Fl. 0,75l",
+    volume: "0,75l",
     price: "6,9€",
     category: "Softdrink",
     alcoholic: false,
-    allergens: [],
-    neu: true
-  }
+    allergens: []
+  },
 ];
 
 const cocktails = [
-  {name: "Yuzu Sour", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [11]},
-  {name: "Espresso Martini", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [8, 13]},
-  {name: "Whisky Sour", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [11]},
-  {name: "Cosmopolitan", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: []},
-  {name: "Skinny Bitch", price: "7,5€", category: "Cocktail", alcoholic: true, allergens: []},
+  { name: "Yuzu Sour", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [11] },
+  { name: "Espresso Martini", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [8, 13] },
+  { name: "Whisky Sour", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [11] },
+  { name: "Cosmopolitan", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [] },
+  { name: "Skinny Bitch", price: "7,5€", category: "Cocktail", alcoholic: true, allergens: [] },
 ];
 
 const spritz = [
-  {name: "*Limoncello", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4]},
-  {name: "*Aperol", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4]},
-  {name: "Sarti", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4]},
-  {name: "Yuzu", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4]},
-  {name: "Lillet Wild Berry", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4]},
+  { name: "*Limoncello", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4] },
+  { name: "*Aperol", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4] },
+  { name: "Sarti", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4] },
+  { name: "Yuzu", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4] },
+  { name: "Lillet Wild Berry", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4] },
 ];
 
 const no3 = [
-  {name: "Negroni", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [4]},
-  {name: "Gin Fizz", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [11]},
-  {name: "Gin Tonic", price: "7,9€", category: "Cocktail", alcoholic: true, allergens: [24]},
-  {name: "Tom Collins", price: "7,5€", category: "Cocktail", alcoholic: true, allergens: []}
+  { name: "Negroni", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [4] },
+  { name: "Gin Fizz", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [11] },
+  { name: "Gin Tonic", price: "7,9€", category: "Cocktail", alcoholic: true, allergens: [24] },
+  { name: "Tom Collins", price: "7,5€", category: "Cocktail", alcoholic: true, allergens: [] }
 ];
 
 const zeroAlc = [
-  {name: "Gin Fizz", price: "9€", category: "Cocktail", alcoholic: false, allergens: [11]},
-  {name: "Gin Tonic", price: "7,5€", category: "Cocktail", alcoholic: false, allergens: [24]},
-  {name: "Aperol Spritz", price: "7,5€", category: "Cocktail", alcoholic: false, allergens: [1, 4]},
-  {name: "Limoncello Spritz", price: "7,5€", category: "Cocktail", alcoholic: false, allergens: [1, 4]},
+  { name: "Gin Fizz", price: "9€", category: "Cocktail", alcoholic: false, allergens: [11] },
+  { name: "Gin Tonic", price: "7,5€", category: "Cocktail", alcoholic: false, allergens: [24] },
+  { name: "Aperol Spritz", price: "7,5€", category: "Cocktail", alcoholic: false, allergens: [1, 4] },
+  { name: "Limoncello Spritz", price: "7,5€", category: "Cocktail", alcoholic: false, allergens: [1, 4] },
 ];
 </script>
 
@@ -574,17 +547,20 @@ const zeroAlc = [
   }
 }
 
-.drink-enter-active, .drink-leave-active {
+.drink-enter-active,
+.drink-leave-active {
   transition: max-height 0.41s ease-in-out, opacity 0.41s ease-in-out;
   overflow: hidden;
 }
 
-.drink-enter-from, .drink-leave-to {
+.drink-enter-from,
+.drink-leave-to {
   max-height: 0;
   opacity: 0;
 }
 
-.drink-enter-to, .drink-leave-from {
+.drink-enter-to,
+.drink-leave-from {
   opacity: 1;
 }
 
