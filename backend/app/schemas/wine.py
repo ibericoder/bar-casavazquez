@@ -22,7 +22,22 @@ class WineBase(BaseModel):
         return v
 
 class WineCreate(WineBase):
-    id: str
+    id: str = Field(..., description="Unique wine identifier", example="w1")
+    
+    model_config = ConfigDict(
+        json_schema_extra={
+            "example": {
+                "id": "w1",
+                "name": "El Coto Rioja",
+                "color": "red",
+                "grape": "Tempranillo",
+                "origin": "Rioja, Spain",
+                "short_description": "Classic Rioja with oak aging",
+                "prices": {"0.1l": "4,00€", "flasche": "25,00€"},
+                "available": True
+            }
+        }
+    )
 
 class WineUpdate(BaseModel):
     name: Optional[str] = None

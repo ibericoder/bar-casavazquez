@@ -10,13 +10,24 @@ from ..schemas.wine import Wine, WineCreate, WineUpdate
 
 router = APIRouter()
 
-@router.get("/", response_model=List[Wine])
+@router.get(
+    "/", 
+    response_model=List[Wine],
+    summary="Get all wines",
+    description="Retrieve a list of wines with optional filters for color and availability",
+    response_description="List of wines matching the filters"
+)
 def get_wines(
-    color: Optional[str] = Query(None, description="Filter by wine color (red, white, rosé)"),
+    color: Optional[str] = Query(None, description="Filter by wine color (red, white, rosé)", example="red"),
     available_only: bool = Query(True, description="Show only available wines"),
     db: Session = Depends(get_db)
 ):
-    """Get all wines with optional filtering"""
+    """
+    Get all wines with optional filtering.
+    
+    - **color**: Filter by wine color (red, white, or rosé)
+    - **available_only**: Set to false to include unavailable wines
+    """
     query = db.query(WineModel)
     
     if available_only:
@@ -42,10 +53,22 @@ def get_wine(wine_id: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Wine not found")
     return wine
 
-@router.post("/", response_model=Wine)
+@router.post(
+    "/", 
+    response_model=Wine,
+    status_code=201,
+    summary="Create a new wine",
+    description="Add a new wine to the catalog with all details"
+)
 def create_wine(wine: WineCreate, db: Session = Depends(get_db)):
-    """Create a new wine"""
-    # Check if wine with this ID already exists
+    """
+    Create a new wine entry.
+    
+    - **id**: Unique identifier for the wine
+    - **name**: Wine name
+    - **color**: Must be red, white, or rosé
+    - **prices**: At least one price entry required
+    """
     existing_wine = db.query(WineModel).filter(WineModel.id == wine.id).first()
     if existing_wine:
         raise HTTPException(status_code=400, detail="Wine with this ID already exists")
@@ -82,9 +105,21 @@ def delete_wine(wine_id: str, db: Session = Depends(get_db)):
     db.commit()
     return {"message": "Wine deleted successfully"}
 
-@router.patch("/{wine_id}/availability")
-def toggle_wine_availability(wine_id: str, available: bool, db: Session = Depends(get_db)):
-    """Toggle wine availability"""
+@router.patch(
+    "/{wine_id}/availability",
+    summary="Toggle wine availability",
+    description="Mark a wine as available or unavailable without deleting it"
+)
+def toggle_wine_availability(
+    wine_id: str, 
+    available: bool = Query(..., description="New availability status"),
+    db: Session = Depends(get_db)
+):
+    """
+    Toggle wine availability status.
+    
+    Useful for temporarily hiding wines from menu without deletion.
+    """
     db_wine = db.query(WineModel).filter(WineModel.id == wine_id).first()
     if not db_wine:
         raise HTTPException(status_code=404, detail="Wine not found")
