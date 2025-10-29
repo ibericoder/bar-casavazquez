@@ -117,8 +117,19 @@ async def root():
     return {"message": "Casa Vazquez API v2.0"}
 
 @app.get("/health")
-async def health_check():
-    return {"status": "healthy"}
+async def health_check(db: Session = Depends(get_db)):
+    try:
+        db.execute("SELECT 1")
+        db_status = "connected"
+    except Exception as e:
+        logger.error(f"DB health check failed: {e}")
+        db_status = "disconnected"
+    
+    return {
+        "status": "healthy",
+        "version": "2.0.0",
+        "database": db_status
+    }
 
 
 @app.get("/api/chat/recommend")
