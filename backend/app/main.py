@@ -11,6 +11,7 @@ from .core.config import settings
 from .core.database import get_db, get_async_db
 from .api import wines, drinks, snacks, notifications, auth
 from .mcp.wine_recommender import WineRecommender
+from .middleware import RateLimitMiddleware
 from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel
@@ -79,10 +80,11 @@ async def chat_with_bot(chat_message: ChatMessage, db: AsyncSession = Depends(ge
             detail=f"Error processing chat message: {str(e)}"
         )
 
-# CORS middleware
+# Middleware
+app.add_middleware(RateLimitMiddleware, calls=100, period=60)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.cors_origins,  # Use the property instead
+    allow_origins=settings.cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
