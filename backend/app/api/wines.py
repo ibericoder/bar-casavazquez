@@ -1,6 +1,8 @@
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, UploadFile, File
 from sqlalchemy.orm import Session
 from typing import List, Optional
+import os
+from pathlib import Path
 
 from ..core.database import get_db
 from ..models.wine import Wine as WineModel
@@ -110,3 +112,32 @@ def get_available_colors(db: Session = Depends(get_db)):
     """Get all available wine colors"""
     colors = db.query(WineModel.color).filter(WineModel.available == True).distinct().all()
     return [color[0] for color in colors]
+
+@router.post("/{wine_id}/image")
+async def upload_wine_image(
+    wine_id: str,
+    file: UploadFile = File(...),
+    db: Session = Depends(get_db)
+):
+    """Upload image for wine"""
+    db_wine = db.query(WineModel).filter(WineModel.id == wine_id).first()
+    if not db_wine:
+        raise HTTPException(status_code=404, detail="Wine not found")
+    
+    if not file.content_type or not file.content_type.startswith("image/"):
+        raise HTTPException(status_code=400, detail="File must be an image")
+    
+    upload_dir = Path("uploads/wines")
+    upload_dir.mkdir(parents=True, exist_ok=True)
+    
+    file_extension = file.filename.split(".")[-1] if file.filename else "jpg"
+    file_path = upload_dir / f"{wine_id}.{file_extension}"
+    
+    content = await file.read()
+    with open(file_path, "wb") as f:
+        f.write(content)
+    
+    db_wine.image = str(file_path)
+    db.commit()
+    
+    return {"message": "Image uploaded", "path": str(file_path)}
