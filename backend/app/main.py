@@ -42,6 +42,12 @@ async def general_exception_handler(request: Request, exc: Exception):
         content={"detail": "Internal server error"}
     )
 
+@app.middleware("http")
+async def add_version_header(request: Request, call_next):
+    response = await call_next(request)
+    response.headers["X-API-Version"] = "2.0.0"
+    return response
+
 # Temporary chat models and endpoints
 class ChatMessage(BaseModel):
     message: str
