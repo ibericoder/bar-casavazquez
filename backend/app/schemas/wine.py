@@ -1,18 +1,25 @@
-from pydantic import BaseModel, ConfigDict
-from typing import Optional, Dict, Any
+from pydantic import BaseModel, ConfigDict, Field, field_validator
+from typing import Optional, Dict, Any, Literal
 from datetime import datetime
 
 class WineBase(BaseModel):
-    name: str
-    color: str  # 'red', 'white', 'rosé'
-    grape: str
-    origin: Optional[str] = None
-    short_description: Optional[str] = None
-    long_description: Optional[str] = None
-    image: Optional[str] = None
-    characteristics: Optional[str] = None
+    name: str = Field(..., min_length=1, max_length=200)
+    color: Literal['red', 'white', 'rosé']
+    grape: str = Field(..., min_length=1, max_length=200)
+    origin: Optional[str] = Field(None, max_length=200)
+    short_description: Optional[str] = Field(None, max_length=500)
+    long_description: Optional[str] = Field(None, max_length=2000)
+    image: Optional[str] = Field(None, max_length=500)
+    characteristics: Optional[str] = Field(None, max_length=500)
     available: bool = True
-    prices: Dict[str, str]  # e.g., {"0.1l": "4,00€", "flasche": "25,00€"}
+    prices: Dict[str, str] = Field(..., min_length=1)
+    
+    @field_validator('prices')
+    @classmethod
+    def validate_prices(cls, v):
+        if not v:
+            raise ValueError('at least one price required')
+        return v
 
 class WineCreate(WineBase):
     id: str
