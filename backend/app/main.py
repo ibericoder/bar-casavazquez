@@ -13,6 +13,7 @@ from .api import wines, drinks, snacks, notifications, auth
 from .mcp.wine_recommender import WineRecommender
 from .middleware import RateLimitMiddleware
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import Session
 from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel
 from typing import List, Dict, Any, Optional
