@@ -85,6 +85,20 @@ def toggle_drink_availability(drink_id: int, available: bool, db: Session = Depe
     db.refresh(db_drink)
     return {"message": f"Drink availability updated to {available}"}
 
+@router.patch("/{drink_id}/price")
+def update_drink_price(drink_id: int, price_update: dict, db: Session = Depends(get_db)):
+    """Update drink price"""
+    db_drink = db.query(DrinkModel).filter(DrinkModel.id == drink_id).first()
+    if not db_drink:
+        raise HTTPException(status_code=404, detail="Drink not found")
+    
+    if 'price' in price_update:
+        db_drink.price = price_update['price']
+    
+    db.commit()
+    db.refresh(db_drink)
+    return {"message": "Drink price updated"}
+
 @router.get("/categories/available")
 def get_available_categories(db: Session = Depends(get_db)):
     """Get all available drink categories"""

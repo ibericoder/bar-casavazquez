@@ -89,6 +89,20 @@ def toggle_snack_availability(snack_id: int, available: bool, db: Session = Depe
     db.refresh(db_snack)
     return {"message": f"Snack availability updated to {available}"}
 
+@router.patch("/{snack_id}/price")
+def update_snack_price(snack_id: int, price_update: dict, db: Session = Depends(get_db)):
+    """Update snack price"""
+    db_snack = db.query(SnackModel).filter(SnackModel.id == snack_id).first()
+    if not db_snack:
+        raise HTTPException(status_code=404, detail="Snack not found")
+    
+    if 'price' in price_update:
+        db_snack.price = price_update['price']
+    
+    db.commit()
+    db.refresh(db_snack)
+    return {"message": "Snack price updated"}
+
 @router.get("/categories/available")
 def get_available_categories(db: Session = Depends(get_db)):
     """Get all available snack categories"""

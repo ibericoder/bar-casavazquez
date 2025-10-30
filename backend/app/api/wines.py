@@ -153,6 +153,61 @@ def toggle_wine_availability(
     db.refresh(db_wine)
     return {"message": f"Wine availability updated to {available}"}
 
+@router.patch(
+    "/{wine_id}/price",
+    summary="Update wine price",
+    description="Update the price for a specific wine"
+)
+def update_wine_price(
+    wine_id: str,
+    price_update: dict,
+    db: Session = Depends(get_db)
+):
+    """
+    Update wine price.
+    
+    Accepts a dict with price keys like {'flasche': '25.00€', '0.1l': '4.00€'}
+    """
+    db_wine = db.query(WineModel).filter(WineModel.id == wine_id).first()
+    if not db_wine:
+        raise HTTPException(status_code=404, detail="Wine not found")
+    
+    for key, value in price_update.items():
+        if key in db_wine.prices:
+            db_wine.prices[key] = value
+    
+    db.commit()
+    db.refresh(db_wine)
+    return {"message": "Wine price updated"}
+
+@router.patch(
+    "/{wine_id}/details",
+    summary="Update wine details",
+    description="Update name and description for a specific wine"
+)
+def update_wine_details(
+    wine_id: str,
+    details_update: dict,
+    db: Session = Depends(get_db)
+):
+    """
+    Update wine details.
+    
+    Accepts a dict with keys like {'name': 'New Name', 'shortDescription': 'New desc'}
+    """
+    db_wine = db.query(WineModel).filter(WineModel.id == wine_id).first()
+    if not db_wine:
+        raise HTTPException(status_code=404, detail="Wine not found")
+    
+    if 'name' in details_update:
+        db_wine.name = details_update['name']
+    if 'shortDescription' in details_update:
+        db_wine.short_description = details_update['shortDescription']
+    
+    db.commit()
+    db.refresh(db_wine)
+    return {"message": "Wine details updated"}
+
 @router.patch("/bulk/prices")
 def bulk_update_prices(updates: dict, db: Session = Depends(get_db)):
     """Bulk update wine prices"""
