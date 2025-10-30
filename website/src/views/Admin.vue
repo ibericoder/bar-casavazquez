@@ -30,7 +30,7 @@
               <input type="text" v-model="wine.name" @change="updateWineDetails(wine)">
             </td>
             <td>
-              <input type="text" v-model="wine.shortDescription" @change="updateWineDetails(wine)">
+              <input type="text" v-model="wine.short_description" @change="updateWineDetails(wine)">
             </td>
             <td>
               <input type="text" v-model="wine.prices.flasche" @change="updateWinePrice(wine)">
@@ -258,7 +258,7 @@ async function updateWineDetails(wine: WineItem) {
     const response = await fetch(`${API_BASE}/api/wines/${wine.id}/details`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: wine.name, shortDescription: wine.shortDescription })
+      body: JSON.stringify({ name: wine.name, short_description: wine.short_description })
     });
     if (!response.ok) throw new Error('Failed to update wine details');
   } catch (err) {

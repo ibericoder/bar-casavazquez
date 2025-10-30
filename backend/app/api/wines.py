@@ -193,7 +193,7 @@ def update_wine_details(
     """
     Update wine details.
     
-    Accepts a dict with keys like {'name': 'New Name', 'shortDescription': 'New desc'}
+    Accepts a dict with keys like {'name': 'New Name', 'short_description': 'New desc'}
     """
     db_wine = db.query(WineModel).filter(WineModel.id == wine_id).first()
     if not db_wine:
@@ -201,8 +201,8 @@ def update_wine_details(
     
     if 'name' in details_update:
         db_wine.name = details_update['name']
-    if 'shortDescription' in details_update:
-        db_wine.short_description = details_update['shortDescription']
+    if 'short_description' in details_update:
+        db_wine.short_description = details_update['short_description']
     
     db.commit()
     db.refresh(db_wine)

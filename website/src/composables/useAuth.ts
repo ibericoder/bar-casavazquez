@@ -51,11 +51,13 @@ export function useAuth() {
   };
 
   const authenticatedFetch = async (url: string, options: RequestInit = {}) => {
-    const headers = {
-      'Content-Type': 'application/json',
-      ...getAuthHeaders(),
-      ...(options.headers || {})
-    };
+    const headers = Object.fromEntries(
+      Object.entries({
+        'Content-Type': 'application/json',
+        ...getAuthHeaders(),
+        ...(options.headers || {})
+      }).filter(([_, v]) => v !== undefined)
+    );
 
     const response = await fetch(url, {
       ...options,

@@ -6,7 +6,7 @@ import DrinkMenu from '../views/DrinkMenu.vue';
 import Showroom from '../views/Showroom.vue';
 import WineTasting from '../views/WineTasting.vue';
 import Legals from '../views/Legals.vue';
-import AdminPanel from '../views/AdminPanel.vue';
+import Admin from '../views/Admin.vue';
 
 const routes = [
     {
@@ -50,8 +50,8 @@ const routes = [
     },
     {
         path: '/admin',
-        name: 'AdminPanel',
-        component: AdminPanel,
+        name: 'Admin',
+        component: Admin,
     },
     {
         path: '/:pathMatch(.*)*',
@@ -62,7 +62,7 @@ const routes = [
 const router = createRouter({
     history: createWebHistory('/casavazquez/'),
     routes,
-    scrollBehavior(to, from, savedPosition) {
+    scrollBehavior(_to, _from, savedPosition) {
         if (savedPosition) {
             return savedPosition;
         }

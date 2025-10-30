@@ -31,8 +31,8 @@
     <transition name="accordion">
       <div class="expanded-view" v-if="isOpen">
         <p v-if="snack.origin"><strong>Herkunft:</strong> {{ snack.origin }}</p>
-        <p v-if="snack.shortDescription"><strong>Beschreibung:</strong> {{ snack.shortDescription }}</p>
-        <p v-if="snack.longDescription">{{ snack.longDescription }}</p>
+        <p v-if="snack.short_description"><strong>Beschreibung:</strong> {{ snack.short_description }}</p>
+        <p v-if="snack.long_description">{{ snack.long_description }}</p>
       </div>
     </transition>
   </div>

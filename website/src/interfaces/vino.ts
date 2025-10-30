@@ -11,8 +11,8 @@ export interface Wine {
     color: Color;
     grape: string;
     origin?: string;
-    shortDescription?: string;
-    longDescription?: string;
+    short_description?: string;
+    long_description?: string;
     image?: string | null;
     characteristics?: string;
     available: boolean;
