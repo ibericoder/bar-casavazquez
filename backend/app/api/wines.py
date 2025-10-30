@@ -21,6 +21,8 @@ def get_wines(
     color: Optional[str] = Query(None, description="Filter by wine color (red, white, rosé)", example="red"),
     available_only: bool = Query(True, description="Show only available wines"),
     search: Optional[str] = Query(None, description="Search in name, grape, or origin"),
+    skip: int = Query(0, ge=0, description="Number of wines to skip"),
+    limit: int = Query(100, ge=1, le=100, description="Max wines to return"),
     db: Session = Depends(get_db)
 ):
     """
@@ -46,7 +48,7 @@ def get_wines(
             (WineModel.origin.ilike(search_term))
         )
     
-    wines = query.all()
+    wines = query.offset(skip).limit(limit).all()
     return wines
 
 @router.get("/vinos", response_model=List[Wine])
