@@ -247,9 +247,14 @@ async function updateWinePrice(wine: WineItem) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(wine.prices)
     });
-    if (!response.ok) throw new Error('Failed to update wine price');
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to update wine price: ${errorText}`);
+    }
+    console.log('Wine price updated successfully');
   } catch (err) {
-    window.alert('Error updating wine price');
+    console.error('Error updating wine price:', err);
+    window.alert('Error updating wine price: ' + (err instanceof Error ? err.message : 'Unknown error'));
   }
 }
 
@@ -260,9 +265,14 @@ async function updateWineDetails(wine: WineItem) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: wine.name, short_description: wine.short_description })
     });
-    if (!response.ok) throw new Error('Failed to update wine details');
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to update wine details: ${errorText}`);
+    }
+    console.log('Wine details updated successfully');
   } catch (err) {
-    window.alert('Error updating wine details');
+    console.error('Error updating wine details:', err);
+    window.alert('Error updating wine details: ' + (err instanceof Error ? err.message : 'Unknown error'));
   }
 }
 

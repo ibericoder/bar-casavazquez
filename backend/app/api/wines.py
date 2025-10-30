@@ -172,10 +172,15 @@ def update_wine_price(
     if not db_wine:
         raise HTTPException(status_code=404, detail="Wine not found")
     
+    # Update prices - create new dict to trigger SQLAlchemy change detection
+    new_prices = dict(db_wine.prices) if db_wine.prices else {}
     for key, value in price_update.items():
-        if key in db_wine.prices:
-            db_wine.prices[key] = value
+        if value and value.strip():  # Only update non-empty values
+            new_prices[key] = value
+        elif key in new_prices:  # Remove if empty
+            del new_prices[key]
     
+    db_wine.prices = new_prices
     db.commit()
     db.refresh(db_wine)
     return {"message": "Wine price updated"}
