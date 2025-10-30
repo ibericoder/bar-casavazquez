@@ -105,6 +105,18 @@ def delete_wine(wine_id: str, db: Session = Depends(get_db)):
     db.commit()
     return {"message": "Wine deleted successfully"}
 
+@router.post("/bulk/delete")
+def bulk_delete(wine_ids: list[str], db: Session = Depends(get_db)):
+    """Delete multiple wines at once"""
+    deleted = 0
+    for wine_id in wine_ids:
+        wine = db.query(WineModel).filter(WineModel.id == wine_id).first()
+        if wine:
+            db.delete(wine)
+            deleted += 1
+    db.commit()
+    return {"deleted": deleted}
+
 @router.patch(
     "/{wine_id}/availability",
     summary="Toggle wine availability",
