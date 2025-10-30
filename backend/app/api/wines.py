@@ -20,6 +20,7 @@ router = APIRouter()
 def get_wines(
     color: Optional[str] = Query(None, description="Filter by wine color (red, white, rosé)", example="red"),
     available_only: bool = Query(True, description="Show only available wines"),
+    search: Optional[str] = Query(None, description="Search in name, grape, or origin"),
     db: Session = Depends(get_db)
 ):
     """
@@ -27,6 +28,7 @@ def get_wines(
     
     - **color**: Filter by wine color (red, white, or rosé)
     - **available_only**: Set to false to include unavailable wines
+    - **search**: Search text in wine name, grape variety, or origin
     """
     query = db.query(WineModel)
     
@@ -35,6 +37,14 @@ def get_wines(
     
     if color:
         query = query.filter(WineModel.color == color)
+    
+    if search:
+        search_term = f"%{search}%"
+        query = query.filter(
+            (WineModel.name.ilike(search_term)) |
+            (WineModel.grape.ilike(search_term)) |
+            (WineModel.origin.ilike(search_term))
+        )
     
     wines = query.all()
     return wines
