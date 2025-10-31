@@ -2,6 +2,11 @@
   <div class="admin-panel">
     <h1>Admin Panel</h1>
 
+    <div v-if="lastChange" class="undo-banner">
+      <span>letzte Änderung: {{ lastChange.type }} von {{ lastChange.itemName }}</span>
+      <button @click="undoLastChange" class="undo-btn">Undo</button>
+    </div>
+
     <div class="tabs">
       <button v-for="tab in tabs" :key="tab" :class="{ active: activeTab === tab }" @click="activeTab = tab">
         {{ tab }}
@@ -21,7 +26,6 @@
             <th>0.1l</th>
             <th>0.2l</th>
             <th>Available</th>
-            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -33,19 +37,16 @@
               <input type="text" v-model="wine.short_description" @change="updateWineDetails(wine)">
             </td>
             <td>
-              <input type="text" v-model="wine.prices.flasche" @change="updateWinePrice(wine)">
+              <input type="number" step="0.01" v-model="wine.prices.flasche" @change="updateWinePrice(wine)">
             </td>
             <td>
-              <input type="text" v-model="wine.prices['0.1l']" @change="updateWinePrice(wine)">
+              <input type="number" step="0.01" v-model="wine.prices['0.1l']" @change="updateWinePrice(wine)">
             </td>
             <td>
-              <input type="text" v-model="wine.prices['0.2l']" @change="updateWinePrice(wine)">
+              <input type="number" step="0.01" v-model="wine.prices['0.2l']" @change="updateWinePrice(wine)">
             </td>
             <td>
               <input type="checkbox" v-model="wine.available" @change="toggleWineAvailable(wine)">
-            </td>
-            <td>
-              <button @click="deleteWine(wine)">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -60,7 +61,6 @@
             <th>Description</th>
             <th>Price</th>
             <th>Available</th>
-            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -68,13 +68,10 @@
             <td>{{ drink.name }}</td>
             <td>{{ drink.description }}</td>
             <td>
-              <input type="text" v-model="drink.price" @change="updateDrinkPrice(drink)">
+              <input type="number" step="0.01" v-model="drink.price" @change="updateDrinkPrice(drink)">
             </td>
             <td>
               <input type="checkbox" v-model="drink.available" @change="toggleDrinkAvailable(drink)">
-            </td>
-            <td>
-              <button @click="deleteDrink(drink)">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -89,7 +86,6 @@
             <th>Description</th>
             <th>Price</th>
             <th>Available</th>
-            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -97,13 +93,10 @@
             <td>{{ snack.name }}</td>
             <td>{{ snack.description }}</td>
             <td>
-              <input type="text" v-model="snack.price" @change="updateSnackPrice(snack)">
+              <input type="number" step="0.01" v-model="snack.price" @change="updateSnackPrice(snack)">
             </td>
             <td>
               <input type="checkbox" v-model="snack.available" @change="toggleSnackAvailable(snack)">
-            </td>
-            <td>
-              <button @click="deleteSnack(snack)">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -135,6 +128,14 @@ type SnackItem = {
   price: string;
 };
 
+type ChangeHistory = {
+  type: 'wine-price' | 'wine-details' | 'wine-availability' | 'drink-price' | 'drink-availability' | 'snack-price' | 'snack-availability';
+  itemId: string | number;
+  itemName: string;
+  previousData: any;
+  endpoint: string;
+};
+
 const tabs: TabKey[] = ['Wines', 'Drinks', 'Snacks'];
 const activeTab = ref<TabKey>('Wines');
 
@@ -144,6 +145,7 @@ const snacks = ref<SnackItem[]>([]);
 
 const loading = ref(false);
 const error = ref<string | null>(null);
+const lastChange = ref<ChangeHistory | null>(null);
 
 const isLocal = import.meta.env.DEV
   || window.location.hostname === 'localhost'
@@ -198,8 +200,41 @@ async function loadSnacks() {
   }
 }
 
+async function undoLastChange() {
+  if (!lastChange.value) return;
+  
+  try {
+    const response = await fetch(`${API_BASE}${lastChange.value.endpoint}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(lastChange.value.previousData)
+    });
+    
+    if (!response.ok) throw new Error('Failed to undo change');
+    
+    if (lastChange.value.type.startsWith('wine')) await loadWines();
+    else if (lastChange.value.type.startsWith('drink')) await loadDrinks();
+    else if (lastChange.value.type.startsWith('snack')) await loadSnacks();
+    
+    lastChange.value = null;
+  } catch (err) {
+    window.alert('Error undoing change: ' + (err instanceof Error ? err.message : 'Unknown error'));
+  }
+}
+
 async function toggleWineAvailable(wine: WineItem) {
-  const nextStatus = wine.available;
+  const previousAvailable = wine.available;
+  const nextStatus = !previousAvailable;
+  wine.available = nextStatus;
+  
+  lastChange.value = {
+    type: 'wine-availability',
+    itemId: wine.id,
+    itemName: wine.name,
+    previousData: { available: previousAvailable },
+    endpoint: `/api/wines/${wine.id}/availability?available=${previousAvailable}`
+  };
+  
   try {
     const response = await fetch(`${API_BASE}/api/wines/${wine.id}/availability?available=${nextStatus}`, {
       method: 'PATCH'
@@ -208,12 +243,24 @@ async function toggleWineAvailable(wine: WineItem) {
     await loadWines();
   } catch (err) {
     window.alert('Error updating wine');
-    wine.available = !nextStatus;
+    wine.available = previousAvailable;
+    lastChange.value = null;
   }
 }
 
 async function toggleDrinkAvailable(drink: DrinkItem) {
-  const nextStatus = drink.available;
+  const previousAvailable = drink.available;
+  const nextStatus = !previousAvailable;
+  drink.available = nextStatus;
+  
+  lastChange.value = {
+    type: 'drink-availability',
+    itemId: drink.id,
+    itemName: drink.name,
+    previousData: { available: previousAvailable },
+    endpoint: `/api/drinks/${drink.id}/availability?available=${previousAvailable}`
+  };
+  
   try {
     const response = await fetch(`${API_BASE}/api/drinks/${drink.id}/availability?available=${nextStatus}`, {
       method: 'PATCH'
@@ -222,12 +269,24 @@ async function toggleDrinkAvailable(drink: DrinkItem) {
     await loadDrinks();
   } catch (err) {
     window.alert('Error updating drink');
-    drink.available = !nextStatus;
+    drink.available = previousAvailable;
+    lastChange.value = null;
   }
 }
 
 async function toggleSnackAvailable(snack: SnackItem) {
-  const nextStatus = snack.available;
+  const previousAvailable = snack.available;
+  const nextStatus = !previousAvailable;
+  snack.available = nextStatus;
+  
+  lastChange.value = {
+    type: 'snack-availability',
+    itemId: snack.id,
+    itemName: snack.name,
+    previousData: { available: previousAvailable },
+    endpoint: `/api/snacks/${snack.id}/availability?available=${previousAvailable}`
+  };
+  
   try {
     const response = await fetch(`${API_BASE}/api/snacks/${snack.id}/availability?available=${nextStatus}`, {
       method: 'PATCH'
@@ -236,11 +295,25 @@ async function toggleSnackAvailable(snack: SnackItem) {
     await loadSnacks();
   } catch (err) {
     window.alert('Error updating snack');
-    snack.available = !nextStatus;
+    snack.available = previousAvailable;
+    lastChange.value = null;
   }
 }
 
 async function updateWinePrice(wine: WineItem) {
+  const originalWine = wines.value.find(w => w.id === wine.id);
+  if (!originalWine) return;
+  
+  const previousPrices = { ...originalWine.prices };
+  
+  lastChange.value = {
+    type: 'wine-price',
+    itemId: wine.id,
+    itemName: wine.name,
+    previousData: previousPrices,
+    endpoint: `/api/wines/${wine.id}/price`
+  };
+  
   try {
     const response = await fetch(`${API_BASE}/api/wines/${wine.id}/price`, {
       method: 'PATCH',
@@ -255,10 +328,27 @@ async function updateWinePrice(wine: WineItem) {
   } catch (err) {
     console.error('Error updating wine price:', err);
     window.alert('Error updating wine price: ' + (err instanceof Error ? err.message : 'Unknown error'));
+    lastChange.value = null;
   }
 }
 
 async function updateWineDetails(wine: WineItem) {
+  const originalWine = wines.value.find(w => w.id === wine.id);
+  if (!originalWine) return;
+  
+  const previousDetails = {
+    name: originalWine.name,
+    short_description: originalWine.short_description
+  };
+  
+  lastChange.value = {
+    type: 'wine-details',
+    itemId: wine.id,
+    itemName: originalWine.name,
+    previousData: previousDetails,
+    endpoint: `/api/wines/${wine.id}/details`
+  };
+  
   try {
     const response = await fetch(`${API_BASE}/api/wines/${wine.id}/details`, {
       method: 'PATCH',
@@ -273,10 +363,24 @@ async function updateWineDetails(wine: WineItem) {
   } catch (err) {
     console.error('Error updating wine details:', err);
     window.alert('Error updating wine details: ' + (err instanceof Error ? err.message : 'Unknown error'));
+    lastChange.value = null;
   }
 }
 
 async function updateDrinkPrice(drink: DrinkItem) {
+  const originalDrink = drinks.value.find(d => d.id === drink.id);
+  if (!originalDrink) return;
+  
+  const previousPrice = originalDrink.price;
+  
+  lastChange.value = {
+    type: 'drink-price',
+    itemId: drink.id,
+    itemName: drink.name,
+    previousData: { price: previousPrice },
+    endpoint: `/api/drinks/${drink.id}/price`
+  };
+  
   try {
     const response = await fetch(`${API_BASE}/api/drinks/${drink.id}/price`, {
       method: 'PATCH',
@@ -286,10 +390,24 @@ async function updateDrinkPrice(drink: DrinkItem) {
     if (!response.ok) throw new Error('Failed to update drink price');
   } catch (err) {
     window.alert('Error updating drink price');
+    lastChange.value = null;
   }
 }
 
 async function updateSnackPrice(snack: SnackItem) {
+  const originalSnack = snacks.value.find(s => s.id === snack.id);
+  if (!originalSnack) return;
+  
+  const previousPrice = originalSnack.price;
+  
+  lastChange.value = {
+    type: 'snack-price',
+    itemId: snack.id,
+    itemName: snack.name,
+    previousData: { price: previousPrice },
+    endpoint: `/api/snacks/${snack.id}/price`
+  };
+  
   try {
     const response = await fetch(`${API_BASE}/api/snacks/${snack.id}/price`, {
       method: 'PATCH',
@@ -299,39 +417,7 @@ async function updateSnackPrice(snack: SnackItem) {
     if (!response.ok) throw new Error('Failed to update snack price');
   } catch (err) {
     window.alert('Error updating snack price');
-  }
-}
-
-async function deleteWine(wine: WineItem) {
-  if (!window.confirm(`Delete ${wine.name}?`)) return;
-  try {
-    const response = await fetch(`${API_BASE}/api/wines/${wine.id}`, { method: 'DELETE' });
-    if (!response.ok) throw new Error('Failed to delete wine');
-    wines.value = wines.value.filter(item => item.id !== wine.id);
-  } catch (err) {
-    window.alert('Error deleting wine');
-  }
-}
-
-async function deleteDrink(drink: DrinkItem) {
-  if (!window.confirm(`Delete ${drink.name}?`)) return;
-  try {
-    const response = await fetch(`${API_BASE}/api/drinks/${drink.id}`, { method: 'DELETE' });
-    if (!response.ok) throw new Error('Failed to delete drink');
-    drinks.value = drinks.value.filter(item => item.id !== drink.id);
-  } catch (err) {
-    window.alert('Error deleting drink');
-  }
-}
-
-async function deleteSnack(snack: SnackItem) {
-  if (!window.confirm(`Delete ${snack.name}?`)) return;
-  try {
-    const response = await fetch(`${API_BASE}/api/snacks/${snack.id}`, { method: 'DELETE' });
-    if (!response.ok) throw new Error('Failed to delete snack');
-    snacks.value = snacks.value.filter(item => item.id !== snack.id);
-  } catch (err) {
-    window.alert('Error deleting snack');
+    lastChange.value = null;
   }
 }
 
@@ -396,5 +482,35 @@ button {
   margin-right: 0.5rem;
   padding: 0.25rem 0.5rem;
   cursor: pointer;
+}
+
+.undo-banner {
+  background-color: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.undo-banner span {
+  font-weight: 500;
+}
+
+.undo-btn {
+  background-color: #ffc107;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.undo-btn:hover {
+  background-color: #ffca2c;
 }
 </style>
