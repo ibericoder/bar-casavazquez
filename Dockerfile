@@ -45,6 +45,9 @@ COPY --from=frontend-builder /app/website/dist/ ../website/dist/
 # Create database and migrate data
 RUN python init_db.py && python migrate_data.py
 
+# Set environment variable to indicate Cloud Run
+ENV CLOUD_RUN=true
+
 # Expose port
 EXPOSE 8080
 

@@ -9,10 +9,16 @@ import uvicorn
 from app.main import app
 
 if __name__ == "__main__":
+    import os
+    
+    # Use 0.0.0.0 for production (Cloud Run), 127.0.0.1 for local dev
+    host = "0.0.0.0" if os.getenv("CLOUD_RUN") else "127.0.0.1"
+    reload = os.getenv("CLOUD_RUN") is None
+    
     uvicorn.run(
         "app.main:app",
-        host="127.0.0.1",
+        host=host,
         port=8080,
-        reload=True,
+        reload=reload,
         log_level="info"
     )
