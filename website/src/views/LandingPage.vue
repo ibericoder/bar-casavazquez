@@ -132,7 +132,7 @@
 
 <script setup lang="ts">
 import {ref, onMounted} from "vue";
-import {notifications} from "../../../data/notifications.ts";
+import {notifications} from "../data/notifications.ts";
 import NotificationCard from "../components/NotificationCard.vue";
 import osterei from "../assets/images/icons8-easter-64.png";
 
