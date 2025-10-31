@@ -110,8 +110,6 @@ app.include_router(wines.router, prefix="/casavazquez/api", tags=["legacy"])
 
 # Static file serving for Vue frontend
 website_dist = Path(__file__).parent.parent.parent / "website" / "dist"
-if website_dist.exists():
-    app.mount("/casavazquez", StaticFiles(directory=str(website_dist)), name="static")
 
 @app.get("/")
 async def root():
@@ -140,11 +138,22 @@ async def recommend_get(message: str, db: AsyncSession = Depends(get_async_db)):
     result = await recommender.recommend_wines(message, db)
     return result
 
-# Serve Vue.js app for all other routes
-@app.get("/casavazquez/{full_path:path}")
-async def serve_vue_app(full_path: str):
-    """Serve the Vue.js app for any route that doesn't match the API"""
-    index_path = website_dist / "index.html"
-    if index_path.exists():
-        return FileResponse(str(index_path))
-    return {"error": "Frontend not found"}
+# Serve Vue.js app for all other routes (must be AFTER all API routes)
+if website_dist.exists():
+    # Mount static assets (js, css, images)
+    app.mount("/casavazquez/assets", StaticFiles(directory=str(website_dist / "assets")), name="assets")
+    
+    # Catch-all route for Vue SPA - must be last
+    @app.get("/casavazquez/{full_path:path}")
+    async def serve_vue_app(full_path: str):
+        """Serve the Vue.js app for any route that doesn't match the API"""
+        # Try to serve the requested file first (for static assets in root like favicon)
+        requested_file = website_dist / full_path
+        if requested_file.exists() and requested_file.is_file():
+            return FileResponse(str(requested_file))
+        
+        # Otherwise serve index.html for Vue Router
+        index_path = website_dist / "index.html"
+        if index_path.exists():
+            return FileResponse(str(index_path))
+        return {"error": "Frontend not found"}
