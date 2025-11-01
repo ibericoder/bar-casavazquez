@@ -178,10 +178,9 @@ const snacks = [
   { name: 'Nachos mit Aioli Dip', description: '', price: '5', veggie: true },
   { name: 'Brot Aioli Dip', description: '', price: '5', veggie: true },
   { name: 'Oliven Mix', description: '', price: '5', veggie: true, onm: true },
-  { name: 'Plato de Jamón', description: '(80g) + Brot', price: '9,5', veggie: false },
-  { name: 'Plato de Quesos', description: '(80g) + Brot', price: '9,5', veggie: true },
+  { name: 'Plato de Jamón', description: 'Serrano Schinken + Brot', price: '9,5', veggie: false },
+  { name: 'Plato de Quesos', description: 'Manchego Käse + Brot', price: '9,5', veggie: true },
   { name: 'Dátiles con Bacon', description: 'Datteln im Speckmantel', price: '7,5', veggie: false },
-  { name: 'Kroketten + Dip', description: 'gefüllt mit Kräuterfrischkäse', price: '6,5', veggie: false },
   { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '6,5', veggie: false },
   { name: 'Deditos de pollo', description: 'saftige panierte Hähnchen-Sticks', price: '6,5', veggie: false },
   { name: 'Plato Mixto', description: 'Gemischte Platte mit Jamón & Quesos + Brot', price: '16,5', veggie: false },
@@ -211,23 +210,23 @@ function loadCounter() {
   }
 }
 
-/** function saveCounter() {
- const now = Date.now()
- localStorage.setItem(storageKey, portionCount.value.toString())
- localStorage.setItem(ttlKey, (now + 12 * 60 * 60 * 1000).toString())
- } */
+function saveCounter() {
+  const now = Date.now()
+  localStorage.setItem(storageKey, portionCount.value.toString())
+  localStorage.setItem(ttlKey, (now + 12 * 60 * 60 * 1000).toString())
+}
 
-/** function incrementCounter() {
- portionCount.value++
- saveCounter()
- }
+function incrementCounter() {
+  portionCount.value++
+  saveCounter()
+}
 
- function decrementCounter() {
- if (portionCount.value > 0) {
- portionCount.value--
- saveCounter()
- }
- } */
+function decrementCounter() {
+  if (portionCount.value > 0) {
+    portionCount.value--
+    saveCounter()
+  }
+}
 
 onMounted(() => {
   loadCounter()
