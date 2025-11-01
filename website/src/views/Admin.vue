@@ -37,13 +37,13 @@
               <input type="text" v-model="wine.short_description" @change="updateWineDetails(wine)">
             </td>
             <td>
-              <input type="number" step="0.01" v-model="wine.prices.flasche" @change="updateWinePrice(wine)">
+              <input type="text" v-model="wine.prices.flasche" @change="updateWinePrice(wine)" placeholder="z.B. 25,00€">
             </td>
             <td>
-              <input type="number" step="0.01" v-model="wine.prices['0.1l']" @change="updateWinePrice(wine)">
+              <input type="text" v-model="wine.prices['0.1l']" @change="updateWinePrice(wine)" placeholder="z.B. 4,00€">
             </td>
             <td>
-              <input type="number" step="0.01" v-model="wine.prices['0.2l']" @change="updateWinePrice(wine)">
+              <input type="text" v-model="wine.prices['0.2l']" @change="updateWinePrice(wine)" placeholder="z.B. 7,50€">
             </td>
             <td>
               <input type="checkbox" v-model="wine.available" @change="toggleWineAvailable(wine)">
