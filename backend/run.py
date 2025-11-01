@@ -20,5 +20,7 @@ if __name__ == "__main__":
         host=host,
         port=8080,
         reload=reload,
-        log_level="info"
+        log_level="info",
+        proxy_headers=True,  # Trust X-Forwarded-* headers from Cloud Run
+        forwarded_allow_ips="*"  # Allow all IPs (Cloud Run load balancer)
     )
