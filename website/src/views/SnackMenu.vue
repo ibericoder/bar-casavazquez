@@ -171,23 +171,25 @@ function loadCounter() {
   }
 }
 
-/** function saveCounter() {
- const now = Date.now()
- localStorage.setItem(storageKey, portionCount.value.toString())
- localStorage.setItem(ttlKey, (now + 12 * 60 * 60 * 1000).toString())
- } */
+function saveCounter() {
+  const now = Date.now()
+  localStorage.setItem(storageKey, portionCount.value.toString())
+  localStorage.setItem(ttlKey, (now + 12 * 60 * 60 * 1000).toString())
+}
 
-/** function incrementCounter() {
- portionCount.value++
- saveCounter()
- }
+// @ts-ignore - used in template
+function incrementCounter() {
+  portionCount.value++
+  saveCounter()
+}
 
- function decrementCounter() {
- if (portionCount.value > 0) {
- portionCount.value--
- saveCounter()
- }
- } */
+// @ts-ignore - used in template
+function decrementCounter() {
+  if (portionCount.value > 0) {
+    portionCount.value--
+    saveCounter()
+  }
+}
 
 onMounted(() => {
   loadCounter()

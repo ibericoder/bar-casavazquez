@@ -259,13 +259,24 @@
 <script setup lang="ts">
 import {ref} from "vue";
 
+interface Drink {
+  name: string;
+  volume?: string;
+  price: string;
+  category: string;
+  alcoholic: boolean;
+  allergens?: number[];
+  available?: boolean;
+  neu?: boolean;
+}
+
 const nonAlcoholic = ref(false);
 
 function toggleNonAlcoholic() {
   nonAlcoholic.value = !nonAlcoholic.value;
 }
 
-const beers = [
+const beers: Drink[] = [
   {
     name: "Krombacher Radler",
     volume: "0,33l",
@@ -362,7 +373,7 @@ const beers = [
   }
 ];
 
-const softdrinks = [
+const softdrinks: Drink[] = [
   {
     name: "Eistee von Rauch",
     volume: "0,33l",
@@ -407,7 +418,7 @@ const softdrinks = [
   }
 ];
 
-const cocktails = [
+const cocktails: Drink[] = [
   {name: "Yuzu Sour", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [11]},
   {name: "Espresso Martini", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [8, 13]},
   {name: "Whisky Sour", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [11]},
@@ -415,21 +426,21 @@ const cocktails = [
   {name: "Skinny Bitch", price: "7,5€", category: "Cocktail", alcoholic: true, allergens: []},
 ];
 
-const spritz = [
+const spritz: Drink[] = [
   {name: "*Limoncello", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4]},
   {name: "*Aperol", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4]},
   {name: "Sarti", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4]},
   {name: "Yuzu", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4]},
 ];
 
-const no3 = [
+const no3: Drink[] = [
   {name: "Negroni", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [4]},
   {name: "Gin Fizz", price: "10,5€", category: "Cocktail", alcoholic: true, allergens: [11]},
   {name: "Gin Tonic", price: "7,9€", category: "Cocktail", alcoholic: true, allergens: [24]},
   {name: "Tom Collins", price: "7,5€", category: "Cocktail", alcoholic: true, allergens: []}
 ];
 
-const zeroAlc = [
+const zeroAlc: Drink[] = [
   {name: "Gin Fizz", price: "9€", category: "Cocktail", alcoholic: false, allergens: [11]},
   {name: "Gin Tonic", price: "7,5€", category: "Cocktail", alcoholic: false, allergens: [24]},
   {name: "Aperol Spritz", price: "7,5€", category: "Cocktail", alcoholic: false, allergens: [1, 4]},
