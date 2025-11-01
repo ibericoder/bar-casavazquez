@@ -27,9 +27,10 @@ def parse_ts_wine_data(file_path):
             if prices_match:
                 prices_str = prices_match.group(1)
                 prices = {}
-                price_items = re.findall(r'[\'"]([^\'"]+)[\'"]\s*:\s*[\'"]([^\'"]+)[\'"]', prices_str)
+                price_items = re.findall(r'[\'"]?([^\'":\s,]+)[\'"]?\s*:\s*[\'"]([^\'"]+)[\'"]', prices_str)
                 for key, value in price_items:
-                    prices[key] = value
+                    if key and value:
+                        prices[key] = value
                 wine['prices'] = prices
             
             color_match = re.search(r'color:\s*[\'"]([^\'"]+)[\'"]', block)

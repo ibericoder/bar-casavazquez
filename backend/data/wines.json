@@ -190,7 +190,9 @@
   {
     "name": "Dicatum",
     "id": "w173",
-    "prices": {},
+    "prices": {
+      "flasche": "69,00€"
+    },
     "color": "red",
     "grape": "Sangiovese",
     "origin": "Italien, Toskana",
