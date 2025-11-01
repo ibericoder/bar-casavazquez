@@ -37,13 +37,13 @@
               <input type="text" v-model="wine.short_description" @change="updateWineDetails(wine)">
             </td>
             <td>
-              <input type="text" v-model="wine.prices.flasche" @change="updateWinePrice(wine)" placeholder="z.B. 25,00€">
+              <input type="number" step="0.01" v-model.number="wine.price_bottle" @change="updateWinePrice(wine)">€
             </td>
             <td>
-              <input type="text" v-model="wine.prices['0.1l']" @change="updateWinePrice(wine)" placeholder="z.B. 4,00€">
+              <input type="number" step="0.01" v-model.number="wine.price_glass_01" @change="updateWinePrice(wine)">€
             </td>
             <td>
-              <input type="text" v-model="wine.prices['0.2l']" @change="updateWinePrice(wine)" placeholder="z.B. 7,50€">
+              <input type="number" step="0.01" v-model.number="wine.price_glass_02" @change="updateWinePrice(wine)">€
             </td>
             <td>
               <input type="checkbox" v-model="wine.available" @change="toggleWineAvailable(wine)">
@@ -304,7 +304,11 @@ async function updateWinePrice(wine: WineItem) {
   const originalWine = wines.value.find(w => w.id === wine.id);
   if (!originalWine) return;
   
-  const previousPrices = { ...originalWine.prices };
+  const previousPrices = {
+    price_bottle: originalWine.price_bottle,
+    price_glass_01: originalWine.price_glass_01,
+    price_glass_02: originalWine.price_glass_02
+  };
   
   lastChange.value = {
     type: 'wine-price',
@@ -318,7 +322,11 @@ async function updateWinePrice(wine: WineItem) {
     const response = await fetch(`${API_BASE}/api/wines/${wine.id}/price`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(wine.prices)
+      body: JSON.stringify({
+        price_bottle: wine.price_bottle,
+        price_glass_01: wine.price_glass_01,
+        price_glass_02: wine.price_glass_02
+      })
     });
     if (!response.ok) {
       const errorText = await response.text();

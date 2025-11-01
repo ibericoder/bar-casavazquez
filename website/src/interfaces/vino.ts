@@ -3,11 +3,9 @@ type Color = 'red' | 'white' | 'rosé';
 export interface Wine {
     id: string|number;
     name: string;
-    prices: {
-        '0.1l'?: string;
-        '0.2l'?: string;
-        flasche: string;
-    };
+    price_bottle: number | null;
+    price_glass_01: number | null;
+    price_glass_02: number | null;
     color: Color;
     grape: string;
     origin?: string;
