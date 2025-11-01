@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean, Text, JSON, DateTime
+from sqlalchemy import Column, Integer, String, Boolean, Text, JSON, DateTime, DECIMAL
 from sqlalchemy.sql import func
 from ..core.database import Base
 
@@ -7,7 +7,7 @@ class Snack(Base):
     
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     name = Column(String, nullable=False, index=True)
-    price = Column(String, nullable=False)
+    price = Column(DECIMAL(10, 2), nullable=False)
     category = Column(String, nullable=False)  # 'Tapita', 'Plato', etc.
     description = Column(Text, nullable=True)
     allergens = Column(JSON, nullable=True)  # Array of allergen numbers

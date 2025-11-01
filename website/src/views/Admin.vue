@@ -68,7 +68,7 @@
             <td>{{ drink.name }}</td>
             <td>{{ drink.description }}</td>
             <td>
-              <input type="number" step="0.01" v-model="drink.price" @change="updateDrinkPrice(drink)">
+              <input type="number" step="0.01" v-model.number="drink.price" @change="updateDrinkPrice(drink)">€
             </td>
             <td>
               <input type="checkbox" v-model="drink.available" @change="toggleDrinkAvailable(drink)">
@@ -93,7 +93,7 @@
             <td>{{ snack.name }}</td>
             <td>{{ snack.description }}</td>
             <td>
-              <input type="number" step="0.01" v-model="snack.price" @change="updateSnackPrice(snack)">
+              <input type="number" step="0.01" v-model.number="snack.price" @change="updateSnackPrice(snack)">€
             </td>
             <td>
               <input type="checkbox" v-model="snack.available" @change="toggleSnackAvailable(snack)">
@@ -476,6 +476,17 @@ td {
 
 th {
   background: #f4f4f4;
+}
+
+input[type="text"] {
+  width: 100%;
+  min-width: 150px;
+  padding: 0.25rem;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
 }
 
 button {

@@ -2,12 +2,25 @@ import sys
 import os
 import json
 from pathlib import Path
+from decimal import Decimal
+import re
 
 # Add the backend and project root to the Python path
 backend_dir = Path(__file__).parent
 project_root = backend_dir.parent
 sys.path.insert(0, str(backend_dir))
 sys.path.insert(0, str(project_root))
+
+def parse_price(price_str):
+    """Convert German price format to Decimal: '3,9€' -> 3.9 or '€39,50' -> 39.50"""
+    if not price_str:
+        return Decimal('0')
+    price_clean = re.sub(r'[€\s]', '', str(price_str))
+    price_clean = price_clean.replace(',', '.')
+    try:
+        return Decimal(price_clean)
+    except:
+        return Decimal('0')
 
 from sqlalchemy.orm import sessionmaker
 from app.core.database import engine
@@ -38,18 +51,21 @@ def migrate_wines():
         
         # Migrate wines
         for wine_data in existing_vinos:
+            prices = wine_data.get('prices', {})
             wine = Wine(
                 id=str(wine_data['id']),
                 name=wine_data['name'],
                 color=wine_data['color'],
                 grape=wine_data['grape'],
                 origin=wine_data.get('origin'),
-                short_description=wine_data.get('shortDescription'),
-                long_description=wine_data.get('longDescription'),
+                short_description=wine_data.get('short_description'),
+                long_description=wine_data.get('long_description'),
                 image=wine_data.get('image'),
                 characteristics=wine_data.get('characteristics'),
                 available=wine_data.get('available', True),
-                prices=wine_data['prices']
+                price_bottle=parse_price(prices.get('flasche')),
+                price_glass_01=parse_price(prices.get('0.1l')),
+                price_glass_02=parse_price(prices.get('0.2l'))
             )
             session.add(wine)
         
@@ -76,6 +92,7 @@ def migrate_drinks():
         session.query(Drink).delete()
         
         for drink_data in drinks_data:
+            drink_data['price'] = parse_price(drink_data.get('price', '0'))
             drink = Drink(**drink_data)
             session.add(drink)
         
@@ -102,6 +119,7 @@ def migrate_snacks():
         session.query(Snack).delete()
         
         for snack_data in snacks_data:
+            snack_data['price'] = parse_price(snack_data.get('price', '0'))
             snack = Snack(**snack_data)
             session.add(snack)
         

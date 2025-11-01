@@ -16,9 +16,9 @@ class Wine(Base):
     characteristics = Column(String, nullable=True)
     available = Column(Boolean, default=True, nullable=False)
     
-    # Prices stored as JSON for flexibility
-    # Example: {"0.1l": "4,00€", "0.2l": "7,50€", "flasche": "25,00€"}
-    prices = Column(JSON, nullable=False)
+    price_bottle = Column(DECIMAL(10, 2), nullable=True)
+    price_glass_01 = Column(DECIMAL(10, 2), nullable=True)
+    price_glass_02 = Column(DECIMAL(10, 2), nullable=True)
     
     def __repr__(self):
         return f"<Wine(id='{self.id}', name='{self.name}', color='{self.color}')>"

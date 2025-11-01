@@ -8,7 +8,7 @@ class Drink(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     name = Column(String, nullable=False, index=True)
     category = Column(String, nullable=False)  # 'Cocktail', 'Softdrink', etc.
-    price = Column(String, nullable=False)  # Keeping as string for consistency
+    price = Column(DECIMAL(10, 2), nullable=False)
     volume = Column(String, nullable=True)  # e.g., "0,75l"
     alcoholic = Column(Boolean, default=True, nullable=False)
     allergens = Column(JSON, nullable=True)  # Array of allergen numbers

@@ -1,10 +1,11 @@
 from pydantic import BaseModel, ConfigDict
 from typing import Optional, List
 from datetime import datetime
+from decimal import Decimal
 
 class SnackBase(BaseModel):
     name: str
-    price: str
+    price: Decimal
     category: str
     description: Optional[str] = None
     allergens: Optional[List[int]] = None
@@ -19,7 +20,7 @@ class SnackCreate(SnackBase):
 
 class SnackUpdate(BaseModel):
     name: Optional[str] = None
-    price: Optional[str] = None
+    price: Optional[Decimal] = None
     category: Optional[str] = None
     description: Optional[str] = None
     allergens: Optional[List[int]] = None

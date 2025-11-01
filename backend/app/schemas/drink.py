@@ -1,11 +1,12 @@
 from pydantic import BaseModel, ConfigDict
 from typing import Optional, List
 from datetime import datetime
+from decimal import Decimal
 
 class DrinkBase(BaseModel):
     name: str
     category: str
-    price: str
+    price: Decimal
     volume: Optional[str] = None
     alcoholic: bool = True
     allergens: Optional[List[int]] = None
@@ -20,7 +21,7 @@ class DrinkCreate(DrinkBase):
 class DrinkUpdate(BaseModel):
     name: Optional[str] = None
     category: Optional[str] = None
-    price: Optional[str] = None
+    price: Optional[Decimal] = None
     volume: Optional[str] = None
     alcoholic: Optional[bool] = None
     allergens: Optional[List[int]] = None

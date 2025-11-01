@@ -166,21 +166,19 @@ def update_wine_price(
     """
     Update wine price.
     
-    Accepts a dict with price keys like {'flasche': '25.00€', '0.1l': '4.00€'}
+    Accepts a dict with keys: price_bottle, price_glass_01, price_glass_02
     """
     db_wine = db.query(WineModel).filter(WineModel.id == wine_id).first()
     if not db_wine:
         raise HTTPException(status_code=404, detail="Wine not found")
     
-    # Update prices - create new dict to trigger SQLAlchemy change detection
-    new_prices = dict(db_wine.prices) if db_wine.prices else {}
-    for key, value in price_update.items():
-        if value and value.strip():  # Only update non-empty values
-            new_prices[key] = value
-        elif key in new_prices:  # Remove if empty
-            del new_prices[key]
+    if 'price_bottle' in price_update:
+        db_wine.price_bottle = price_update['price_bottle']
+    if 'price_glass_01' in price_update:
+        db_wine.price_glass_01 = price_update['price_glass_01']
+    if 'price_glass_02' in price_update:
+        db_wine.price_glass_02 = price_update['price_glass_02']
     
-    db_wine.prices = new_prices
     db.commit()
     db.refresh(db_wine)
     return {"message": "Wine price updated"}
@@ -220,7 +218,12 @@ def bulk_update_prices(updates: dict, db: Session = Depends(get_db)):
     for wine_id, new_prices in updates.items():
         db_wine = db.query(WineModel).filter(WineModel.id == wine_id).first()
         if db_wine:
-            db_wine.prices = new_prices
+            if 'price_bottle' in new_prices:
+                db_wine.price_bottle = new_prices['price_bottle']
+            if 'price_glass_01' in new_prices:
+                db_wine.price_glass_01 = new_prices['price_glass_01']
+            if 'price_glass_02' in new_prices:
+                db_wine.price_glass_02 = new_prices['price_glass_02']
             updated_count += 1
     
     db.commit()

@@ -1,6 +1,7 @@
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Optional, Dict, Any, Literal
 from datetime import datetime
+from decimal import Decimal
 
 class WineBase(BaseModel):
     name: str = Field(..., min_length=1, max_length=200)
@@ -12,14 +13,9 @@ class WineBase(BaseModel):
     image: Optional[str] = Field(None, max_length=500)
     characteristics: Optional[str] = Field(None, max_length=500)
     available: bool = True
-    prices: Dict[str, str] = Field(..., min_length=1)
-    
-    @field_validator('prices')
-    @classmethod
-    def validate_prices(cls, v):
-        if not v:
-            raise ValueError('at least one price required')
-        return v
+    price_bottle: Optional[Decimal] = None
+    price_glass_01: Optional[Decimal] = None
+    price_glass_02: Optional[Decimal] = None
 
 class WineCreate(WineBase):
     id: str = Field(..., description="Unique wine identifier", example="w1")
@@ -49,7 +45,9 @@ class WineUpdate(BaseModel):
     image: Optional[str] = None
     characteristics: Optional[str] = None
     available: Optional[bool] = None
-    prices: Optional[Dict[str, str]] = None
+    price_bottle: Optional[Decimal] = None
+    price_glass_01: Optional[Decimal] = None
+    price_glass_02: Optional[Decimal] = None
 
 class Wine(WineBase):
     model_config = ConfigDict(from_attributes=True)
