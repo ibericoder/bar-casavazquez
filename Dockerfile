@@ -42,8 +42,8 @@ COPY data/ ../data/
 # Copy built frontend from previous stage
 COPY --from=frontend-builder /app/website/dist/ ../website/dist/
 
-# Create database and migrate data
-RUN python init_db.py && python migrate_data.py
+# Export TypeScript data to JSON and migrate
+RUN python export_ts_data.py && python init_db.py && python migrate_data.py
 
 # Set environment variable to indicate Cloud Run
 ENV CLOUD_RUN=true

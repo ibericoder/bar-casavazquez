@@ -9,9 +9,7 @@ def parse_ts_wine_data(file_path):
     
     wines = []
     
-    wine_pattern = r'\{[^}]*?name:\s*[\'"]([^\'"]+)[\'"].*?\}'
-    
-    wine_blocks = re.findall(r'\{[^}]*?name:[^}]*?\}', content, re.DOTALL)
+    wine_blocks = re.findall(r'\{[^\{]*?name:[^\{]*?prices:[^\{]*?\{[^\}]*?\}[^\}]*?\}', content, re.DOTALL)
     
     for block in wine_blocks:
         try:
