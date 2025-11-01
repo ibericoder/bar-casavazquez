@@ -14,62 +14,18 @@ from app.core.database import engine
 from app.models import Wine, User, UserRole
 from app.core.auth import get_password_hash
 
-def get_sample_wines():
-    """Sample wine data for testing"""
-    return [
-        {
-            'id': 'w1',
-            'name': 'Cal y Canto Tinto',
-            'color': 'red',
-            'grape': 'Tempranillo, Merlot, Syrah',
-            'origin': 'Spanien',
-            'shortDescription': 'Weich, fruchtig, ausgewogen mit sanften Tanninen.',
-            'longDescription': 'Ein harmonischer Rotwein mit weichen Tanninen und fruchtigen Aromen.',
-            'prices': {
-                '0.1l': '4,00€',
-                '0.2l': '7,50€',
-                'flasche': '22,00€'
-            },
-            'characteristics': 'Weich, fruchtig, ausgewogen',
-            'available': True,
-            'image': None
-        },
-        {
-            'id': 'w2',
-            'name': 'Marqués de Riscal',
-            'color': 'white',
-            'grape': '100% Verdejo',
-            'origin': 'Rueda, Spanien',
-            'shortDescription': 'Trocken, fruchtbetonter Weißwein aus Rueda mit eleganten Kräuter- und Zitrusnoten.',
-            'longDescription': 'Ein erfrischender Weißwein mit lebendiger Säure und mineralischen Noten.',
-            'prices': {
-                'flasche': '34,50€'
-            },
-            'characteristics': 'Trocken, fruchtig, elegant',
-            'available': True,
-            'image': None
-        },
-        {
-            'id': 'w3',
-            'name': 'Calalenta ("Kühle Nacht")',
-            'color': 'rosé',
-            'grape': '100% Merlot',
-            'origin': 'Abruzzen, Italien',
-            'shortDescription': 'Trocken, leichter Rosé aus Merlot-Trauben mit zartem Hellrosa und feinen Fruchtaromen.',
-            'longDescription': 'Ein eleganter Rosé mit subtilen Fruchtaromen und erfrischender Säure.',
-            'prices': {
-                '0.1l': '4,00€',
-                '0.2l': '7,50€',
-                'flasche': '25,00€'
-            },
-            'characteristics': 'Trocken, leicht, fruchtig',
-            'available': True,
-            'image': None
-        }
-    ]
+def load_json_data(filename):
+    """Load data from JSON file"""
+    data_file = backend_dir / 'data' / filename
+    if not data_file.exists():
+        print(f"Warning: {filename} not found, using empty list")
+        return []
+    
+    with open(data_file, 'r', encoding='utf-8') as f:
+        return json.load(f)
 
-# Use sample data instead of trying to import TypeScript
-existing_vinos = get_sample_wines()
+# Load wine data from JSON
+existing_vinos = load_json_data('wines.json')
 
 def migrate_wines():
     """Migrate existing wine data to the database"""
@@ -106,120 +62,55 @@ def migrate_wines():
     finally:
         session.close()
 
-def migrate_sample_drinks():
-    """Add some sample drinks to the database"""
+def migrate_drinks():
+    """Migrate drinks from JSON to database"""
     from app.models import Drink
     
     Session = sessionmaker(bind=engine)
     session = Session()
     
-    sample_drinks = [
-        {
-            "name": "Wasser Classic/Naturell",
-            "volume": "0,75l",
-            "price": "6,9€",
-            "category": "Softdrink",
-            "alcoholic": False,
-            "allergens": []
-        },
-        {
-            "name": "Yuzu Sour",
-            "price": "10,5€",
-            "category": "Cocktail",
-            "alcoholic": True,
-            "allergens": [11]
-        },
-        {
-            "name": "Espresso Martini",
-            "price": "10,5€",
-            "category": "Cocktail",
-            "alcoholic": True,
-            "allergens": [8, 13]
-        },
-        {
-            "name": "Negroni",
-            "price": "10,5€",
-            "category": "Cocktail",
-            "alcoholic": True,
-            "allergens": [4]
-        },
-        {
-            "name": "Gin Tonic",
-            "price": "7,9€",
-            "category": "Cocktail",
-            "alcoholic": True,
-            "allergens": [24]
-        }
-    ]
+    drinks_data = load_json_data('drinks.json')
     
     try:
         # Clear existing drinks
         session.query(Drink).delete()
         
-        for drink_data in sample_drinks:
+        for drink_data in drinks_data:
             drink = Drink(**drink_data)
             session.add(drink)
         
         session.commit()
-        print(f"Successfully added {len(sample_drinks)} sample drinks to the database")
+        print(f"Successfully migrated {len(drinks_data)} drinks to the database")
         
     except Exception as e:
         session.rollback()
-        print(f"Error adding sample drinks: {e}")
+        print(f"Error migrating drinks: {e}")
     finally:
         session.close()
 
-def migrate_sample_snacks():
-    """Add some sample snacks to the database"""
+def migrate_snacks():
+    """Migrate snacks from JSON to database"""
     from app.models import Snack
     
     Session = sessionmaker(bind=engine)
     session = Session()
     
-    sample_snacks = [
-        {
-            "name": "Aceitunas mixtas",
-            "price": "4,5€",
-            "category": "Tapita",
-            "description": "Gemischte Oliven mit Kräutern",
-            "vegetarian": True,
-            "vegan": True,
-            "allergens": []
-        },
-        {
-            "name": "Jamón Ibérico",
-            "price": "16,0€",
-            "category": "Plato",
-            "description": "Premium iberischer Schinken",
-            "vegetarian": False,
-            "vegan": False,
-            "allergens": []
-        },
-        {
-            "name": "Tortilla Española",
-            "price": "8,5€",
-            "category": "Plato",
-            "description": "Traditionelles spanisches Kartoffelomelett",
-            "vegetarian": True,
-            "vegan": False,
-            "allergens": [11]
-        }
-    ]
+    snacks_data = load_json_data('snacks.json')
     
     try:
         # Clear existing snacks
         session.query(Snack).delete()
         
-        for snack_data in sample_snacks:
+        for snack_data in snacks_data:
             snack = Snack(**snack_data)
             session.add(snack)
         
         session.commit()
-        print(f"Successfully added {len(sample_snacks)} sample snacks to the database")
+        print(f"Successfully migrated {len(snacks_data)} snacks to the database")
         
     except Exception as e:
         session.rollback()
-        print(f"Error adding sample snacks: {e}")
+        print(f"Error migrating snacks: {e}")
     finally:
         session.close()
 
@@ -305,8 +196,8 @@ def main():
     print("Starting data migration...")
     create_default_admin()
     migrate_wines()
-    migrate_sample_drinks()
-    migrate_sample_snacks()
+    migrate_drinks()
+    migrate_snacks()
     migrate_sample_notifications()
     print("Data migration completed!")
 

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Nachos mit Aioli Dip",
+    "description": "",
+    "price": "5,00€",
+    "category": "Tapita",
+    "vegetarian": true,
+    "vegan": false,
+    "allergens": [],
+    "available": true
+  },
+  {
+    "name": "Brot Aioli Dip",
+    "description": "",
+    "price": "5,00€",
+    "category": "Tapita",
+    "vegetarian": true,
+    "vegan": false,
+    "allergens": [],
+    "available": true
+  },
+  {
+    "name": "Oliven Mix",
+    "description": "Von Olive+Meer",
+    "price": "5,00€",
+    "category": "Tapita",
+    "vegetarian": true,
+    "vegan": true,
+    "allergens": [],
+    "available": true
+  },
+  {
+    "name": "Plato de Jamón",
+    "description": "(80g) + Brot",
+    "price": "9,50€",
+    "category": "Plato",
+    "vegetarian": false,
+    "vegan": false,
+    "allergens": [],
+    "available": true
+  },
+  {
+    "name": "Plato de Quesos",
+    "description": "(80g) + Brot",
+    "price": "9,50€",
+    "category": "Plato",
+    "vegetarian": true,
+    "vegan": false,
+    "allergens": [],
+    "available": true
+  },
+  {
+    "name": "Plato Mixto",
+    "description": "Gemischte Platte mit Jamón & Quesos + Brot",
+    "price": "16,50€",
+    "category": "Plato",
+    "vegetarian": false,
+    "vegan": false,
+    "allergens": [],
+    "available": true
+  }
+]

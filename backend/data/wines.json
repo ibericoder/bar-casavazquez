@@ -1,0 +1,331 @@
+[
+  {
+    "name": "the guv`nor",
+    "id": "r29",
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "25,00€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "David Moreno",
+    "id": "r2",
+    "prices": {
+      "0.1l": "4,80€",
+      "0.2l": "8,90€",
+      "flasche": "€29,50"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Viña Albali - Gran Reserva",
+    "id": "r31",
+    "prices": {
+      "0.1l": "4,50€",
+      "0.2l": "9",
+      "flasche": "28,50€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Marques de Cáceres",
+    "id": "3,",
+    "prices": {
+      "flasche": "€37,50"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Aventura - Vinos del Viento",
+    "id": "r30",
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "25,00€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Barón de Ley Rioja Reserva ",
+    "id": "17,",
+    "prices": {
+      "flasche": "€39,50"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "EMBOCADERO",
+    "id": "1,",
+    "prices": {
+      "flasche": "€39,50"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Borgo Scopeto Chianti Classico Riserva 2017 DOCG",
+    "id": "16,",
+    "prices": {
+      "flasche": "€45,00"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Raineri Zovetto Dogliani 2018",
+    "id": "15,",
+    "prices": {
+      "flasche": "€32,50"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "CASTELLO DI BIBBIONE Chianti Classico Riserva 2017",
+    "id": "14,",
+    "prices": {
+      "flasche": "€39,00"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "1934 CVS Canicatti 2019",
+    "id": "13,",
+    "prices": {
+      "flasche": "€39,50"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Barolo Terre dei Roveri 2020",
+    "id": "11,",
+    "prices": {
+      "flasche": "€55,00"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Dicatum",
+    "id": "w173",
+    "prices": {},
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Marqués de Riscal",
+    "id": "w19",
+    "prices": {
+      "flasche": "34,50€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Epicuro Chardonnay‑Fiano Puglia IGT",
+    "id": "w_epicuro_chardonnay_fiano",
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "24,00€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Karl Pfaffmann Grauer Burgunder",
+    "id": "w18",
+    "prices": {
+      "0.1l": "4,50€",
+      "0.2l": "8,50€",
+      "flasche": "29,90€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Colli Vaibò Lugana",
+    "id": "w20",
+    "prices": {
+      "0.1l": "5,50€",
+      "0.2l": "10,50€",
+      "flasche": "32,50€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Nebla Vicente Gandia Verdejo",
+    "id": "w118",
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "25,00€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "El Coto Blanco",
+    "id": "w1",
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "25,00€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Julian",
+    "id": "174,",
+    "prices": {
+      "0.1l": "6,500€",
+      "0.2l": "11,50€",
+      "flasche": "38,50€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Dr. Bürklin-Wolf Riesling 2022",
+    "id": "4,",
+    "prices": {
+      "flasche": "€37,50"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Knipser Steinbuckel Riesling GG 2018",
+    "id": "5,",
+    "prices": {
+      "flasche": "€29,90"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Dr. Loosen Weißburgunder Blauschiefer 2018",
+    "id": "6,",
+    "prices": {
+      "flasche": "€27,50"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Knipser Sauvignon Blanc 2019",
+    "id": "7,",
+    "prices": {
+      "flasche": "€27,50"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Knipser Sauvignon Blanc 2019",
+    "id": "10,",
+    "prices": {
+      "flasche": "€27,50"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Calalenta (",
+    "id": "21,",
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "25,00€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Knipser ",
+    "id": "822,",
+    "prices": {
+      "0.1l": "6,50€",
+      "0.2l": "12,50€",
+      "flasche": "39,50€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Rosa Dei Frati",
+    "id": "22,",
+    "prices": {
+      "0.1l": "6,00€",
+      "0.2l": "11,50€",
+      "flasche": "37,50€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Arrogant Frog",
+    "id": "23,",
+    "prices": {
+      "0.1l": "4,80€",
+      "0.2l": "8,90€",
+      "flasche": "27,50€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "El Coto Rosado",
+    "id": "26,",
+    "prices": {
+      "0.1l": "4,00€",
+      "0.2l": "7,50€",
+      "flasche": "25,00€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Minuty Rosé",
+    "id": "24,",
+    "prices": {
+      "0.1l": "6,50€",
+      "0.2l": "11,50€",
+      "flasche": "€38,50"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "PINK St. Laurent Rosé",
+    "id": "28,",
+    "prices": {
+      "0.1l": "4,50€",
+      "0.2l": "8,50€",
+      "flasche": "27,50€"
+    },
+    "available": true,
+    "image": null
+  },
+  {
+    "name": "Miraval",
+    "id": "117,",
+    "prices": {
+      "flasche": "€49,00"
+    },
+    "available": true,
+    "image": null
+  }
+]

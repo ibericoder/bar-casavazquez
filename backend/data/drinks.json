@@ -1,0 +1,193 @@
+[
+  {
+    "name": "Eistee von Rauch",
+    "volume": "0,33l",
+    "price": "3,9€",
+    "category": "Softdrink",
+    "alcoholic": false,
+    "allergens": [1, 2, 8],
+    "available": true
+  },
+  {
+    "name": "Bio Saftschorle von Rauch",
+    "volume": "0,33l",
+    "price": "3,9€",
+    "category": "Softdrink",
+    "alcoholic": false,
+    "allergens": [],
+    "available": true
+  },
+  {
+    "name": "Thomas Henry",
+    "volume": "0,20l",
+    "price": "2,5€",
+    "category": "Softdrink",
+    "alcoholic": false,
+    "allergens": [24],
+    "available": true
+  },
+  {
+    "name": "Coca Cola Zero",
+    "volume": "0,33l",
+    "price": "3,9€",
+    "category": "Softdrink",
+    "alcoholic": false,
+    "allergens": [1, 7, 8],
+    "available": true
+  },
+  {
+    "name": "Wasser Classic/Naturell",
+    "volume": "0,75l",
+    "price": "6,9€",
+    "category": "Softdrink",
+    "alcoholic": false,
+    "allergens": [],
+    "available": true
+  },
+  {
+    "name": "Vital-Wasser",
+    "volume": "1l Karaffe",
+    "price": "6,9€",
+    "category": "Softdrink",
+    "alcoholic": false,
+    "allergens": [],
+    "neu": true,
+    "available": true
+  },
+  {
+    "name": "Yuzu Sour",
+    "price": "10,5€",
+    "category": "Cocktail",
+    "alcoholic": true,
+    "allergens": [11],
+    "available": true
+  },
+  {
+    "name": "Espresso Martini",
+    "price": "10,5€",
+    "category": "Cocktail",
+    "alcoholic": true,
+    "allergens": [8, 13],
+    "available": true
+  },
+  {
+    "name": "Whisky Sour",
+    "price": "10,5€",
+    "category": "Cocktail",
+    "alcoholic": true,
+    "allergens": [11],
+    "available": true
+  },
+  {
+    "name": "Cosmopolitan",
+    "price": "10,5€",
+    "category": "Cocktail",
+    "alcoholic": true,
+    "allergens": [],
+    "available": true
+  },
+  {
+    "name": "Skinny Bitch",
+    "price": "7,5€",
+    "category": "Cocktail",
+    "alcoholic": true,
+    "allergens": [],
+    "available": true
+  },
+  {
+    "name": "*Limoncello Spritz",
+    "price": "8,5€",
+    "category": "Spritz",
+    "alcoholic": true,
+    "allergens": [1, 4],
+    "available": true
+  },
+  {
+    "name": "*Aperol Spritz",
+    "price": "8,5€",
+    "category": "Spritz",
+    "alcoholic": true,
+    "allergens": [1, 4],
+    "available": true
+  },
+  {
+    "name": "Sarti Spritz",
+    "price": "8,5€",
+    "category": "Spritz",
+    "alcoholic": true,
+    "allergens": [1, 4],
+    "available": true
+  },
+  {
+    "name": "Yuzu Spritz",
+    "price": "8,5€",
+    "category": "Spritz",
+    "alcoholic": true,
+    "allergens": [1, 4],
+    "available": true
+  },
+  {
+    "name": "Negroni",
+    "price": "10,5€",
+    "category": "N°3 Gin",
+    "alcoholic": true,
+    "allergens": [4],
+    "available": true
+  },
+  {
+    "name": "Gin Fizz",
+    "price": "10,5€",
+    "category": "N°3 Gin",
+    "alcoholic": true,
+    "allergens": [11],
+    "available": true
+  },
+  {
+    "name": "Gin Tonic",
+    "price": "7,9€",
+    "category": "N°3 Gin",
+    "alcoholic": true,
+    "allergens": [24],
+    "available": true
+  },
+  {
+    "name": "Tom Collins",
+    "price": "7,5€",
+    "category": "N°3 Gin",
+    "alcoholic": true,
+    "allergens": [],
+    "available": true
+  },
+  {
+    "name": "Gin Fizz (0%)",
+    "price": "9€",
+    "category": "Zero Alcohol",
+    "alcoholic": false,
+    "allergens": [11],
+    "available": true
+  },
+  {
+    "name": "Gin Tonic (0%)",
+    "price": "7,5€",
+    "category": "Zero Alcohol",
+    "alcoholic": false,
+    "allergens": [24],
+    "available": true
+  },
+  {
+    "name": "Aperol Spritz (0%)",
+    "price": "7,5€",
+    "category": "Zero Alcohol",
+    "alcoholic": false,
+    "allergens": [1, 4],
+    "available": true
+  },
+  {
+    "name": "Limoncello Spritz (0%)",
+    "price": "7,5€",
+    "category": "Zero Alcohol",
+    "alcoholic": false,
+    "allergens": [1, 4],
+    "available": true
+  }
+]

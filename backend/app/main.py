@@ -49,7 +49,6 @@ async def add_version_header(request: Request, call_next):
     response.headers["X-API-Version"] = "2.0.0"
     return response
 
-# Temporary chat models and endpoints
 class ChatMessage(BaseModel):
     message: str
     context: Optional[Dict[str, Any]] = None
@@ -66,7 +65,6 @@ async def chat_with_bot(chat_message: ChatMessage, db: AsyncSession = Depends(ge
         recommender = WineRecommender()
         result = await recommender.recommend_wines(chat_message.message, db)
 
-        # If the recommender returned an error, surface a friendly message
         if result.get('error'):
             raise Exception(result.get('error'))
 
@@ -87,7 +85,6 @@ async def chat_with_bot(chat_message: ChatMessage, db: AsyncSession = Depends(ge
             detail=f"Error processing chat message: {str(e)}"
         )
 
-# Middleware
 app.add_middleware(RateLimitMiddleware, calls=100, period=60)
 app.add_middleware(
     CORSMiddleware,
@@ -97,18 +94,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include API routers
 app.include_router(auth.router, prefix="/api/auth", tags=["authentication"])
 app.include_router(wines.router, prefix="/api/wines", tags=["wines"])
 app.include_router(drinks.router, prefix="/api/drinks", tags=["drinks"])
 app.include_router(snacks.router, prefix="/api/snacks", tags=["snacks"])
 app.include_router(notifications.router, prefix="/api/notifications", tags=["notifications"])
-# app.include_router(chat.router, prefix="/api/chat", tags=["chat"])  # Temporarily disabled
 
-# Legacy endpoint for compatibility
 app.include_router(wines.router, prefix="/casavazquez/api", tags=["legacy"])
 
-# Static file serving for Vue frontend
 website_dist = Path(__file__).parent.parent.parent / "website" / "dist"
 
 @app.get("/")
@@ -138,21 +131,16 @@ async def recommend_get(message: str, db: AsyncSession = Depends(get_async_db)):
     result = await recommender.recommend_wines(message, db)
     return result
 
-# Serve Vue.js app for all other routes (must be AFTER all API routes)
 if website_dist.exists():
-    # Mount static assets (js, css, images)
     app.mount("/casavazquez/assets", StaticFiles(directory=str(website_dist / "assets")), name="assets")
     
-    # Catch-all route for Vue SPA - must be last
     @app.get("/casavazquez/{full_path:path}")
     async def serve_vue_app(full_path: str):
         """Serve the Vue.js app for any route that doesn't match the API"""
-        # Try to serve the requested file first (for static assets in root like favicon)
         requested_file = website_dist / full_path
         if requested_file.exists() and requested_file.is_file():
             return FileResponse(str(requested_file))
         
-        # Otherwise serve index.html for Vue Router
         index_path = website_dist / "index.html"
         if index_path.exists():
             return FileResponse(str(index_path))
