@@ -153,7 +153,7 @@ const isLocal = import.meta.env.DEV
 
 const API_BASE = isLocal
   ? 'http://localhost:8080'
-  : 'https://casavazquez-website-594856899017.europe-central2.run.app';
+  : window.location.origin; // Use the same origin as the current page
 
 async function loadWines() {
   loading.value = true;
