@@ -181,13 +181,13 @@ const snacks = [
   { name: 'Plato de Jamón', description: 'Serrano Schinken + Brot', price: '9,5', veggie: false },
   { name: 'Plato de Quesos', description: 'Manchego Käse + Brot', price: '9,5', veggie: true },
   { name: 'Dátiles con Bacon', description: 'Datteln im Speckmantel', price: '7,5', veggie: false },
-  { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '6,5', veggie: false },
   { name: 'Deditos de pollo', description: 'saftige panierte Hähnchen-Sticks', price: '6,5', veggie: false },
+  { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '6,5', veggie: false, available: false },
   { name: 'Plato Mixto', description: 'Gemischte Platte mit Jamón & Quesos + Brot', price: '16,5', veggie: false },
 ];
 
 const filteredSnacks = computed(() =>
-  veggie.value ? snacks.filter(s => s.veggie) : snacks
+  veggie.value ? snacks.filter(s => s.veggie) : snacks.filter(s => s.available !== false)
 );
 
 function toggleVeggie() {
