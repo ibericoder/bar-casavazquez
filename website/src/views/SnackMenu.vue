@@ -40,6 +40,9 @@
       <button class="toast-close" @click="showTopToast = false" aria-label="Schließen">×</button>
     </div>
 
+          <p class="snacks-note" style="margin-top: 1rem; font-style: italic;">
+            <strong>Hinweis:</strong> Damit euch alle Snacks warm erreichen, servieren wir diese ggf. nacheinander (nicht immer alles gleichzeitig).
+          </p>
 
     <div class="scrollContainer">
       <div class="snack-section">
