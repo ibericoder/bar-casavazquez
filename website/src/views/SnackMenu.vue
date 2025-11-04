@@ -17,7 +17,7 @@
     </details>
   </div>
 
-  <div class="filter-buttons" style="display: none">
+  <div class="filter-buttons">
     <button class="filter-button" :class="{ active: veggie }" @click="toggleVeggie">
       <i class="pi pi-times" v-if="veggie" style="font-size: 8px"></i>
       Nur Veggie
@@ -27,7 +27,6 @@
   <section class="snacks-menu">
     <header class="snacks-header">
       <h1 class="snacks-title">SNACKS</h1>
-      <!--      <p class="snacks-subtitle">FÜR DEN KLEINEN HUNGER</p>-->
     </header>
     <div v-if="showTopToast" class="top-toast" role="status" aria-live="polite">
       <span>Saludos desde Madrid – Diesen Samstag bekommt ihr zu jedem Getränk eine kleine Tapita, ganz wie ihr es aus
@@ -38,25 +37,27 @@
 
     <div class="scrollContainer">
       <div class="snack-section">
-        <li v-for="snack in filteredSnacks" :key="snack.name" class="basic-snacks-item">
-          <div class="snack-text">
-            <span class="snacks-name">{{ snack.name }}</span>
-            <img v-if="snack.onm" class="onmLogo" :src="onmLogo" alt="Olive und Meer" @click="showOnmInfo = true" />
-            <BaseModal v-model="showOnmInfo">
-              <div style="display: flex;margin-bottom: 1rem; gap: 1rem">
-                <h2>Von <i>Olive & Meer</i></h2>
-                <img class="onmLogo" :src="onmLogo" />
-              </div>
-              <p>Unser Lieblings-Laden für Spanische Weine und Feinkost. Dir schmecken die Oliven? Dann statte doch
-                <i>Raquel</i>
-                mal
-                einen Besuch ab. </p>
-              <p style="text-align: right">Warendorfer Str. 61, 48145 Münster</p>
-            </BaseModal>
-            <span class="snacks-description">{{ snack.description }}</span>
-          </div>
-          <span class="snacks-price">{{ snack.price }}</span>
-        </li>
+        <TransitionGroup name="snack" tag="ul" class="basic-snacks-list">
+          <li v-for="snack in filteredSnacks" :key="snack.name" class="basic-snacks-item">
+            <div class="snack-text">
+              <span class="snacks-name">{{ snack.name }}</span>
+              <!-- <img v-if="snack.onm" class="onmLogo" :src="onmLogo" alt="Olive und Meer" @click="showOnmInfo = true" /> -->
+              <BaseModal v-model="showOnmInfo">
+                <div style="display: flex;margin-bottom: 1rem; gap: 1rem">
+                  <h2>Von <i>Olive & Meer</i></h2>
+                  <img class="onmLogo" :src="onmLogo" />
+                </div>
+                <p>Unser Lieblings-Laden für Spanische Weine und Feinkost. Dir schmecken die Oliven? Dann statte doch
+                  <i>Raquel</i>
+                  mal
+                  einen Besuch ab. </p>
+                <p style="text-align: right">Warendorfer Str. 61, 48145 Münster</p>
+              </BaseModal>
+              <span class="snacks-description">{{ snack.description }}</span>
+            </div>
+            <span class="snacks-price">{{ snack.price }}</span>
+          </li>
+        </TransitionGroup>
 <br />
         <ul class="snacks-extras">
           <li class="snacks-item extra veggie">
@@ -74,10 +75,11 @@
         </ul>
       </div>
 
-      <div class="snack-section" v-if="!veggie">
-        <hr />
-        <br />
-        <h3 class="snacks-subtitle">Albondigas</h3>
+      <Transition name="section">
+        <div class="snack-section" v-if="!veggie">
+          <hr />
+          <br />
+          <h3 class="snacks-subtitle">Albondigas</h3>
         <p class="snacks-note">
           Albondigas (Fleischbällchen) in aromatischer Tomaten-Salsa – dazu reichen wir Brot. Perfekt für den kleinen Hunger auf etwas Deftiges.
         </p>
@@ -87,7 +89,8 @@
             <span class="snacks-price">8,50</span>
           </li>
         </ul>
-      </div>
+        </div>
+      </Transition>
 
       <div class="snack-section">
         <hr />
@@ -185,11 +188,11 @@ const snacks = [
   { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '6,5', veggie: false, available: false },
   { name: 'Plato Mixto', description: 'Gemischte Platte mit Jamón & Quesos + Brot', price: '16,5', veggie: false },
   { name: 'Aros de Cebolla', description: 'Zwiebelringe', price: '5', veggie: true },
-  { name: 'Palta con Chile', description: 'Avocado paniert', price: '8,5', veggie: true },
+  { name: 'Palta Rebozada', description: 'Avocado paniert', price: '8,5', veggie: true },
   { name: 'Rösti de Patata', description: 'Kartoffelrösti mit Chili', price: '6,5', veggie: true },
   { name: 'Champiñones Rebozados', description: 'Panierte Champignons', price: '5', veggie: true },
   { name: 'Palitos Vegetales', description: 'Gemüse-Sticks mit Erbsen-Minze', price: '7,5', veggie: true },
-  { name: 'Albondigas con Chile y Queso', description: 'Kleine Chili-Käse-Frikadellen', price: '7,5', veggie: true },
+  { name: 'Albondigas con Chile y Queso', description: 'Kleine Chili-Käse-Frikadellen', price: '7,5', veggie: false },
 ];
 
 const filteredSnacks = computed(() =>
@@ -378,18 +381,32 @@ hr {
 
 .snack-enter-active,
 .snack-leave-active {
-  transition: max-height 0.41s ease-in-out;
-  overflow: hidden;
+  transition: all 0.4s ease;
 }
 
-.snack-enter-from,
+.snack-enter-from {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
 .snack-leave-to {
-  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
 }
 
-.snack-enter-to,
-.snack-leave-from {
-  max-height: 100px;
+.snack-move {
+  transition: transform 0.4s ease;
+}
+
+.section-enter-active,
+.section-leave-active {
+  transition: all 0.4s ease;
+}
+
+.section-enter-from,
+.section-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
 }
 
 
