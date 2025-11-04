@@ -1,9 +1,10 @@
 <template>
   <div v-show="false" class="hint" style="display: block">
-    Heute <b> Buffet</b> mit Selbstbedienung <br/>
+    Heute <b> Buffet</b> mit Selbstbedienung <br />
     <p>Beim Buffet findest du Bambus-Schälchen, die du mit deinen Lieblings Snacks <b>voll</b>machen kannst.</p>
-    <p>Am Ende zählen wir einfach die Schälchen und berechnen jeweils 2,50€ (mit Brot-Flatrate - solange der Vorrat reicht)</p>
-    <br/>
+    <p>Am Ende zählen wir einfach die Schälchen und berechnen jeweils 2,50€ (mit Brot-Flatrate - solange der Vorrat
+      reicht)</p>
+    <br />
     <p>🍽️ Guten Appetit! 😊</p>
     <p>(Was du am Buffet nicht findest, kannst du à la carte bestellen. Bitte auf längere Wartezeiten einstellen)</p>
 
@@ -18,9 +19,14 @@
   </div>
 
   <div class="filter-buttons">
+    <span>Filter:</span>
     <button class="filter-button" :class="{ active: veggie }" @click="toggleVeggie">
       <i class="pi pi-times" v-if="veggie" style="font-size: 8px"></i>
       Nur Veggie
+    </button>
+    <button class="filter-button" :class="{ active: keto }" @click="toggleKeto">
+      <i class="pi pi-times" v-if="keto" style="font-size: 8px"></i>
+      Keto-freundlich
     </button>
   </div>
 
@@ -40,7 +46,10 @@
         <TransitionGroup name="snack" tag="ul" class="basic-snacks-list">
           <li v-for="snack in filteredSnacks" :key="snack.name" class="basic-snacks-item">
             <div class="snack-text">
-              <span class="snacks-name">{{ snack.name }}</span>
+              <span class="snacks-name">
+                {{ snack.name }}
+                <span v-if="snack.veggie" class="veggie-icon" title="Vegetarisch">&#127811;</span>
+              </span>
               <!-- <img v-if="snack.onm" class="onmLogo" :src="onmLogo" alt="Olive und Meer" @click="showOnmInfo = true" /> -->
               <BaseModal v-model="showOnmInfo">
                 <div style="display: flex;margin-bottom: 1rem; gap: 1rem">
@@ -50,7 +59,8 @@
                 <p>Unser Lieblings-Laden für Spanische Weine und Feinkost. Dir schmecken die Oliven? Dann statte doch
                   <i>Raquel</i>
                   mal
-                  einen Besuch ab. </p>
+                  einen Besuch ab.
+                </p>
                 <p style="text-align: right">Warendorfer Str. 61, 48145 Münster</p>
               </BaseModal>
               <span class="snacks-description">{{ snack.description }}</span>
@@ -58,7 +68,7 @@
             <span class="snacks-price">{{ snack.price }}</span>
           </li>
         </TransitionGroup>
-<br />
+        <br />
         <ul class="snacks-extras">
           <li class="snacks-item extra veggie">
             <span class="snacks-name">Extra Aioli Dip</span>
@@ -80,24 +90,26 @@
           <hr />
           <br />
           <h3 class="snacks-subtitle">Albondigas</h3>
-        <p class="snacks-note">
-          Albondigas (Fleischbällchen) in aromatischer Tomaten-Salsa – dazu reichen wir Brot. Perfekt für den kleinen Hunger auf etwas Deftiges.
-        </p>
-        <ul class="snacks-extras">
-          <li class="snacks-item extra">
-            <span class="snacks-name">Albondigas – Portion</span>
-            <span class="snacks-price">8,50</span>
-          </li>
-        </ul>
+          <p class="snacks-note">
+            Albondigas (Fleischbällchen) in aromatischer Tomaten-Salsa – dazu reichen wir Brot. Perfekt für den kleinen
+            Hunger auf etwas Deftiges.
+          </p>
+          <ul class="snacks-extras">
+            <li class="snacks-item extra">
+              <span class="snacks-name">Albondigas – Portion</span>
+              <span class="snacks-price">8,50</span>
+            </li>
+          </ul>
         </div>
       </Transition>
 
-      <div class="snack-section">
-        <hr />
-        <br />
-        <h3 class="snacks-subtitle">Coca <img class="coca-image" :src="cocaImage" alt="Coca"
-            @click="showCocaInfo = true" style="cursor:pointer;vertical-align:middle;height:28px;margin-left:8px;" />
-        </h3>
+      <Transition name="section">
+        <div class="snack-section" v-if="!keto">
+          <hr />
+          <br />
+          <h3 class="snacks-subtitle">Coca <img class="coca-image" :src="cocaImage" alt="Coca"
+              @click="showCocaInfo = true" style="cursor:pointer;vertical-align:middle;height:28px;margin-left:8px;" />
+          </h3>
         <p class="snacks-note">
           Coca ist ein traditionelles spanisches Flachbrot, das mit mediterranen Zutaten belegt wird. Die Portion ist
           vergleichbar mit einer Pizza.
@@ -129,12 +141,13 @@
             <span class="snacks-name">+ Serrano</span>
             <span class="snacks-price">+ 3,90</span>
           </li>
-          <li class="snacks-item extra veggie" >
+          <li class="snacks-item extra veggie">
             <span class="snacks-name">Doppelt Mozarella</span>
             <span class="snacks-price">+ 2,50</span>
           </li>
         </ul>
-      </div>
+        </div>
+      </Transition>
 
       <div class="snack-section bundle">
         <hr />
@@ -156,7 +169,7 @@
             <span class="snacks-name"><b>Tartufo mit Schoko-Kern und Haselnussmantel</b><br /></span>
             <span class="snacks-price">8,50</span>
           </li>
-            <li class="snacks-item extra veggie">
+          <li class="snacks-item extra veggie">
             <span class="snacks-name"><b>Antojos de Dulcinea - Biskuitkuchen mit fruchtiger Sauce</b><br /></span>
             <span class="snacks-price">6,50</span>
           </li>
@@ -173,34 +186,46 @@ import BaseModal from "../components/BaseModal.vue";
 import cocaImage from "../assets/images/coca.png";
 
 const veggie = ref(false)
+const keto = ref(false)
 const showOnmInfo = ref(false)
 const showCocaInfo = ref(false)
 const showTopToast = ref(false)
 
 const snacks = [
-  { name: 'Nachos mit Aioli Dip', description: '', price: '5', veggie: true },
-  { name: 'Brot Aioli Dip', description: '', price: '5', veggie: true },
-  { name: 'Oliven Mix', description: '', price: '5', veggie: true, onm: true },
-  { name: 'Plato de Jamón', description: 'Serrano Schinken + Brot', price: '9,5', veggie: false },
-  { name: 'Plato de Quesos', description: 'Manchego Käse + Brot', price: '9,5', veggie: true },
-  { name: 'Dátiles con Bacon', description: 'Datteln im Speckmantel', price: '7,5', veggie: false },
-  { name: 'Deditos de pollo', description: 'saftige panierte Hähnchen-Sticks', price: '6,5', veggie: false },
-  { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '6,5', veggie: false, available: false },
-  { name: 'Plato Mixto', description: 'Gemischte Platte mit Jamón & Quesos + Brot', price: '16,5', veggie: false },
-  { name: 'Aros de Cebolla', description: 'Zwiebelringe', price: '5', veggie: true },
-  { name: 'Palta Rebozada', description: 'Avocado paniert', price: '8,5', veggie: true },
-  { name: 'Rösti de Patata', description: 'Kartoffelrösti mit Chili', price: '6,5', veggie: true },
-  { name: 'Champiñones Rebozados', description: 'Panierte Champignons', price: '5', veggie: true },
-  { name: 'Palitos Vegetales', description: 'Gemüse-Sticks mit Erbsen-Minze', price: '7,5', veggie: true },
-  { name: 'Albondigas con Chile y Queso', description: 'Kleine Chili-Käse-Frikadellen', price: '7,5', veggie: false },
+  { name: 'Nachos mit Aioli Dip', description: '', price: '5', veggie: true, keto: false },
+  { name: 'Brot Aioli Dip', description: '', price: '5', veggie: true, keto: false },
+  { name: 'Oliven Mix', description: '', price: '5', veggie: true, onm: true, keto: true },
+  { name: 'Plato de Jamón', description: 'Serrano Schinken + Brot', price: '9,5', veggie: false, keto: true },
+  { name: 'Plato de Quesos', description: 'Manchego Käse + Brot', price: '9,5', veggie: true, keto: true },
+  { name: 'Dátiles con Bacon', description: 'Datteln im Speckmantel', price: '7,5', veggie: false, keto: false },
+  { name: 'Deditos de pollo', description: 'saftige panierte Hähnchen-Sticks', price: '6,5', veggie: false, keto: true },
+  { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '6,5', veggie: false, available: false, keto: false },
+  { name: 'Plato Mixto', description: 'Gemischte Platte mit Jamón & Quesos + Brot', price: '16,5', veggie: false, keto: true },
+  { name: 'Aros de Cebolla', description: 'Zwiebelringe', price: '5', veggie: true, keto: false },
+  { name: 'Palta Rebozada', description: 'Avocado paniert', price: '8,5', veggie: true, keto: false },
+  { name: 'Rösti de Patata', description: 'Kartoffelrösti mit Chili', price: '6,5', veggie: true, keto: false },
+  { name: 'Champiñones Rebozados', description: 'Panierte Champignons', price: '5', veggie: true, keto: false },
+  { name: 'Palitos Vegetales', description: 'Gemüse-Sticks mit Erbsen-Minze', price: '7,5', veggie: true, keto: true },
+  { name: 'Albondigas con Chile y Queso', description: 'Kleine Chili-Käse-Frikadellen', price: '7,5', veggie: false, keto: true },
 ];
 
-const filteredSnacks = computed(() =>
-  veggie.value ? snacks.filter(s => s.veggie) : snacks.filter(s => s.available !== false)
-);
+const filteredSnacks = computed(() => {
+  let filtered = snacks.filter(s => s.available !== false);
+  if (veggie.value) {
+    filtered = filtered.filter(s => s.veggie);
+  }
+  if (keto.value) {
+    filtered = filtered.filter(s => s.keto);
+  }
+  return filtered;
+});
 
 function toggleVeggie() {
   veggie.value = !veggie.value;
+}
+
+function toggleKeto() {
+  keto.value = !keto.value;
 }
 
 const portionCount = ref(0)
@@ -254,6 +279,35 @@ onMounted(() => {
 
 ul {
   list-style: none;
+}
+
+.filter-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+span {
+  font-weight: bold;
+  color: $text-color;
+}
+
+.filter-button {
+  background-color: transparent;
+  border: 2px solid $accent-color;
+  color: $accent-color;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  &.active {
+    background-color: $accent-color;
+    color: $background-color;
+  }
+}
 }
 
 .hint {
@@ -371,6 +425,14 @@ hr {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   text-align: center;
+}
+
+.veggie-icon {
+    display: inline-block;
+    font-size: 0.9rem;
+    vertical-align: middle;
+    transform: translate(-2px, -5px) rotate(282deg);
+    opacity: .75;
 }
 
 .bundle {
