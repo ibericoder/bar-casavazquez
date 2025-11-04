@@ -184,6 +184,12 @@ const snacks = [
   { name: 'Deditos de pollo', description: 'saftige panierte Hähnchen-Sticks', price: '6,5', veggie: false },
   { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '6,5', veggie: false, available: false },
   { name: 'Plato Mixto', description: 'Gemischte Platte mit Jamón & Quesos + Brot', price: '16,5', veggie: false },
+  { name: 'Aros de Cebolla', description: 'Zwiebelringe', price: '5', veggie: true },
+  { name: 'Palta con Chile', description: 'Avocado paniert', price: '8,5', veggie: true },
+  { name: 'Rösti de Patata', description: 'Kartoffelrösti mit Chili', price: '6,5', veggie: true },
+  { name: 'Champiñones Rebozados', description: 'Panierte Champignons', price: '5', veggie: true },
+  { name: 'Palitos Vegetales', description: 'Gemüse-Sticks mit Erbsen-Minze', price: '7,5', veggie: true },
+  { name: 'Albondigas con Chile y Queso', description: 'Kleine Chili-Käse-Frikadellen', price: '7,5', veggie: true },
 ];
 
 const filteredSnacks = computed(() =>
