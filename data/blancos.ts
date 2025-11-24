@@ -32,7 +32,7 @@ export const blancos: Wine[] = [
         longDescription: 'Der Epicuro Chardonnay‑Fiano von Femar Vini aus Apulien vereint die frische Saftigkeit des Chardonnay mit den würzig‑aromatischen Akzenten der einheimischen Fiano‑Traube. In der Nase mischen sich Aromen von Birne, Apfel, Ananas, Limette und Bananen mit Anklängen von Akazienhonig und grünen Kräutern. Am Gaumen präsentiert sich der Wein frisch und saftig mit viel Schmelz, feiner Zitrus‑Frische und einer seidigen Textur – ideal zu Meeresfrüchten, Fisch, Antipasti oder leichten Salaten.',
         image: null,
         characteristics: 'trocken‑halbtrocken, exotisch‑fruchtig, würzig, frisch, geschmeidig',
-        available: true
+        available: false
     },
     {
         name: 'Karl Pfaffmann Grauer Burgunder',
@@ -102,7 +102,7 @@ export const blancos: Wine[] = [
         longDescription: 'Der El Coto Blanco zeigt sich in hellem Strohgelb mit grünen Reflexen. In der Nase dominieren Aromen von Zitrusfrüchten, grünem Apfel, Pfirsich und weißen Blüten. Am Gaumen lebendig und ausgewogen bei mittlerem Körper, geprägt von frischer Säure, einer dezenten Mineralität und einem klaren, erfrischenden Abgang. Ideal zu Meeresfrüchten, gegrilltem Fisch, Salaten oder leichten Tapas. Serviertemperatur: 7–8 °C.',
         image: null,
         characteristics: 'Trocken, frisch, fruchtig, mineralisch',
-        available: true
+        available: false
     },
     {
         name: 'Julian',
@@ -138,100 +138,6 @@ export const blancos: Wine[] = [
         "longDescription": "Besucht Danyel in seinem Shop in der Schlesienstraße 3! Er hat dort noch viel mehr Schätze wie diesen. Der Pompaelo Blanc de Noirs wird aus 100% Garnacha-Trauben hergestellt, die hell gekeltert werden, um einen weißen Wein zu erzeugen. Er präsentiert sich mit einem hellen, blassen Farbspiel mit leicht goldenen oder lachsfarbenen Tönen. In der Nase zeigt er Noten von frischen roten Früchten, Pfirsich und leichten Anklängen von Lakritz. Am Gaumen ist er frisch und sehr fruchtig, mit einem angenehmen Gleichgewicht von Körper und Säure. Ein vielseitiger Begleiter für leichte Gerichte oder als Aperitif.",
         "image": null,
         "characteristics": "Trocken, fruchtig, frisch, weiß, Garnacha, elegant",
-        "available": true
+        "available": false
     },
-
-    {
-        name: 'Paparuda Fetească Regală',
-        id: 'w_paparuda_feteasca_regala',
-        prices: {
-            '0.1l': '5,00€',
-            '0.2l': '9,50€',
-            'flasche': '28,00€'
-        },
-        color: 'white',
-        grape: 'Fetească Regală',
-        origin: 'Rumänien, Transsilvanien',
-        shortDescription: 'Halbtrocken, lebendig und aromatisch mit Noten von weißen Blüten, Birne und Zitrus.',
-        longDescription: 'Der Paparuda Fetească Regală stammt aus den kühlen Höhenlagen Transsilvaniens und zeigt den autochthonen Charakter der Fetească-Regală-Traube. In der Nase entfalten sich Duftnoten von Akazienblüten, Lindenhonig und reifer Birne, begleitet von frischer Zitrone und Grapefruit. Am Gaumen präsentiert er sich halbtrocken und knackig, mit lebendiger Säure, saftiger Steinfrucht, einem Hauch Rest­süße und einem mineralischen, leicht würzigen Nachhall – ideal als Aperitif oder zu aromatischem Fisch, Salaten und hellem Fleisch.',
-        image: null,
-        characteristics: 'Halbtrocken, aromatisch, weiße Blüten, Birne, Zitrus, mineralisch',
-        available: true
-    },
-
-    // {
-    //     name: 'Dr. Bürklin-Wolf Riesling 2022',
-    //     id: 4,
-    //     prices: {'flasche': '€37,50'},
-    //     color: 'white',
-    //     grape: 'Riesling',
-    //     origin: 'Deutschland, Pfalz',
-    //     shortDescription:
-    //         'Ein klassisch trockener Riesling mit betonter Zitrus- und Mineralität.',
-    //     longDescription:
-    //         'Der Dr. Bürklin-Wolf Riesling 2022 zeigt einen hellgelben Farbton, in dem Aromen von Limette, grünem Apfel und einem Hauch Pfirsich zusammen mit einer feinen Mineralität harmonieren. Er ist absolut trocken, mit einer lebendigen Säure und einem langen, frischen Abgang, der die typischen Charakteristika der Pfalz widerspiegelt.',
-    //     image: null,
-    //     characteristics: 'Trocken, frisch, aromatisch, mineralisch',
-    //     available: true
-    // },
-    // {
-    //     id: 5,
-    //     name: 'Knipser Steinbuckel Riesling GG 2018',
-    //     prices: {'flasche': '€29,90'},
-    //     color: 'white',
-    //     grape: 'Riesling',
-    //     origin: 'Deutschland, Mosel/Nahe – Knipser',
-    //     shortDescription:
-    //         'Ein eleganter, klassisch trockener Riesling mit intensiven Zitrus- und Steinakzenten.',
-    //     longDescription:
-    //         'Der Knipser Steinbuckel 2018 Riesling GG besticht durch eine feine, mineralische Struktur und Aromen von Limette, grünem Apfel und mineralischen Steinnoten. Er präsentiert sich absolut trocken, mit einer knackigen Säure und einem langanhaltenden Abgang, der die schieferhaltigen Böden der Region widerspiegelt.',
-    //     image: null,
-    //     characteristics: 'Trocken, elegant, mineralisch, frisch',
-    //     available: true
-    // },
-    // {
-    //     id: 6,
-    //     name: 'Dr. Loosen Weißburgunder Blauschiefer 2018',
-    //     prices: {'flasche': '€27,50'},
-    //     color: 'white',
-    //     grape: 'Weißburgunder',
-    //     origin: 'Deutschland, Mosel',
-    //     shortDescription:
-    //         'Ein filigraner Weißburgunder, der absolut trocken und fein-fruchtig ist.',
-    //     longDescription:
-    //         'Der Dr. Loosen Weißburgunder Blauschiefer 2018 überzeugt mit einer harmonischen Balance aus zarten Fruchtnoten von Birne und Zitrus, unterstützt von einer dezenten Mineralität, die von den Blauschieferböden der Mosel zeugt. Er ist klassisch trocken, mit einem langen, geschmeidigen Abgang, der zu leichten Speisen passt.',
-    //     image: null,
-    //     characteristics: 'Trocken, harmonisch, mineralisch, elegant',
-    //     available: true
-    // },
-    // {
-    //     id: 7,
-    //     name: 'Knipser Sauvignon Blanc 2019',
-    //     prices: {'flasche': '€27,50'},
-    //     color: 'white',
-    //     grape: 'Sauvignon Blanc',
-    //     origin: 'Deutschland, Pfalz',
-    //     shortDescription:
-    //         'Ein knackiger Sauvignon Blanc, der durch seine intensive Frische besticht.',
-    //     longDescription:
-    //         'Der Knipser Sauvignon Blanc 2019 beeindruckt mit einer strahlenden Säure und einem Bouquet aus frischen Zitrusfrüchten sowie einem Hauch von grünem Gras. Er ist absolut trocken und bietet einen langanhaltenden, erfrischenden Abgang, der die typischen Eigenschaften der Pfalz widerspiegelt.',
-    //     image: null,
-    //     characteristics: 'Trocken, knackig, frisch',
-    //     available: true
-    // },
-    // {
-    //     id: 10,
-    //     name: 'Knipser Sauvignon Blanc 2019',
-    //     prices: {'flasche': '€27,50'},
-    //     color: 'white',
-    //     grape: 'Sauvignon Blanc',
-    //     origin: 'Deutschland, Pfalz',
-    //     shortDescription:
-    //         'Ein trockener, knackiger Sauvignon Blanc mit intensiver Frische und klaren Zitrusnoten.',
-    //     longDescription:
-    //         'Der Knipser 2019 Sauvignon Blanc besticht durch seine strahlende Säure und ein Bouquet aus frischen Zitrusfrüchten, untermalt von einem Hauch grünem Gras. Absolut trocken und mit einem langanhaltenden, erfrischenden Abgang – typisch für die Pfalz.',
-    //     image: null,
-    //     characteristics: 'Trocken, knackig, frisch',
-    //     available: true
-    // },
 ]

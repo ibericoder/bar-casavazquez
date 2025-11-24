@@ -1,27 +1,61 @@
-6851272107016359173
-video title
-#savagelove #girls #summertime #jasonderulochallenge #prettygirl #dance #waterdance #dancechallenge #jasonderulo #FlipAus #fitness
-challenge
-#summertime #waterdance #FlipAus #dancechallenge #prettygirl #girls #savagelove #jasonderulochallenge #dance #jasonderulo #fitness
-ocr
-asr
-high quality text
-music
-Savage Love (Laxed - Siren Beat)
-views
-3.9K
-music_use
-3.2M
-comments
-2
-likes
-166
+
+AP_TT video relevance_DE Official
+Copy single-task link
+131·
+92.28s(288s)
+01:13
+Moderation assistant
+------------------------------------------------------------
+query	
+Bandagen richtig wickeln MMA Handschuhe
+task_id	
+7568380414386029057
+Video Info
+video id	
+7023823166912924934
+video title	
+Reply to @urmomsfavv check out my new set 💅 🥊 #fyp #boxing #mma #ufc
+challenge	
+#ufc #fyp #boxing #mma
+ocr	
+Tired of taking an extra 5-10 || min to wrap your hands? || TikTok || TikTok || Get the Everlast || Ever Gel hand wraps || Very easy to put on and just || as protective/effective || Wrap tight around wrist || @realsabroso || make sure elastic part || is in front of fist || R || These are true to size || Mine are large. || All done. Let me know how || if you like these! || Follow for more tips!
+asr	
+high quality text	
+Tired of taking an extra 5-10 min to wrap your hands?
+TikTok.
+TikTok.
+Get the Everlast Ever Gel hand wraps.
+Very easy to put on and just as protective/effective.
+Wrap tight around wrist. @realsabroso.
+Make sure elastic part is in front of fist.
+R.
+These are true to size.
+Mine are large.
+All done.
+Let me know how if you like these!
+Follow for more tips!
+music	
+views	
+121.6K
+music_use	
+770.3K
+comments	
+13
+likes	
+1.3K
 User Info
-NickName
-Fame agents
-Uniqueid
-fame_agents
-Followers
+NickName	
+realsabroso
+Uniqueid	
+realsabroso
+Followers	
 0
-Verified
+Verified	
 no
+Abandon Query
+Abandon Video
+Text Relevance
+Video Overall Relevance
+Query type
+Text Score Problems
+Video Score Problems

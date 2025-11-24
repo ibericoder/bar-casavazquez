@@ -16,7 +16,7 @@ export const rosados: Wine[] = [
         longDescription: 'Der Calalenta Rosé (auch "Kühle Nacht" genannt) stammt aus den Abruzzen und wird aus 100% Merlot gekeltert. Dank kühler Nachtlese bewahrt er seine frischen Aromen von Erdbeeren, Kirschen und einem Hauch floraler Noten. Ein leichtes, trockenes Geschmacksprofil mit dezenter Säure und einem angenehm fruchtigen Abgang – ideal als Aperitif oder zu leichten Gerichten.',
         image: null,
         characteristics: 'trocken, leicht, hellrosa, rosé, fruchtig, erfrischend',
-        available: false
+        available: true
     },
     {
         name: "Knipser 'Rosé 24'",
@@ -33,7 +33,7 @@ export const rosados: Wine[] = [
         longDescription: "Ein eleganter Rosé‑Gutswein aus Laumersheim (Pfalz), cuvée aus Spätburgunder, Dornfelder und Cabernet‑Sorten. Feines kupfer‑/antikrosa, Aromen von Beeren, Zitrus und Kräutern. Am Gaumen saftig, harmonisch und rund – ideal pur oder zu Gegrilltem, Salaten und Antipasti.",
         image: null,
         characteristics: 'Trocken, fruchtig, frisch',
-        available: true
+        available: false
     },
     {
         name: 'Rosa Dei Frati',
@@ -50,7 +50,7 @@ export const rosados: Wine[] = [
         longDescription: 'Der Rosa Dei Frati ist ein charaktervoller Rosé aus der Lombardei. Durch die Kombination der Rebsorten Gropello, Marzemino, Sangiovese und Barbera entsteht ein komplexes Aroma von roten Beeren, frischen Blüten und feinen Gewürznoten. Eine lebhafte Säure und eine griffige Struktur verleihen ihm eine vielseitige Einsetzbarkeit, ob als Aperitif oder zu Antipasti und leichten Pastagerichten.',
         image: null,
         characteristics: 'Trocken, komplex, griffig, rosé, italienisch, aromatisch',
-        available: false
+        available: true
     },
     {
         name: 'Arrogant Frog',
@@ -84,7 +84,7 @@ export const rosados: Wine[] = [
         "longDescription": "Helles, attraktives Rosé, geprägt von Aromen roter Früchte wie Erdbeere, Himbeere und Johannisbeere. Am Gaumen frisch, mundfüllend mit feiner Säure und weichem, anhaltendem Abgang. Leicht und mehrish, ideal zu Tapas, Meeresfrüchten oder solo. 13 % Vol, Trinktemperatur 8–10 °C.",
         "image": null,
         "characteristics": "trocken, fruchtig, frisch, geschmeidig",
-        "available": true
+        "available": false
     },
     {
         name: 'El Coto Rosado',
@@ -101,7 +101,7 @@ export const rosados: Wine[] = [
         longDescription: 'Der El Coto Rosado präsentiert sich in einem blassen Lachsrosa und besticht durch ein Bouquet von frischen Erdbeeren und roten Johannisbeeren. Am Gaumen zeigt er sich rund und elegant mit einer lebendigen Frische, die ihn zu einem idealen Begleiter für Salate, Geflügelgerichte und Meeresfrüchte macht. Genießen Sie ihn gut gekühlt.',
         image: null,
         characteristics: 'Trocken, frisch, fruchtig, elegant',
-        available: true
+        available: false
     },
     {
         name: 'Minuty Rosé',
@@ -144,6 +144,6 @@ export const rosados: Wine[] = [
         longDescription: 'Der Miraval Rosé aus der Provence ist ein erfrischender, eleganter Wein mit zarter Lachsfarbe. In der Nase zeigen sich Aromen von frischen Himbeeren, weißen Blüten und einem Hauch Limette. Am Gaumen überzeugt er mit einer lebendigen Frische, feiner Mineralität und einer harmonischen Balance aus Frucht und Säure. Ein stilvoller Rosé, perfekt für warme Tage und mediterrane Speisen.',
         image: null,
         characteristics: 'Trocken, frisch, floral, mineralisch',
-        available: true
+        available: false
     }
 ]

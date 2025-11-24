@@ -40,9 +40,10 @@
       <button class="toast-close" @click="showTopToast = false" aria-label="Schließen">×</button>
     </div>
 
-          <p class="snacks-note" style="margin-top: 1rem; font-style: italic;">
-            <strong>Hinweis:</strong> Damit euch alle Snacks warm erreichen, servieren wir diese ggf. nacheinander (nicht immer alles gleichzeitig).
-          </p>
+    <p class="snacks-note" style="margin-top: 1rem; font-style: italic;">
+      <strong>Hinweis:</strong> Damit euch alle Snacks warm erreichen, servieren wir diese ggf. nacheinander (nicht
+      immer alles gleichzeitig).
+    </p>
 
     <div class="scrollContainer">
       <div class="snack-section">
@@ -94,61 +95,116 @@
           <br />
           <h3 class="snacks-subtitle">Albondigas</h3>
           <p class="snacks-note">
-            Albondigas (Fleischbällchen) in aromatischer Tomaten-Salsa – dazu reichen wir Brot. Perfekt für den kleinen
+            Albondigas (Fleischbällchen) mit Käse und Chili gefüllt in aromatischer Tomaten-Salsa – dazu reichen wir Brot. Perfekt für den kleinen
             Hunger auf etwas Deftiges.
           </p>
           <ul class="snacks-extras">
             <li class="snacks-item extra">
               <span class="snacks-name">Albondigas – Portion</span>
-              <span class="snacks-price">8,50</span>
+              <span class="snacks-price">9,50</span>
             </li>
           </ul>
         </div>
       </Transition>
 
+      <div class="snack-section" v-if="!veggie">
+        <hr />
+        <br />
+        <h3 class="snacks-subtitle">Plato de Jamón</h3>
+        <p class="snacks-note">
+          Serrano Schinken – luftgetrocknet und von höchster Qualität. Dazu servieren wir Brot.
+        </p>
+        <ul class="snacks-extras">
+          <li class="snacks-item extra">
+            <span class="snacks-name">Plato de Jamón</span>
+            <span class="snacks-price">9,50</span>
+          </li>
+        </ul>
+      </div>
+
+      <Transition name="section">
+        <div class="snack-section" >
+          <hr />
+          <br />
+          <h3 class="snacks-subtitle">Plato de Quesos</h3>
+          <p class="snacks-note">
+            Manchego Käse – der klassische spanische Schafskäse. Dazu servieren wir Brot.
+          </p>
+          <ul class="snacks-extras">
+            <li class="snacks-item extra veggie">
+              <span class="snacks-name">Plato de Quesos</span>
+              <span class="snacks-price">9,50</span>
+            </li>
+          </ul>
+        </div>
+      </Transition>
+
+      <div class="snack-section">
+        <hr />
+        <br />
+        <h3 class="snacks-subtitle">Plato Mixto</h3>
+        <p class="snacks-note">
+          Gemischte Platte mit Jamón Serrano und Manchego Käse. Dazu servieren wir Brot.
+        </p>
+        <ul class="snacks-extras">
+          <li class="snacks-item extra">
+            <span class="snacks-name">Plato Mixto</span>
+            <span class="snacks-price">16,50</span>
+          </li>
+        </ul>
+      </div>
+
       <Transition name="section">
         <div class="snack-section" v-if="!keto">
           <hr />
           <br />
-          <h3 class="snacks-subtitle">Coca <img class="coca-image" :src="cocaImage" alt="Coca"
-              @click="showCocaInfo = true" style="cursor:pointer;vertical-align:middle;height:28px;margin-left:8px;" />
+          <h3 class="snacks-subtitle">
+            Coca
+            <span class="coca-clickable" @click="showCocaInfo = true">
+              <img class="coca-image" :src="cocaImage" alt="Coca" />
+              <span class="enlarge-hint">🔍</span>
+            </span>
           </h3>
-        <p class="snacks-note">
-          Coca ist ein traditionelles spanisches Flachbrot, das mit mediterranen Zutaten belegt wird. Die Portion ist
-          vergleichbar mit einer Pizza.
-        </p>
+          <p class="snacks-note">
+            Coca ist ein traditionelles spanisches Flachbrot, das mit mediterranen Zutaten belegt wird. Die Portion ist
+            vergleichbar mit einer Pizza.
+          </p>
 
-        <BaseModal v-model="showCocaInfo">
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <h2>Coca – Spanisches Flachbrot</h2>
-            <img :src="cocaImage" alt="Coca" style="max-width: 300px; border-radius: 8px;" />
-          </div>
-          <p>Die Coca ist ein traditionelles spanisches Flachbrot, das mit mediterranen Zutaten belegt wird. Sie ist
-            besonders beliebt in Katalonien und auf den Balearen. Die Portion ist vergleichbar mit einer Pizza und
-            eignet sich perfekt zum Teilen.</p>
-        </BaseModal>
-        <ul class="snacks-extras">
-          <li class="snacks-item extra veggie">
-            <span class="snacks-name"><b>Vegetarisch</b><br />mit Tomatensauce und Mozarella und mit guten Dingen aus
-              dem meditarrenen Garten belegt (auf Wunsch Vegan)</span>
-            <span class="snacks-price">12,90</span>
-          </li>
-          <li class="snacks-item extra veggie">
-            <span class="snacks-name"><b>Wahlweise zusätzlich:</b></span>
-          </li>
-          <li class="snacks-item extra" v-if="!veggie">
-            <span class="snacks-name">+ Chorizo</span>
-            <span class="snacks-price">+ 3,90</span>
-          </li>
-          <li class="snacks-item extra" v-if="!veggie">
-            <span class="snacks-name">+ Serrano</span>
-            <span class="snacks-price">+ 3,90</span>
-          </li>
-          <li class="snacks-item extra veggie">
-            <span class="snacks-name">Doppelt Mozarella</span>
-            <span class="snacks-price">+ 2,50</span>
-          </li>
-        </ul>
+          <BaseModal v-model="showCocaInfo">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <h2>Coca – "Spanische Pizza"</h2>
+              <img :src="cocaImage" alt="Coca" style="max-width: 300px; border-radius: 8px;" />
+            </div>
+            <p>Die Coca ist ein traditionelles spanisches Flachbrot, das mit mediterranen Zutaten belegt wird. Sie ist
+              besonders beliebt in Katalonien und auf den Balearen. Die Portion ist vergleichbar mit einer Pizza und
+              eignet sich perfekt zum Teilen oder allein genießen.</p>
+          </BaseModal>
+          <ul class="snacks-extras">
+            <li class="snacks-item extra veggie">
+              <span class="snacks-name"><b>Vegetarisch</b><br />mit Tomatensauce und Mozarella und mit guten Dingen aus
+                dem meditarrenen Garten belegt (auf Wunsch Vegan)</span>
+              <span class="snacks-price">12,90</span>
+            </li>
+            <li class="snacks-item extra veggie">
+              <span class="snacks-name"><b>Wahlweise zusätzlich:</b></span>
+            </li>
+            <li class="snacks-item extra" v-if="!veggie">
+              <span class="snacks-name">+ Chorizo</span>
+              <span class="snacks-price">+ 3,90</span>
+            </li>
+            <li class="snacks-item extra" v-if="!veggie">
+              <span class="snacks-name">+ Serrano</span>
+              <span class="snacks-price">+ 3,90</span>
+            </li>
+            <li class="snacks-item extra" v-if="!veggie">
+              <span class="snacks-name">+ Albondigas</span>
+              <span class="snacks-price">+ 3,90</span>
+            </li>
+            <li class="snacks-item extra veggie">
+              <span class="snacks-name">Doppelt Mozarella</span>
+              <span class="snacks-price">+ 2,50</span>
+            </li>
+          </ul>
         </div>
       </Transition>
 
@@ -198,19 +254,19 @@ const snacks = [
   { name: 'Nachos mit Aioli Dip', description: '', price: '5', veggie: true, keto: false },
   { name: 'Brot Aioli Dip', description: '', price: '5', veggie: true, keto: false },
   { name: 'Oliven Mix', description: '', price: '5', veggie: true, onm: true, keto: true },
-  { name: 'Plato de Jamón', description: 'Serrano Schinken + Brot', price: '9,5', veggie: false, keto: true },
-  { name: 'Plato de Quesos', description: 'Manchego Käse + Brot', price: '9,5', veggie: true, keto: true },
   { name: 'Dátiles con Bacon', description: 'Datteln im Speckmantel', price: '7,5', veggie: false, keto: false },
-  { name: 'Deditos de pollo', description: 'saftige panierte Hähnchen-Sticks', price: '6,5', veggie: false, keto: true },
-  { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '6,5', veggie: false, available: false, keto: false },
-  { name: 'Plato Mixto', description: 'Gemischte Platte mit Jamón & Quesos + Brot', price: '16,5', veggie: false, keto: true },
+  { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '6,5', veggie: false, available: true, keto: false },
   { name: 'Aros de Cebolla', description: 'Zwiebelringe', price: '5', veggie: true, keto: false },
-  { name: 'Palta Rebozada', description: 'Avocado paniert', price: '8,5', veggie: true, keto: false },
-  { name: 'Rösti de Patata', description: 'Kartoffelrösti mit Chili', price: '6,5', veggie: true, keto: false },
-  { name: 'Champiñones Rebozados', description: 'Panierte Champignons', price: '5', veggie: true, keto: false },
+  { name: 'Croquetas con Chorizo', description: 'kleine Kroketten mit Chorizo-Füllung', price: '6,5', veggie: false, keto: false },
   { name: 'Palitos Vegetales', description: 'Gemüse-Sticks mit Erbsen-Minze', price: '7,5', veggie: true, keto: true },
-  { name: 'Albondigas con Chile y Queso', description: 'Kleine Chili-Käse-Frikadellen', price: '7,5', veggie: false, keto: true },
+  { name: 'Frango Piri Piri', description: 'würzige kleine Hähnchen Flügel mit Piri Piri Paprika Gewürz (pikant)', price: '8,5', veggie: false, keto: true },
+  { name: 'Tortilla Española', description: 'Mini Kartoffel-Omelett', price: '8,5', veggie: true, keto: true },
 ];
+// { name: 'Palta Rebozada', description: 'Avocadospalten paniert', price: '8,5', veggie: true, keto: false },
+// { name: 'Tapas Mix (2p)', description: 'Mix aus verschiedenen Tapas', price: '24,5', veggie: false, keto: false },
+// { name: 'Vegane Nuggets', description: 'mit Tomaten-Salsa oder Aioli', price: '6,5', veggie: true, keto: false },
+// { name: 'Veggi Mix (2p)', description: 'Mix aus verschiedenen Veggie Tapas.', price: '24,5', veggie: true, keto: false },
+// { name: 'Champiñones Rebozados', description: 'Panierte Champignons', price: '5', veggie: true, keto: false },
 
 const filteredSnacks = computed(() => {
   let filtered = snacks.filter(s => s.available !== false);
@@ -280,6 +336,30 @@ onMounted(() => {
   cursor: pointer;
 }
 
+.coca-clickable {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:hover .enlarge-hint {
+    opacity: 1;
+  }
+}
+
+.enlarge-hint {
+  display: inline-block;
+  margin-left: 0.25rem;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+  vertical-align: middle;
+}
+
 ul {
   list-style: none;
 }
@@ -289,28 +369,28 @@ ul {
   align-items: center;
   gap: 1rem;
 
-span {
-  font-weight: bold;
-  color: $text-color;
-}
-
-.filter-button {
-  background-color: transparent;
-  border: 2px solid $accent-color;
-  color: $accent-color;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-
-  &.active {
-    background-color: $accent-color;
-    color: $background-color;
+  span {
+    font-weight: bold;
+    color: $text-color;
   }
-}
+
+  .filter-button {
+    background-color: transparent;
+    border: 2px solid $accent-color;
+    color: $accent-color;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    &.active {
+      background-color: $accent-color;
+      color: $background-color;
+    }
+  }
 }
 
 .hint {
@@ -431,11 +511,11 @@ hr {
 }
 
 .veggie-icon {
-    display: inline-block;
-    font-size: 0.9rem;
-    vertical-align: middle;
-    transform: translate(-2px, -5px) rotate(282deg);
-    opacity: .75;
+  display: inline-block;
+  font-size: 0.9rem;
+  vertical-align: middle;
+  transform: translate(-2px, -5px) rotate(282deg);
+  opacity: .75;
 }
 
 .bundle {

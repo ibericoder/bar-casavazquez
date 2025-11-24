@@ -347,7 +347,7 @@ const beers: Drink[] = [
     category: "Bier",
     alcoholic: true,
     allergens: [4, 10],
-    available: true
+    available: false
   },
   {
     name: "Estrella Damm",
@@ -425,7 +425,7 @@ const spritz: Drink[] = [
   { name: "*Aperol", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4] },
   { name: "Sarti", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4] },
   { name: "Yuzu", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4] },
-  { name: "Lillet Wild Berry", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4] },
+  { name: "Amerie - Münsterländer Aperitif", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4] },
 ];
 
 const no3: Drink[] = [

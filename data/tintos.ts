@@ -19,6 +19,23 @@ export const tintos: Wine[] = [
         available: false
     },
     {
+        name: 'Cal Y Canto Tinto',
+        id: 'r38',
+        prices: {
+            '0.1l': '4,00€',
+            '0.2l': '7,50€',
+            'flasche': '24,00€'
+        },
+        color: 'red',
+        grape: 'Tempranillo, Merlot, Syrah',
+        origin: 'Kastilien, Spanien',
+        shortDescription: 'Brillantes Dunkelrot, würzige Brombeerfrucht und runder Körper.',
+        longDescription: 'Cal Y Canto Tinto stammt aus Kastilien und verbindet Tempranillo, Merlot und Syrah zu einem saftig-frischen Literwein. In der Nase zeigen sich würzige, fruchtbetonte Noten von Brombeere, Weißkirsche und weißem Pfeffer. Am Gaumen wirkt die Cuvée weich mit mittlerem Körper, roten Fruchtanklängen und etwas Tabak, bevor ein rundes Finale den unkomplizierten Charakter unterstreicht.',
+        image: null,
+        characteristics: 'Trocken, fruchtig, Brombeere, Pfeffer, Tabak',
+        available: true
+    },
+    {
         name: 'David Moreno',
         id: 'r2',
         prices: {'0.1l': "4,80€", '0.2l': "8,90€", 'flasche': '€29,50'},
@@ -30,6 +47,19 @@ export const tintos: Wine[] = [
         longDescription: 'Dieser Rotwein ist trocken und besticht durch eine tief kirschrote Farbe mit einem rubinroten Schimmer. Im Bouquet entfalten sich intensive, elegante Aromen von reifen roten Beeren, ergänzt durch Trockenfrüchte (wie Pfirsich), feine Röstaromen, Vanille und Nuancen von weichem Eichenholz. Am Gaumen präsentiert sich der Wein seidig, würzig, rund und ausgeglichen, mit reifen Tanninen, die in einem lang anhaltenden Abgang münden. Hergestellt aus handverlesenen Trauben, von denen 75 % entrappt wurden, durchläuft er einen 14-monatigen Barriqueausbau – 8 Monate in amerikanischen und 6 Monate in französischen Eichenfässern – gefolgt von weiterer Flaschenreife.',
         image: null,
         characteristics: 'Trocken, elegant, rund',
+        available: true
+    },
+    {
+        name: 'Primitivo - DOPPIO PASSO ',
+        prices: {'0.1l': "4,50€", '0.2l': "8,00€", 'flasche': '€24,50'},
+        id: 'r32',
+        color: 'red',
+        grape: '100% Primitivo',
+        origin: 'Apulien, Italien',
+        shortDescription: 'Fruchtig, würzig, samtig mit schwarzen Beeren und Vanille.',
+        longDescription: 'Der Doppio Passo Primitivo ist ein Genussgarant aus der berühmten Weinregion Apuliens. Mit seinem warmwürzigen Schmelz und seiner intensiven Frucht verströmt dieser Süditaliener eine heitere Stimmung und mediterrane Lebensfreude. Im Glas funkelt der Wein in tiefem Rubinrot. Seine Aromen klingen an schwarze Beeren, Kakao und Vanille an. Charakteristisch ist eine großartige Fülle und die weichen Tannine, die sich wie Samt über die Zunge legen. Eine feine Spur Restsüße macht ihn sowohl für Trocken-Trinker als auch für Einsteiger höchst attraktiv. Ein Klassiker – egal wer mittrinkt, sie oder er wird diesen Tropfen garantiert ins Herz schließen. Mit 13% Alkoholgehalt und 4 Jahren Lagerfähigkeit.',
+        image: null,
+        characteristics: 'Halbtrocken, fruchtig, würzig, samtig',
         available: true
     },
     {
@@ -60,8 +90,8 @@ export const tintos: Wine[] = [
             'Fruchtig-frischer Wein mit dunklen Früchten und würzigem Holz im Geschmack.',
         longDescription: 'Marqués de Cáceres – ein Synonym für herausragende Qualität – präsentiert in diesem Wein eine harmonische Vereinigung der Rebsorten Tempranillo, Garnacha und Graciano. Diese Crianza besticht durch ein Bouquet dunkler Früchte und sonnenreifer Kirschen, untermalt von würzigen Nuancen von Vanille, Nelke und Lakritze, die durch den Einsatz von gewürztem Eichenholz noch intensiviert werden. Am Gaumen zeigt sich der Wein frisch und fruchtig, mit feinen Anklängen von Erdbeeren und Himbeeren, während seine festen Tannine für eine strukturierte Textur sorgen, die hervorragend zu gerösteten Nüssen und mineralischen Noten passt.',
         image: null,
-        characteristics: 'Trocken, würzig',
-        available: true
+        characteristics: '(NUR FLASCHE) Trocken, würzig',
+        available: false
     },
     {
         name: 'Aventura - Vinos del Viento',
@@ -96,19 +126,18 @@ export const tintos: Wine[] = [
         available: true
     },
     {
-        name: 'Embocadero',
+        name: 'EMBOCADERO',
         id: 1,
-        prices: {'0.1l': '5,00€', '0.2l': '10,50€', 'flasche': '€33,00'},
+        prices: {'flasche': '€39,50'},
         color: 'red',
         grape: '100% Tinto Fino',
-        origin: 'Ribera del Duero DO',
+        origin: 'Ribera del Duero',
         shortDescription: 'Eleganter, trockener Rotwein mit lebendigen Beeren- und Zedernholznoten.',
-        longDescription: 'Der San Pedro Regalado Embocadero aus der Ribera del Duero besticht durch eine elegante, feinkörnige Tanninstruktur und animierende Säure. Sein lang anhaltender Abgang ist von Nuancen geprägt, die an Zedernholz erinnern. Im Bouquet entfalten sich lebendige Fruchtnoten von Schlehen, dunklen Beeren und Pflaumen, ergänzt durch subtile Anklänge von Lorbeer, Süßholz und einem Hauch Vanille. Am Gaumen setzt sich der Wein mit einer weichen Holznote fort und geht in saftige Aromen von Kirsch, Schlehen und Beeren über – ein harmonischer Wein mit 14% Alkohol, der Tiefe und Finesse vereint. Ausgezeichnet mit 92 Punkten von Robert Parker (Jg. 2009).',
+        longDescription: 'Embocadero Ribera del Duero 2021 – Dieser trockene Rotwein aus der renommierten Region Ribera del Duero besticht durch eine elegante, feinkörnige Tanninstruktur und animierende Säure. Sein lang anhaltender Abgang ist von Nuancen geprägt, die an Zedernholz erinnern. Im Bouquet entfalten sich lebendige Fruchtnoten von Schlehen, dunklen Beeren und Pflaumen, ergänzt durch subtile Anklänge von Lorbeer, Süßholz und einem Hauch Vanille. Am Gaumen setzt sich der Wein mit einer weichen Holznote in saftige Aromen von Kirsch, Schlehen und Beeren fort – ein harmonischer Wein, der Tiefe und Finesse vereint.',
         image: null,
-        characteristics: 'Trocken, vollmundig, elegant, fruchtig',
-        available: true
+        characteristics: 'Trocken, vollmundig, tiefrot, ehrlich',
+        available: false
     },
-
     {
         name: 'Borgo Scopeto Chianti Classico Riserva 2017 DOCG',
         id: 16,
@@ -122,7 +151,7 @@ export const tintos: Wine[] = [
             'Der Borgo Scopeto Chianti Classico Riserva 2017 DOCG präsentiert sich in einem tiefen Rubinrot mit einem komplexen Bouquet aus reifen roten Früchten, getrockneten Kräutern und würzigen Noten. Die gut integrierten Tannine und die ausgewogene Säure verleihen ihm eine beeindruckende Struktur und einen langen, eleganten Abgang, der Kenner toskanischer Weine begeistert.',
         image: null,
         characteristics: 'Trocken, kraftvoll, strukturiert, elegant',
-        available: true
+        available: false
     },
     {
         name: 'Raineri Zovetto Dogliani 2018',
@@ -137,7 +166,7 @@ export const tintos: Wine[] = [
             'Der Raineri Zovetto Dogliani 2018 zeigt sich in einem tiefen Rotton mit einem Bouquet aus dunklen Beeren, reifen Kirschen und feinen Gewürznoten. Er ist absolut trocken, mit einer ausgewogenen Säure und samtigen Tanninen, die ihm eine elegante Struktur verleihen – typisch für die Weinregion des Piemont.',
         image: null,
         characteristics: 'Trocken, intensiv, fruchtig, elegant',
-        available: true
+        available: false
     },
     {
         name: 'CASTELLO DI BIBBIONE Chianti Classico Riserva 2017',
@@ -167,7 +196,7 @@ export const tintos: Wine[] = [
             'Der "1934" CVS Canicatti 2019 präsentiert sich in einem tiefen Rubinrot mit einem Bouquet aus dunklen Kirschen, Pflaumen und einem Hauch Gewürzen. Er ist absolut trocken, mit weichen Tanninen und einer harmonischen Struktur, die das Terroir Siziliens eindrucksvoll widerspiegelt.',
         image: null,
         characteristics: 'Trocken, kraftvoll, vollmundig, elegant',
-        available: true
+        available: false
     },
     {
         name: 'Barolo Terre dei Roveri 2020',
@@ -201,4 +230,79 @@ export const tintos: Wine[] = [
         characteristics: 'Trocken, gereift, Kirsche, Leder, Tabak',
         available: true
     },
-]
+    {
+        name: 'Schneider Ursprung',
+        id: 'r33',
+        prices: {
+            'flasche': '34,50€'
+        },
+        color: 'red',
+        grape: 'Cuvée - Cabernet Sauvignon, Merlot, Portugieser',
+        origin: 'Pfalz, Deutschland',
+        shortDescription: 'Trocken, elegant mit Cassis, Zwetschgen und Paprika.',
+        longDescription: 'Mit Markus Schneiders Ursprung hat alles begonnen. 1998 erschien der erste Jahrgang dieses Weins und hat sich gleich einen Platz unter den beliebtesten Rotweinen Deutschlands verdient. Fast schwarz präsentiert sich die Cuvée im Glas. Der Wein duftet nach Cassis und Zwetschgen, Paprika, Zedernholz, Grafit und verströmt zudem einen Hauch von Minze und Pfeffer. Eine Cuvée mit hohem Anspruch für unkomplizierten Genuss. Mit 13,5% Alkoholgehalt ist dieser elegante Qualitätswein trocken und vollmundig.',
+        image: null,
+        characteristics: 'Trocken, elegant, Cassis, Zwetschgen, Paprika',
+        available: true
+    },
+    {
+        name: 'Sirica',
+        id: 'r34',
+        prices: {
+            'flasche': '37,50€'
+        },
+        color: 'red',
+        grape: '100% Sirica',
+        origin: 'Kampanien, Italien',
+        shortDescription: 'Rubinrot mit intensiven Aromen von roten Früchten und zarten pflanzlichen Noten.',
+        longDescription: 'Der Rosso Sirica di Feudi di San Gregorio stammt aus Weinbergen im Herzen der bezaubernden Landschaft von Irpinia. Es wird ausschließlich aus Sirica-Trauben hergestellt, die nur von Hand geerntet und ausgewählt werden. Die Fermentation erfolgt unter Mazeration in Stahltanks für ca. 3 Wochen. Anschließend reift der Wein 12 Monate in mittel gerösteten Barriques aus französischer Eiche und 9 Monate in der Flasche. Die Sirica hat eine rubinrote Farbe. Die Nase öffnet sich mit intensiven Empfindungen von roten Früchten, angereichert mit zarten pflanzlichen Noten. Am Gaumen ist er frisch und weich, mit weichen Tanninen, die einen würzigen und anhaltenden Abgang begleiten. Perfekt zu allen Fleischgerichten.',
+        image: null,
+        characteristics: 'Trocken, frisch, weich, würzig, Rote Früchte',
+        available: true
+    },
+    {
+        name: 'Knipser Kirschgarten GG',
+        id: 'r35',
+        prices: {
+            'flasche': '125,00€'
+        },
+        color: 'red',
+        grape: 'Spätburgunder',
+        origin: 'Laumersheim, Pfalz, Deutschland',
+        shortDescription: 'Grosses Gewächs mit rauchigem Holz, viel Substanz und eleganter Kirschfrucht.',
+        longDescription: 'Der Spätburgunder Kirschgarten 2015 vom Weingut Knipser stammt aus den kalkreichen Parzellen des historischen Kirschgartens in Laumersheim und reifte in Barriques. In der Nase zeigen sich rauchige Röstaromen, Staub von Pfeffer und Gewürzen, am Gaumen viel Saft, Substanz und ein dichtes Tanningerüst, das dennoch Eleganz bewahrt. Mit 13,8 % Vol. und nur 0,5 g Restzucker ist dieses VDP.Große Gewächs knochentrocken, vielschichtig und ideal zu Lamm, Wild oder gegrilltem Rind.',
+        image: null,
+        characteristics: 'Trocken, elegant, strukturiert, würzig, Kirschfrucht',
+        available: true
+    },
+    {
+        name: 'Schneider Steinsatz Cuvée',
+        id: 'r36',
+        prices: {
+            'flasche': '67,50€'
+        },
+        color: 'red',
+        grape: '71% Merlot, 28% Cabernet Franc, 1% Petit Verdot',
+        origin: 'Pfalz, Deutschland',
+        shortDescription: 'Dunkle Cuvée mit Salz, Feuerstein und kraftvollem Biss.',
+        longDescription: 'Der Steinsatz Cuvée 2016 vom Weingut Markus Schneider verbindet 71 % Merlot mit Cabernet Franc und einem Hauch Petit Verdot. Ein Körnchen Salz und etwas Feuerstein prägen die Nase, am Gaumen zeigt sich die Cuvée dicht, dunkel und leicht bissig, bleibt dabei aber saftig und lang. Mit 14 % Alkohol, 1,9 g Restzucker und markanter Struktur passt dieser trockene Pfälzer ideal zu Wild und herzhaften Fleischgerichten.',
+        image: null,
+        characteristics: 'Trocken, dicht, dunkel, würzig, saftig',
+        available: true
+    },
+    {
+        name: 'Campofiorin Rosso del Veronese',
+        id: 'r37',
+        prices: {
+            'flasche': '45,50€'
+        },
+        color: 'red',
+        grape: 'Corvina, Rondinella, Molinara',
+        origin: 'Veneto, Italien',
+        shortDescription: 'Gut strukturierter, geschmeidiger Veroneser mit weichen Tanninen.',
+        longDescription: 'Der Campofiorin Rosso del Veronese Bonacosta 2014 von Masi stammt aus dem hügeligen Valpolicella Classico, wo Corvina, Rondinella und Molinara auf 70 bis 400 Metern Höhe reifen. Nach dem Ausbau im Tonneau zeigt der Wein eine dichte Struktur, komplexe dunkle Frucht und samtene Tannine, weshalb er gerne als kleiner Amarone bezeichnet wird. Weich, rund und dennoch charaktervoll passt er hervorragend zu kräftigen Fleischgerichten oder gereiftem Käse.',
+        image: null,
+        characteristics: 'Trocken, strukturiert, geschmeidig, komplex',
+        available: true
+    },
+];
