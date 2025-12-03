@@ -106,7 +106,7 @@ export const rosados: Wine[] = [
     {
         name: 'Minuty Rosé',
         id: 24,
-        prices: {'0.1l': '6,50€', '0.2l': '11,50€', 'flasche': '€38,50'},
+        prices: {'flasche': '€38,50'},
         color: 'rosé',
         grape: 'Grenache, Cinsault, Syrah',
         origin: 'Frankreich, Côtes de Provence',
@@ -120,9 +120,9 @@ export const rosados: Wine[] = [
         name: 'PINK St. Laurent Rosé',
         id: 28,
         prices: {
-            '0.1l': '4,50€',
-            '0.2l': '8,50€',
-            'flasche': '27,50€'
+            '0.1l': '5,0€',
+            '0.2l': '9,50€',
+            'flasche': '29,50€'
         },
         color: 'rosé',
         grape: '100% Saint Laurent',
@@ -131,7 +131,22 @@ export const rosados: Wine[] = [
         longDescription: 'Der PINK St. Laurent Rosé von Tina Pfaffmann aus der Pfalz präsentiert sich halbtrocken mit lebendigen Aromen von Rumtopf, Mon Cheri-Kirsche und wildem Beerenmus. Eine Restsüße von 11,7 g/l sowie eine feine Säurestruktur sorgen für ein ausgewogenes Mundgefühl und erfrischenden Abgang.',
         image: null,
         characteristics: 'Halbtrocken, fruchtig, leicht, aromatisch, rosé, frisch',
-        available: false
+        available: true
+    },
+    {
+        name: 'Barón de Ley Rosado 2024',
+        id: 118,
+        prices: {
+            'flasche': '34,50€'
+        },
+        color: 'rosé',
+        grape: 'Garnacha, Graciano, Tempranillo',
+        origin: 'Rioja DOCa, Spanien',
+        shortDescription: 'Trocken, kirschfruchtiger Rioja-Rosé mit animierender Frische.',
+        longDescription: 'Der Barón de Ley Rosado 2024 zeigt in brillantem Erdbeerrosa, wie präzise Rioja-Rosés sein können. Die Cuvée aus Garnacha, Graciano und Tempranillo liefert Noten von Schattenmorelle, Erdbeere und Himbeere, begleitet von kühler Kräuterwürze. Am Gaumen wirkt er saftig, ausgewogen und fein strukturiert mit erfrischender Säure und trockenem Finish – ideal zu Salaten, Tapas oder sommerlichen Abenden.',
+        image: null,
+        characteristics: 'trocken, fruchtig, Rioja, vegan, rosé',
+        available: true
     },
     {
         name: 'Miraval',

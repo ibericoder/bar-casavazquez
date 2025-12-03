@@ -298,7 +298,8 @@ const beers: Drink[] = [
     price: "2,9€",
     category: "Bier",
     alcoholic: true,
-    allergens: [4, 10]
+    allergens: [4, 10],
+    available: false
   },
   {
     name: "Helles vom Fass 0,4",
@@ -306,7 +307,8 @@ const beers: Drink[] = [
     price: "5,5€",
     category: "Bier",
     alcoholic: true,
-    allergens: [4, 10]
+    allergens: [4, 10],
+    available: false
   },
   {
     name: "Krombacher Weizen",
@@ -338,7 +340,7 @@ const beers: Drink[] = [
     price: "3,5€",
     category: "Bier",
     alcoholic: false,
-    allergens: [4, 10]
+    allergens: [4, 10],
   },
   {
     name: "San Miguel",
@@ -347,7 +349,7 @@ const beers: Drink[] = [
     category: "Bier",
     alcoholic: true,
     allergens: [4, 10],
-    available: false
+    available: true
   },
   {
     name: "Estrella Damm",
@@ -356,7 +358,7 @@ const beers: Drink[] = [
     category: "Bier",
     alcoholic: true,
     allergens: [4, 10],
-    available: true
+    available: false
   }
 ];
 

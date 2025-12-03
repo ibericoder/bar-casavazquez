@@ -101,7 +101,7 @@
           <ul class="snacks-extras">
             <li class="snacks-item extra">
               <span class="snacks-name">Albondigas – Portion</span>
-              <span class="snacks-price">9,50</span>
+              <span class="snacks-price">10,50</span>
             </li>
           </ul>
         </div>
@@ -117,7 +117,7 @@
         <ul class="snacks-extras">
           <li class="snacks-item extra">
             <span class="snacks-name">Plato de Jamón</span>
-            <span class="snacks-price">9,50</span>
+            <span class="snacks-price">10,50</span>
           </li>
         </ul>
       </div>
@@ -133,7 +133,7 @@
           <ul class="snacks-extras">
             <li class="snacks-item extra veggie">
               <span class="snacks-name">Plato de Quesos</span>
-              <span class="snacks-price">9,50</span>
+              <span class="snacks-price">10,50</span>
             </li>
           </ul>
         </div>
@@ -255,18 +255,18 @@ const snacks = [
   { name: 'Brot Aioli Dip', description: '', price: '5', veggie: true, keto: false },
   { name: 'Oliven Mix', description: '', price: '5', veggie: true, onm: true, keto: true },
   { name: 'Dátiles con Bacon', description: 'Datteln im Speckmantel', price: '7,5', veggie: false, keto: false },
-  { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '6,5', veggie: false, available: true, keto: false },
-  { name: 'Aros de Cebolla', description: 'Zwiebelringe', price: '5', veggie: true, keto: false },
+  { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '7,5', veggie: false, available: true, keto: false },
+  { name: 'Aros de Cebolla', description: 'Zwiebelringe', price: '6', veggie: true, keto: false },
   { name: 'Croquetas con Chorizo', description: 'kleine Kroketten mit Chorizo-Füllung', price: '6,5', veggie: false, keto: false },
   { name: 'Palitos Vegetales', description: 'Gemüse-Sticks mit Erbsen-Minze', price: '7,5', veggie: true, keto: true },
   { name: 'Frango Piri Piri', description: 'würzige kleine Hähnchen Flügel mit Piri Piri Paprika Gewürz (pikant)', price: '8,5', veggie: false, keto: true },
   { name: 'Tortilla Española', description: 'Mini Kartoffel-Omelett', price: '8,5', veggie: true, keto: true },
+  { name: 'Champiñones Rebozados', description: 'Panierte Champignons', price: '6,5', veggie: true, keto: false },
+  { name: 'Vegane Nuggets', description: 'mit Tomaten-Salsa oder Aioli', price: '6,5', veggie: true, keto: false },
 ];
 // { name: 'Palta Rebozada', description: 'Avocadospalten paniert', price: '8,5', veggie: true, keto: false },
 // { name: 'Tapas Mix (2p)', description: 'Mix aus verschiedenen Tapas', price: '24,5', veggie: false, keto: false },
-// { name: 'Vegane Nuggets', description: 'mit Tomaten-Salsa oder Aioli', price: '6,5', veggie: true, keto: false },
 // { name: 'Veggi Mix (2p)', description: 'Mix aus verschiedenen Veggie Tapas.', price: '24,5', veggie: true, keto: false },
-// { name: 'Champiñones Rebozados', description: 'Panierte Champignons', price: '5', veggie: true, keto: false },
 
 const filteredSnacks = computed(() => {
   let filtered = snacks.filter(s => s.available !== false);

@@ -19,6 +19,40 @@ export const tintos: Wine[] = [
         available: false
     },
     {
+        name: 'Banda Azul Crianza',
+        id: 'r39',
+        prices: {
+            '0.1l': '4,50€',
+            '0.2l': '8,50€',
+            'flasche': '28,50€'
+        },
+        color: 'red',
+        grape: 'Tempranillo, Garnacha',
+        origin: 'Rioja DOCa, Spanien',
+        shortDescription: 'Leuchtend rubinrot, rote Früchte, Vanille und sanfte Tannine.',
+        longDescription: 'Die Banda Azul Crianza 2022 von Federico Paternina vereint Tempranillo und Garnacha aus Rioja und reift zur klassischen Crianza mit würziger Eiche. In der Nase zeigen sich florale und balsamische Noten, dazu Kirsche, Brombeere und Vanille. Am Gaumen wirkt der Wein frisch und elegant mit mittlerem Körper, feinen Röstaromen sowie einem Hauch Leder, Lakritz und Pfeffer im langen Finish.',
+        image: null,
+        characteristics: 'Trocken, rote Frucht, Vanille, Eiche, würzig',
+        available: true
+    },
+    {
+        name: 'Arrogant Frog Cabernet Sauvignon Merlot',
+        id: 'r40',
+        prices: {
+            '0.1l': '5,00€',
+            '0.2l': '9,50€',
+            'flasche': '29,50€'
+        },
+        color: 'red',
+        grape: 'Cabernet Sauvignon, Merlot',
+        origin: 'Pays d’Oc, Frankreich',
+        shortDescription: 'Granatrot, dunkle Beeren, erdige Noten und samtige Tannine.',
+        longDescription: 'Arrogant Frog Ribet Red 2022 verbindet Cabernet Sauvignon und Merlot aus dem Pays d’Oc zu einer ausgewogenen Cuvée. In der Nase zeigen sich dunkle Beeren, etwas Konfitüre und Mokka, dazu erdige Nuancen. Am Gaumen ist der Wein trocken, balanciert und anhaltend, mit gut eingebundenen Tanninen und einem langen, würzigen Abgang.',
+        image: null,
+        characteristics: 'Trocken, dunkle Beeren, Mokka, erdig, lang',
+        available: true
+    },
+    {
         name: 'Cal Y Canto Tinto',
         id: 'r38',
         prices: {
@@ -136,7 +170,7 @@ export const tintos: Wine[] = [
         longDescription: 'Embocadero Ribera del Duero 2021 – Dieser trockene Rotwein aus der renommierten Region Ribera del Duero besticht durch eine elegante, feinkörnige Tanninstruktur und animierende Säure. Sein lang anhaltender Abgang ist von Nuancen geprägt, die an Zedernholz erinnern. Im Bouquet entfalten sich lebendige Fruchtnoten von Schlehen, dunklen Beeren und Pflaumen, ergänzt durch subtile Anklänge von Lorbeer, Süßholz und einem Hauch Vanille. Am Gaumen setzt sich der Wein mit einer weichen Holznote in saftige Aromen von Kirsch, Schlehen und Beeren fort – ein harmonischer Wein, der Tiefe und Finesse vereint.',
         image: null,
         characteristics: 'Trocken, vollmundig, tiefrot, ehrlich',
-        available: false
+        available: true
     },
     {
         name: 'Borgo Scopeto Chianti Classico Riserva 2017 DOCG',
@@ -305,4 +339,5 @@ export const tintos: Wine[] = [
         characteristics: 'Trocken, strukturiert, geschmeidig, komplex',
         available: true
     },
+    
 ];
