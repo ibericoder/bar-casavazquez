@@ -49,13 +49,14 @@
       <div class="snack-section">
         <TransitionGroup name="snack" tag="ul" class="basic-snacks-list">
           <li v-for="snack in filteredSnacks" :key="snack.name" class="basic-snacks-item">
-            <div class="snack-text">
-              <span class="snacks-name">
-                {{ snack.name }}
-                <span v-if="snack.veggie" class="veggie-icon" title="Vegetarisch">&#127811;</span>
-              </span>
-              <!-- <img v-if="snack.onm" class="onmLogo" :src="onmLogo" alt="Olive und Meer" @click="showOnmInfo = true" /> -->
-              <BaseModal v-model="showOnmInfo">
+            <div class="snack-primary">
+              <div class="snack-text">
+                <span class="snacks-name">
+                  {{ snack.name }}
+                  <span v-if="snack.veggie" class="veggie-icon" title="Vegetarisch">&#127811;</span>
+                </span>
+                <!-- <img v-if="snack.onm" class="onmLogo" :src="onmLogo" alt="Olive und Meer" @click="showOnmInfo = true" /> -->
+                <BaseModal v-model="showOnmInfo">
                 <div style="display: flex;margin-bottom: 1rem; gap: 1rem">
                   <h2>Von <i>Olive & Meer</i></h2>
                   <img class="onmLogo" :src="onmLogo" />
@@ -67,7 +68,9 @@
                 </p>
                 <p style="text-align: right">Warendorfer Str. 61, 48145 Münster</p>
               </BaseModal>
-              <span class="snacks-description">{{ snack.description }}</span>
+                <span class="snacks-description">{{ snack.description }}</span>
+              </div>
+              <img v-if="snack.image" class="snack-photo" :src="snack.image" :alt="snack.name" loading="lazy" />
             </div>
             <span class="snacks-price">{{ snack.price }}</span>
           </li>
@@ -93,11 +96,24 @@
         <div class="snack-section" v-if="!veggie">
           <hr />
           <br />
-          <h3 class="snacks-subtitle">Albondigas</h3>
+          <h3 class="snacks-subtitle">
+            Albondigas
+            <span class="coca-clickable" @click="showAlbondigasInfo = true">
+              <img class="coca-image" :src="albondigasImage" alt="Albondigas" />
+              <span class="enlarge-hint">🔍</span>
+            </span>
+          </h3>
           <p class="snacks-note">
             Albondigas (Fleischbällchen) mit Käse und Chili gefüllt in aromatischer Tomaten-Salsa – dazu reichen wir Brot. Perfekt für den kleinen
             Hunger auf etwas Deftiges.
           </p>
+          <BaseModal v-model="showAlbondigasInfo">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <h2>Albondigas</h2>
+              <img :src="albondigasImage" alt="Albondigas" style="max-width: 300px; border-radius: 8px;" />
+            </div>
+            <p>Saftige Fleischbällchen mit Käse-Chili-Füllung, serviert in pikanter Tomaten-Salsa und mit Brot zum Dippen – genau wie auf der Karte beschrieben.</p>
+          </BaseModal>
           <ul class="snacks-extras">
             <li class="snacks-item extra">
               <span class="snacks-name">Albondigas – Portion</span>
@@ -243,26 +259,37 @@ import { ref, computed, onMounted } from "vue";
 import onmLogo from "../assets/images/Logo-Olive-Meer_klein.png"
 import BaseModal from "../components/BaseModal.vue";
 import cocaImage from "../assets/images/coca.png";
+import croquetasBoletus from "../assets/images/tapasclub/croquetas_boletus.png";
+import croquetasChorizo from "../assets/images/tapasclub/croquetas_chorizo.png";
+import datillesImage from "../assets/images/tapasclub/datilles.png";
+import olivenMixImage from "../assets/images/tapasclub/olivenmix.png";
+import polloPiripiri from "../assets/images/tapasclub/pollo_piripiri.png";
+import tortillaImage from "../assets/images/tapasclub/tortilla.png";
+import albondigasImage from "../assets/images/tapasclub/albondigas.png";
+import champignonsImage from "../assets/images/tapasclub/champignons.png";
+import nuggetsImage from "../assets/images/tapasclub/nuggets.png";
+import zwiebelringeImage from "../assets/images/tapasclub/zwiebelringe.png";
 
 const veggie = ref(false)
 const keto = ref(false)
 const showOnmInfo = ref(false)
 const showCocaInfo = ref(false)
 const showTopToast = ref(false)
+const showAlbondigasInfo = ref(false)
 
 const snacks = [
   { name: 'Nachos mit Aioli Dip', description: '', price: '5', veggie: true, keto: false },
   { name: 'Brot Aioli Dip', description: '', price: '5', veggie: true, keto: false },
-  { name: 'Oliven Mix', description: '', price: '5', veggie: true, onm: true, keto: true },
-  { name: 'Dátiles con Bacon', description: 'Datteln im Speckmantel', price: '7,5', veggie: false, keto: false },
-  { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '7,5', veggie: false, available: true, keto: false },
-  { name: 'Aros de Cebolla', description: 'Zwiebelringe', price: '6', veggie: true, keto: false },
-  { name: 'Croquetas con Chorizo', description: 'kleine Kroketten mit Chorizo-Füllung', price: '6,5', veggie: false, keto: false },
+  { name: 'Oliven Mix', description: '', price: '5', veggie: true, onm: true, keto: true, image: olivenMixImage },
+  { name: 'Dátiles con Bacon', description: 'Datteln im Speckmantel', price: '7,5', veggie: false, keto: false, image: datillesImage },
+  { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '7,5', veggie: false, available: true, keto: false, image: croquetasBoletus },
+  { name: 'Aros de Cebolla', description: 'Zwiebelringe', price: '6', veggie: true, keto: false, image: zwiebelringeImage },
+  { name: 'Croquetas con Chorizo', description: 'kleine Kroketten mit Chorizo-Füllung', price: '6,5', veggie: false, keto: false, image: croquetasChorizo },
   { name: 'Palitos Vegetales', description: 'Gemüse-Sticks mit Erbsen-Minze', price: '7,5', veggie: true, keto: true },
-  { name: 'Frango Piri Piri', description: 'würzige kleine Hähnchen Flügel mit Piri Piri Paprika Gewürz (pikant)', price: '8,5', veggie: false, keto: true },
-  { name: 'Tortilla Española', description: 'Mini Kartoffel-Omelett', price: '8,5', veggie: true, keto: true },
-  { name: 'Champiñones Rebozados', description: 'Panierte Champignons', price: '6,5', veggie: true, keto: false },
-  { name: 'Vegane Nuggets', description: 'mit Tomaten-Salsa oder Aioli', price: '6,5', veggie: true, keto: false },
+  { name: 'Frango Piri Piri', description: 'würzige kleine Hähnchen Flügel mit Piri Piri Paprika Gewürz (pikant)', price: '8,5', veggie: false, keto: true, image: polloPiripiri },
+  { name: 'Tortilla Española', description: 'Mini Kartoffel-Omelett', price: '8,5', veggie: true, keto: true, image: tortillaImage },
+  { name: 'Champiñones Rebozados', description: 'Panierte Champignons', price: '6,5', veggie: true, keto: false, image: champignonsImage },
+  { name: 'Vegane Nuggets', description: 'mit Tomaten-Salsa oder Aioli', price: '6,5', veggie: true, keto: false, image: nuggetsImage },
 ];
 // { name: 'Palta Rebozada', description: 'Avocadospalten paniert', price: '8,5', veggie: true, keto: false },
 // { name: 'Tapas Mix (2p)', description: 'Mix aus verschiedenen Tapas', price: '24,5', veggie: false, keto: false },
@@ -567,7 +594,17 @@ hr {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
   margin-bottom: 0.8rem;
+
+  .snack-primary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+    min-width: 0;
+  }
 
   .snack-text {
     display: flex;
@@ -588,6 +625,9 @@ hr {
   .snacks-price {
     font-size: 1rem;
     color: $accent-color;
+    flex-shrink: 0;
+    min-width: 60px;
+    text-align: right;
   }
 
   &.extra {
@@ -596,6 +636,17 @@ hr {
     }
   }
 }
+
+.snack-photo {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: contain;
+  background-color: transparent;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
 
 .snacks-extras {
   margin-bottom: 2rem;
