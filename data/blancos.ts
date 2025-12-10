@@ -105,6 +105,23 @@ export const blancos: Wine[] = [
         available: false
     },
     {
+        name: 'Eguren Ugarte Rioja Blanco 2023',
+        id: 'w_eguren_ugarte_blanco_2023',
+        prices: {
+            '0.1l': '5,00€',
+            '0.2l': '9,00€',
+            'flasche': '29,00€'
+        },
+        color: 'white',
+        grape: 'Viura, Sauvignon Blanc, Chardonnay, Tempranillo Blanco, Garnacha Blanca',
+        origin: 'Spanien, Rioja DOCa',
+        shortDescription: 'Fassgereifter Rioja Blanco mit weißer Blütenaromatik, cremiger Textur und salziger Zitrusfrische.',
+        longDescription: 'Die Cuvée aus Viura, Sauvignon Blanc, Chardonnay, Tempranillo Blanco und Garnacha Blanca reift teils im Holz, teils im Edelstahl. Noten von Birne, Limettenzeste und weißen Blüten verbinden sich mit cremigem Mundgefühl, feiner Würze und einer kühlen, kalkigen Mineralität. Der Jahrgang 2023 wirkt vielschichtig und bleibt trotzdem trinkanimierend – perfekt zu Pintxos, Meeresfrüchten oder cremigen Reisgerichten.',
+        image: null,
+        characteristics: 'Trocken, mineralisch, Rioja, Birne, Kräuter',
+        available: true
+    },
+    {
         name: 'Julian',
         id: 174,
         prices: {

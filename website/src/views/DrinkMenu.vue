@@ -18,6 +18,25 @@
       Hauptstadt Spaniens kennt.</span>
     <button class="toast-close" @click="showTopToast = false" aria-label="Schließen">×</button>
   </div>
+
+  <!--    Bubbles-->
+  <section class="drinks-menu-section" v-if="!nonAlcoholic">
+    <header class="drinks-header">
+      <h1 class="drinks-title">Bubbles</h1>
+      <p class="drinks-subtitle">Sparkling Moments</p>
+    </header>
+
+    <div class="drinks-content">
+      <transition-group name="drink" tag="ul" class="drinks-list">
+        <li v-for="drink in bubbles" :key="drink.name" class="drinks-item">
+          <div class="drink-text">
+            <span class="drinks-name">{{ drink.name }}</span>
+          </div>
+          <span class="drinks-price">{{ drink.price }}</span>
+        </li>
+      </transition-group>
+    </div>
+  </section>
   <!--    Softdrinks-->
   <section class="drinks-menu-section">
     <header class="drinks-header">
@@ -224,10 +243,10 @@
           <td>enthält Gluten (Weizen)</td>
         </tr>
         <tr>
-          <td>10</td>
-          <td>enthält Gluten (Gerste)</td>
-        </tr>
-        <tr>
+          <tr>
+            <td>12</td>
+            <td>enthält Schalenfrüchte (z. B. Mandeln, Walnüsse)</td>
+          </tr>
           <td>11</td>
           <td>enthält Ei</td>
         </tr>
@@ -244,6 +263,30 @@
           <td>enthält Sellerie</td>
         </tr>
         <tr>
+          <tr>
+            <td>17</td>
+            <td>enthält Sesam</td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>enthält Fisch</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>enthält Krebstiere</td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>enthält Weichtiere (Mollusken)</td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td>enthält Lupinen</td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>enthält Erdnüsse</td>
+          </tr>
           <td>15</td>
           <td>enthält Senf</td>
         </tr>
@@ -290,7 +333,7 @@ const beers: Drink[] = [
     category: "Bier",
     alcoholic: true,
     allergens: [4, 10],
-    available: false,
+    available: true,
   },
   {
     name: "Helles vom Fass 0,2",
@@ -299,7 +342,7 @@ const beers: Drink[] = [
     category: "Bier",
     alcoholic: true,
     allergens: [4, 10],
-    available: false
+    available: true
   },
   {
     name: "Helles vom Fass 0,4",
@@ -308,7 +351,7 @@ const beers: Drink[] = [
     category: "Bier",
     alcoholic: true,
     allergens: [4, 10],
-    available: false
+    available: true
   },
   {
     name: "Krombacher Weizen",
@@ -316,7 +359,7 @@ const beers: Drink[] = [
     price: "5,9€",
     category: "Bier",
     alcoholic: true,
-    allergens: [4, 9, 10], available: false
+    allergens: [4, 9, 10], available: true
   },
   {
     name: "Krombacher Weizen 0,0%",
@@ -358,7 +401,7 @@ const beers: Drink[] = [
     category: "Bier",
     alcoholic: true,
     allergens: [4, 10],
-    available: false
+    available: true
   }
 ];
 
@@ -428,6 +471,12 @@ const spritz: Drink[] = [
   { name: "Sarti", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4] },
   { name: "Yuzu", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4] },
   { name: "Amerie - Münsterländer Aperitif", price: "8,5€", category: "Cocktail", alcoholic: true, allergens: [1, 4] },
+];
+
+const bubbles: Drink[] = [
+  { name: "Prosecco Rosé 0,1l", price: "7,5€", category: "Bubbles", alcoholic: true, allergens: [4] },
+  { name: "Crémant Rosé 0,1l", price: "11€", category: "Bubbles", alcoholic: true, allergens: [4] },
+  { name: "Cava Brut 0,1l", price: "8€", category: "Bubbles", alcoholic: true, allergens: [4] }
 ];
 
 const no3: Drink[] = [

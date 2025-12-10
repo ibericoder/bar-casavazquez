@@ -2,17 +2,12 @@
   <div class="showroom">
     <h2 class="title">Was gibt es hier?</h2>
     <div class="slideshow">
-      <div
-          v-for="(slide, index) in slides"
-          :key="index"
-          v-show="index === currentIndex"
-          class="slide"
-      >
+      <div class="slide" :key="currentSlide">
         <img
-            :src="slide"
-            :alt="`Bild ${index + 1}`"
-            class="slide-image"
-            loading="lazy"
+          :src="currentSlide"
+          :alt="`Bild ${currentIndex + 1}`"
+          class="slide-image"
+          loading="lazy"
         />
       </div>
 
@@ -23,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref, onMounted, onUnmounted} from 'vue';
+import {defineComponent, ref, onMounted, onUnmounted, computed, watch} from 'vue';
 
 export default defineComponent({
   name: 'Showroom',
@@ -38,6 +33,13 @@ export default defineComponent({
     const sliderDuration = 4000;
     const currentIndex = ref(0);
     let intervalId: number;
+    const currentSlide = computed(() => slides[currentIndex.value]);
+
+    const preloadImage = (index: number) => {
+      const normalizedIndex = (index + slides.length) % slides.length;
+      const img = new Image();
+      img.src = slides[normalizedIndex];
+    };
 
     const startSlideshow = () => {
       intervalId = window.setInterval(() => {
@@ -64,12 +66,21 @@ export default defineComponent({
       resetSlideshow();
     };
 
-    onMounted(startSlideshow);
+    watch(currentIndex, (idx) => {
+      preloadImage(idx + 1);
+    }, { immediate: true });
+
+    onMounted(() => {
+      preloadImage(currentIndex.value);
+      preloadImage(currentIndex.value + 1);
+      startSlideshow();
+    });
     onUnmounted(() => stopSlideshow());
 
     return {
       slides,
       currentIndex,
+      currentSlide,
       nextSlide,
       prevSlide,
     };
