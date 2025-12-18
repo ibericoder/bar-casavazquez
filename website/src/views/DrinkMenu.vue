@@ -146,6 +146,32 @@
   <!--   Cocktails-->
   <section class="drinks-menu-section" v-if="!nonAlcoholic">
     <header class="drinks-header">
+      <h1 class="drinks-title">Schnapps</h1>
+      <p class="drinks-subtitle">Scheibel, Sasse & Co.</p>
+    </header>
+    <div class="drinks-content">
+      <div class="scheibel-highlight">
+        <img :src="scheibelImage" alt="Scheibel Marille" class="scheibel-photo" loading="lazy" />
+        <div class="scheibel-copy">
+          <h2>SCHEIBEL Premium Schnaps aus dem Schwarzwald</h2>
+          <p>Seit 1921 destilliert die Familie Scheibel Obstbrände, die Genuss zu einem Erlebnis machen. Die Manufaktur verbindet bewahrte Brennkunst mit ambitionierter Technik und schafft Boutique-Destillate mit luxuriöser Tiefe.</p>
+          <small class="scheibel-credit">Bild: Scheibel Schwarzwald-Brennerei</small>
+        </div>
+      </div>
+      <transition-group name="drink" tag="ul" class="drinks-list">
+        <li v-for="drink in schnapps" :key="drink.name" class="drinks-item">
+          <div class="drink-text">
+            <span class="drinks-name">{{ drink.name }} <span v-if="drink.volume">{{ drink.volume }}</span></span>
+          </div>
+          <span class="drinks-price">{{ drink.price }}</span>
+        </li>
+      </transition-group>
+    </div>
+  </section>
+
+  <!--   Cocktails-->
+  <section class="drinks-menu-section" v-if="!nonAlcoholic">
+    <header class="drinks-header">
       <h1 class="drinks-title">Cócteles</h1>
       <p class="drinks-subtitle">Cocktails</p>
     </header>
@@ -306,6 +332,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import scheibelImage from "../assets/images/scheibel_marille.png";
 
 interface Drink {
   name: string;
@@ -486,6 +513,15 @@ const no3: Drink[] = [
   { name: "Tom Collins", price: "7,5€", category: "Cocktail", alcoholic: true, allergens: [] }
 ];
 
+const schnapps: Drink[] = [
+  { name: "Scheibel Feine Marille", volume: "2cl", price: "5,5€", category: "Schnapps", alcoholic: true },
+  { name: "Scheibel Edles Fass 350 Nussler", volume: "2cl", price: "6,5€", category: "Schnapps", alcoholic: true },
+  { name: "Sasse Kakao Nuss", volume: "2cl", price: "4,5€", category: "Schnapps", alcoholic: true },
+  { name: "Sasse Salz Karamel", volume: "2cl", price: "4,5€", category: "Schnapps", alcoholic: true },
+  { name: "Sasse Sechser", volume: "2cl", price: "4,5€", category: "Schnapps", alcoholic: true },
+  { name: "Cardenal Mendoza", volume: "2cl", price: "5,5€", category: "Schnapps", alcoholic: true },
+];
+
 const zeroAlc: Drink[] = [
   { name: "Gin Fizz", price: "9€", category: "Cocktail", alcoholic: false, allergens: [11] },
   { name: "Gin Tonic", price: "7,5€", category: "Cocktail", alcoholic: false, allergens: [24] },
@@ -543,6 +579,51 @@ const zeroAlc: Drink[] = [
   overflow-y: auto;
   padding: 1rem;
   border-radius: 5px;
+}
+
+.scheibel-highlight {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(206, 170, 114, 0.45);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  flex-wrap: wrap;
+}
+
+.scheibel-photo {
+  width: auto;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 12px;
+  flex: 0 0 auto;
+}
+
+.scheibel-copy {
+  flex: 1 1 220px;
+  color: $text-color;
+}
+
+.scheibel-copy h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+  color: $accent-color;
+}
+
+.scheibel-copy p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.scheibel-credit {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .drinks-list {
@@ -684,6 +765,15 @@ const zeroAlc: Drink[] = [
 @media (max-width: 600px) {
   .allergen-table {
     font-size: 0.85rem;
+  }
+
+  .scheibel-highlight {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .scheibel-copy {
+    text-align: center;
   }
 }
 

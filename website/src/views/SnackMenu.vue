@@ -45,6 +45,18 @@
       immer alles gleichzeitig).
     </p>
 
+    <div v-if="featuredItems.length" class="featured-snacks">
+      <article class="featured-card" v-for="item in featuredItems" :key="item.name">
+        <div class="featured-text">
+          <span v-if="item.badge" class="featured-badge">{{ item.badge }}</span>
+          <h2 class="featured-name">{{ item.name }}</h2>
+          <p class="featured-description">{{ item.description }}</p>
+          <span class="featured-price">{{ item.price }}</span>
+        </div>
+        <img class="featured-image" :src="item.image" :alt="item.name" loading="lazy" />
+      </article>
+    </div>
+
     <div class="scrollContainer">
       <div class="snack-section">
         <TransitionGroup name="snack" tag="ul" class="basic-snacks-list">
@@ -447,6 +459,7 @@ import pancehta from "../assets/images/tapasclub/pancheta.png";
 import veggieSticksImage from "../assets/images/tapasclub/sticks.png";
 import calamares from "../assets/images/tapasclub/calamares.png";
 import mixtoImage from "../assets/images/tapasclub/mixto.png";
+import flammImage from "../assets/images/tapasclub/flamm.png";
 
 interface SnackItem {
   name: string;
@@ -459,6 +472,14 @@ interface SnackItem {
   available?: boolean;
   allergens?: number[];
   traceAllergens?: number[];
+}
+
+interface FeaturedItem {
+  name: string;
+  description: string;
+  price: string;
+  image: string;
+  badge?: string;
 }
 
 const allergenIndexMap: Record<number, string> = {
@@ -568,6 +589,16 @@ function formatAllergenDescription(codes?: number[]) {
   return codes.map(code => allergenIndexMap[code] ?? `Index ${code}`).join(", ")
 }
 
+const featuredItems: FeaturedItem[] = [
+  {
+    name: "Flammkuchen",
+    description: "Knuspriger Teig, Crème fraîche, Schmand, Zwiebel, Speck – optional Veggi mit Artischockenherzen.",
+    price: "10€",
+    image: flammImage,
+    badge: "Neu"
+  }
+]
+
 const snacks: SnackItem[] = [
   { name: 'Nachos mit Aioli Dip', description: '', price: '5', veggie: true, keto: false, allergens: [11, 15] },
   { name: 'Brot Aioli Dip', description: '', price: '5', veggie: true, keto: false, allergens: [9, 11, 15] },
@@ -576,7 +607,7 @@ const snacks: SnackItem[] = [
   { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '7,5', veggie: false, available: true, keto: false, image: croquetasBoletus, allergens: [9, 11, 13] },
   { name: 'Aros de Cebolla', description: 'Zwiebelringe', price: '6', veggie: true, keto: false, image: zwiebelringeImage, allergens: [9, 11, 13] },
   { name: 'Croquetas con Chorizo', description: 'kleine Kroketten mit Chorizo-Füllung', price: '7,5', veggie: false, keto: false, image: croquetasChorizo, allergens: [9, 11, 13, 26] },
-  { name: 'Palitos Vegetales', description: 'Gemüse-Sticks mit Erbsen-Minze', price: '8,5', veggie: true, keto: true, image: veggieSticksImage, available: true, allergens: [9, 11] },
+  { name: 'Palitos Vegetales', description: 'Gemüse-Sticks mit Erbsen-Minze', price: '8,5', veggie: true, keto: true, image: veggieSticksImage, available: false, allergens: [9, 11] },
   {
     name: 'Frango Piri Piri',
     description: 'würzige kleine Hähnchen Flügel mit Piri Piri Paprika Gewürz (pikant)',
@@ -589,7 +620,7 @@ const snacks: SnackItem[] = [
   },
   { name: 'Tortilla Española', description: 'Mini Kartoffel-Omelet', price: '7', veggie: true, keto: true, image: tortillaImage, allergens: [11, 13] },
   { name: 'Tortilla Española', description: 'Mini Kartoffel-Omelet + Serrano', price: '8,5', veggie: true, keto: true, image: tortillaImage, allergens: [11, 13] },
-  { name: 'Champiñones Rebozados', description: 'Panierte Champignons', price: '6,5', veggie: true, keto: false, image: champignonsImage, allergens: [9, 11, 13] },
+  { name: 'Champiñones Rebozados', description: 'Panierte Champignons', price: '6,5', veggie: true, keto: false, image: champignonsImage, available: false, allergens: [9, 11, 13] },
   { name: 'Vegane Nuggets', description: 'mit Tomaten-Salsa oder Aioli', price: '7,5', veggie: true, keto: false, image: nuggetsImage, allergens: [9, 16] },
   {
     name: 'Rote Bete-Ingwer Bällchen',
@@ -794,6 +825,72 @@ hr {
       }
     }
   }
+}
+
+.featured-snacks {
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 100%;
+}
+
+.featured-card {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border: 1px solid rgba(206, 170, 114, 0.6);
+  border-radius: 16px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  flex-wrap: wrap;
+}
+
+.featured-text {
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.featured-badge {
+  align-self: flex-start;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.08rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(206, 170, 114, 0.22);
+  color: $accent-color;
+  border: 1px solid rgba(206, 170, 114, 0.5);
+}
+
+.featured-name {
+  margin: 0;
+  font-size: 1.4rem;
+  color: $accent-color;
+}
+
+.featured-description {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.featured-price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $accent-color;
+}
+
+.featured-image {
+  width: 160px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex: 0 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
 .top-toast {
@@ -1123,6 +1220,29 @@ hr {
 
 .allergen-table tbody tr:hover {
   background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .snacks-menu {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .featured-card {
+    text-align: center;
+  }
+
+  .featured-text {
+    align-items: center;
+  }
+
+  .featured-badge {
+    align-self: center;
+  }
+
+  .featured-image {
+    width: 100%;
+    height: 180px;
+  }
 }
 
 @media (max-width: 600px) {

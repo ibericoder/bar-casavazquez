@@ -134,8 +134,23 @@ export const rosados: Wine[] = [
         available: true
     },
     {
-        name: 'Barón de Ley Rosado 2024',
+        name: 'Marqués de Riscal Rosado',
         id: 118,
+        prices: {
+            'flasche': '34,50€'
+        },
+        color: 'rosé',
+        grape: 'Garnacha, Tempranillo',
+        origin: 'Rioja DOCa, Spanien',
+        shortDescription: 'Feiner Rioja-Rosé mit lachsrosa Schimmer, saftiger Beerenfrucht und kühler Mineralität.',
+        longDescription: 'Marqués de Riscal interpretiert seinen Rosado als moderne Hommage an die großen Klassiker des Hauses: Trauben aus ausgesuchten Rioja-Parzellen werden in den frühen Morgenstunden geerntet, sanft gepresst und temperaturkontrolliert vergoren. Das Ergebnis funkelt in zartem Lachsrosa. In der Nase verbinden sich Noten von Walderdbeeren, rosa Grapefruit und getrockneten Blütenblättern mit einem feinen, kalkigen Unterton. Am Gaumen wirkt der Rosé energiegeladen und doch seidig, mit klarer Säureader, dezenter Würze und einem mineralischen Finish, das an die Böden von Rioja Alavesa erinnert. Perfekt als Aperitif, zu mediterranen Vorspeisen oder als eleganter Begleiter zu Meeresfrüchten.',
+        image: null,
+        characteristics: 'trocken, elegant, Rioja, Premium, rosé',
+        available: true
+    },
+    {
+        name: 'Barón de Ley Rosado 2024',
+        id: 119,
         prices: {
             'flasche': '34,50€'
         },
@@ -145,7 +160,7 @@ export const rosados: Wine[] = [
         shortDescription: 'Trocken, kirschfruchtiger Rioja-Rosé mit animierender Frische.',
         longDescription: 'Der Barón de Ley Rosado 2024 zeigt in brillantem Erdbeerrosa, wie präzise Rioja-Rosés sein können. Die Cuvée aus Garnacha, Graciano und Tempranillo liefert Noten von Schattenmorelle, Erdbeere und Himbeere, begleitet von kühler Kräuterwürze. Am Gaumen wirkt er saftig, ausgewogen und fein strukturiert mit erfrischender Säure und trockenem Finish – ideal zu Salaten, Tapas oder sommerlichen Abenden.',
         image: null,
-        characteristics: 'trocken, fruchtig, Rioja, vegan, rosé',
+        characteristics: 'trocken, fruchtig, Rioja, rosé',
         available: true
     },
     {

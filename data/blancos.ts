@@ -122,6 +122,23 @@ export const blancos: Wine[] = [
         available: true
     },
     {
+        name: 'Pompaelo Blanco 2023',
+        id: 'w_pompaelo_blanco_2023',
+        prices: {
+            '0.1l': '4,50€',
+            '0.2l': '8,50€',
+            'flasche': '27,50€'
+        },
+        color: 'white',
+        grape: 'ca. 90% Chardonnay, 8% Viura (Macabeo), 2% Muscadelle',
+        origin: 'Spanien, Navarra',
+        shortDescription: 'Eleganter Navarra-Weißwein von Pompaelo Wines mit cremiger Textur, frischer Frucht und milder Säure.',
+        longDescription: 'Pompaelo Wines widmet den Blanco der Vielfalt Navarras: Die Cuvée aus rund 90% Chardonnay, 8% Viura (Macabeo) und 2% Muscadelle leuchtet strohgelb und duftet nach Apfel, Birne, Ananas und Orangenschale, abgerundet von feinen Mandel- und Rosenanklängen. Am Gaumen treffen lebendige Frucht, milde Säure und eine verführerisch cremige Textur auf einen langen, charmanten Nachhall – perfekt als Aperitif oder zu Salaten, Meeresfrüchten und asiatisch inspirierten Gerichten. Enthält Sulfite.',
+        image: null,
+        characteristics: 'Trocken, cremig, tropisch, Navarra, Chardonnay',
+        available: true
+    },
+    {
         name: 'Julian',
         id: 174,
         prices: {

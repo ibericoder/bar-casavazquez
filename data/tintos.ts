@@ -265,6 +265,21 @@ export const tintos: Wine[] = [
         available: true
     },
     {
+        name: 'Velis Vineyards Reserva Cuvée 2015',
+        id: 'r_velis_reserva_2015',
+        prices: {
+            'flasche': '34,50€'
+        },
+        color: 'red',
+        grape: '50% Cabernet Sauvignon, 48% Merlot, 2% Petit Verdot',
+        origin: 'Bulgarien, Oberthrakische Tiefebene (Ausbau Flörsheim-Dalsheim)',
+        shortDescription: 'Trocken ausgebaute Barrique-Cuvée mit roten Johannisbeeren, Himbeere, Vanille, Rauch und weichen Tanninen.',
+        longDescription: 'Velis Vineyards kombiniert handgelesene Cabernet-, Merlot- und Petit-Verdot-Trauben aus der oberthrakischen Tiefebene Bulgariens, wo heiße Tage und kühle Nächte für konzentrierte Aromen und frische Säure sorgen. Nach gekühltem Transport in die deutsche Kellerei Flörsheim-Dalsheim reift der Wein 12 Monate in französischen Barriques. Der 2015er Reserva zeigt mittleres Granatrot, duftet nach roter Johannisbeere, Himbeere, Vanille, Rauch und gerösteten Haselnüssen und liefert am Gaumen 14 % Vol., 2 g Restzucker und 4,7 g Säure. Weiche Tannine, runder Körper und eine harmonische Struktur entwickeln sich mit Luftkontakt noch weiter. Enthält Sulfite.',
+        image: null,
+        characteristics: 'Trocken, Barrique, rote Beeren, Vanille, weich',
+        available: true
+    },
+    {
         name: 'Schneider Ursprung',
         id: 'r33',
         prices: {
