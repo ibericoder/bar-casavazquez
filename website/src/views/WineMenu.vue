@@ -1,4 +1,5 @@
 <template>
+  <FeaturedSlider :items="sliderItems" />
   <section class="wine-menu-section">
     <header class="wine-header">
       <h1 class="wine-title">Vino</h1>
@@ -43,6 +44,8 @@
 import {ref, onMounted, computed} from 'vue';
 import {type Wine} from "../interfaces/vino.ts";
 import WineItem from '../components/WineItem.vue';
+import FeaturedSlider from "../components/FeaturedSlider.vue";
+import { featuredPromos } from "../data/featuredPromos";
 import {useNow} from '@vueuse/core';
 import {useWineMenu} from "./useWineMenu.ts";
 import {vinos as staticVinos}  from '../data/vinos.ts'
@@ -61,6 +64,7 @@ const isHappyHour = computed(() => {
 const wines = ref<Wine[]>([]);
 const showTopToast = ref(false);
 const selectedColor = ref<string>('');
+const sliderItems = featuredPromos;
 
 onMounted(async () => {
   if (!shouldUseApi) {

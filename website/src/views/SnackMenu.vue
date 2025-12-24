@@ -1,4 +1,27 @@
 <template>
+  <FeaturedSlider :items="sliderItems" />
+
+  <section class="flamm-feature" aria-label="Flammkuchen Highlight">
+    <div class="flamm-content">
+      <span class="flamm-kicker">GANZ NEU AUF DER KARTE</span>
+      <h2>Elsässer Flammkuchen</h2>
+      <p>
+        Dünner, ofenfrischer Teig mit Crème fraîche, roten Zwiebeln und herzhaftem Speck. Perfekt zum Teilen mit einem Glas Wein.
+      </p>
+      <div class="flamm-meta">
+        <span class="flamm-price">10,00€</span>
+        <span class="flamm-tag">Auf Wunsch auf vegetarisch</span>
+      </div>
+    </div>
+    <figure class="flamm-figure">
+      <img class="flamm-photo" :src="flammImage" alt="Knuspriger Flammkuchen" loading="lazy" />
+    </figure>
+  </section>
+
+  <div class="supply-hint" role="status" aria-live="polite">
+    Aufgrund einer Lieferverzögerung unseres Zulieferers sind einige Tapas erst ab nächster Woche wieder erhältlich. Danke für euer Verständnis!
+  </div>
+
   <div v-show="false" class="hint" style="display: block">
     Heute <b> Buffet</b> mit Selbstbedienung <br />
     <p>Beim Buffet findest du Bambus-Schälchen, die du mit deinen Lieblings Snacks <b>voll</b>machen kannst.</p>
@@ -44,18 +67,6 @@
       <strong>Hinweis:</strong> Damit euch alle Snacks warm erreichen, servieren wir diese ggf. nacheinander (nicht
       immer alles gleichzeitig).
     </p>
-
-    <div v-if="featuredItems.length" class="featured-snacks">
-      <article class="featured-card" v-for="item in featuredItems" :key="item.name">
-        <div class="featured-text">
-          <span v-if="item.badge" class="featured-badge">{{ item.badge }}</span>
-          <h2 class="featured-name">{{ item.name }}</h2>
-          <p class="featured-description">{{ item.description }}</p>
-          <span class="featured-price">{{ item.price }}</span>
-        </div>
-        <img class="featured-image" :src="item.image" :alt="item.name" loading="lazy" />
-      </article>
-    </div>
 
     <div class="scrollContainer">
       <div class="snack-section">
@@ -441,8 +452,10 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, watch } from "vue";
-import onmLogo from "../assets/images/Logo-Olive-Meer_klein.png"
+import onmLogo from "../assets/images/Logo-Olive-Meer_klein.png";
 import BaseModal from "../components/BaseModal.vue";
+import FeaturedSlider from "../components/FeaturedSlider.vue";
+import { featuredPromos } from "../data/featuredPromos";
 import cocaImage from "../assets/images/coca.png";
 import croquetasBoletus from "../assets/images/tapasclub/croquetas_boletus.png";
 import croquetasChorizo from "../assets/images/tapasclub/croquetas_chorizo.png";
@@ -453,7 +466,7 @@ import tortillaImage from "../assets/images/tapasclub/tortilla.png";
 import albondigasImage from "../assets/images/tapasclub/albondigas.png";
 import champignonsImage from "../assets/images/tapasclub/champignons.png";
 import nuggetsImage from "../assets/images/tapasclub/nuggets.png";
-import zwiebelringeImage from "../assets/images/tapasclub/zwiebelringe.png";
+// import zwiebelringeImage from "../assets/images/tapasclub/zwiebelringe.png";
 import rotebete from "../assets/images/tapasclub/rotebete_baellchen.png";
 import pancehta from "../assets/images/tapasclub/pancheta.png";
 import veggieSticksImage from "../assets/images/tapasclub/sticks.png";
@@ -472,14 +485,6 @@ interface SnackItem {
   available?: boolean;
   allergens?: number[];
   traceAllergens?: number[];
-}
-
-interface FeaturedItem {
-  name: string;
-  description: string;
-  price: string;
-  image: string;
-  badge?: string;
 }
 
 const allergenIndexMap: Record<number, string> = {
@@ -589,25 +594,16 @@ function formatAllergenDescription(codes?: number[]) {
   return codes.map(code => allergenIndexMap[code] ?? `Index ${code}`).join(", ")
 }
 
-const featuredItems: FeaturedItem[] = [
-  {
-    name: "Flammkuchen",
-    description: "Knuspriger Teig, Crème fraîche, Schmand, Zwiebel, Speck – optional Veggi mit Artischockenherzen.",
-    price: "10€",
-    image: flammImage,
-    badge: "Neu"
-  }
-]
+const sliderItems = featuredPromos;
 
 const snacks: SnackItem[] = [
   { name: 'Nachos mit Aioli Dip', description: '', price: '5', veggie: true, keto: false, allergens: [11, 15] },
   { name: 'Brot Aioli Dip', description: '', price: '5', veggie: true, keto: false, allergens: [9, 11, 15] },
   { name: 'Oliven Mix', description: '', price: '5', veggie: true, onm: true, keto: true, image: olivenMixImage },
-  { name: 'Dátiles con Bacon', description: 'Datteln im Speckmantel', price: '7,5', veggie: false, keto: false, image: datillesImage, allergens: [26] },
   { name: 'Kroketten + Dip', description: 'gefüllt mit Käse & Jalapeños', price: '7,5', veggie: false, available: true, keto: false, image: croquetasBoletus, allergens: [9, 11, 13] },
-  { name: 'Aros de Cebolla', description: 'Zwiebelringe', price: '6', veggie: true, keto: false, image: zwiebelringeImage, allergens: [9, 11, 13] },
   { name: 'Croquetas con Chorizo', description: 'kleine Kroketten mit Chorizo-Füllung', price: '7,5', veggie: false, keto: false, image: croquetasChorizo, allergens: [9, 11, 13, 26] },
-  { name: 'Palitos Vegetales', description: 'Gemüse-Sticks mit Erbsen-Minze', price: '8,5', veggie: true, keto: true, image: veggieSticksImage, available: false, allergens: [9, 11] },
+  { name: 'Croquetas de Boletus', description: 'kleine Kroketten mit Steinpilz-Füllung', price: '7,5', veggie: false, keto: false, available: true, image: croquetasChorizo, allergens: [9, 11, 13, 26] },
+  { name: 'Palitos Vegetales', description: 'Gemüse-Sticks mit Erbsen-Minze', price: '8,5', veggie: true, keto: true, image: veggieSticksImage, available: true, allergens: [9, 11] },
   {
     name: 'Frango Piri Piri',
     description: 'würzige kleine Hähnchen Flügel mit Piri Piri Paprika Gewürz (pikant)',
@@ -618,19 +614,12 @@ const snacks: SnackItem[] = [
     allergens: [14, 16],
     traceAllergens: [4, 9, 12, 13, 15, 17, 22]
   },
-  { name: 'Tortilla Española', description: 'Mini Kartoffel-Omelet', price: '7', veggie: true, keto: true, image: tortillaImage, allergens: [11, 13] },
-  { name: 'Tortilla Española', description: 'Mini Kartoffel-Omelet + Serrano', price: '8,5', veggie: true, keto: true, image: tortillaImage, allergens: [11, 13] },
-  { name: 'Champiñones Rebozados', description: 'Panierte Champignons', price: '6,5', veggie: true, keto: false, image: champignonsImage, available: false, allergens: [9, 11, 13] },
+  { name: 'Tortilla Española', description: 'Mini Kartoffel-Omelet', price: '7', veggie: true, keto: true, image: tortillaImage, available: true, allergens: [11, 13] },
+  { name: 'Tortilla Española', description: 'Mini Kartoffel-Omelet + Serrano', price: '8,5', veggie: true, keto: true, image: tortillaImage, available: true, allergens: [11, 13] },
+  { name: 'Champiñones Rebozados', description: 'Panierte Champignons', price: '6,5', veggie: true, keto: false, image: champignonsImage, available: true, allergens: [9, 11, 13] },
   { name: 'Vegane Nuggets', description: 'mit Tomaten-Salsa oder Aioli', price: '7,5', veggie: true, keto: false, image: nuggetsImage, allergens: [9, 16] },
-  {
-    name: 'Rote Bete-Ingwer Bällchen',
-    description: 'Veganer Snack aus proteinreichen Kichererbsen, Rote Bete und Ingwer mit Karotten-Quinoa Panade',
-    price: '7,5',
-    veggie: true,
-    keto: false,
-    image: rotebete,
-    allergens: [9, 27, 28, 29, 30]
-  },
+ 
+  { name: 'Dátiles con Bacon', description: 'Datteln im Speckmantel', price: '7,5', veggie: false, keto: false, image: datillesImage, allergens: [26] },
   {
     name: 'Dados de Panceta',
     description: 'Schweinbauch-Würfel, herzhaft mariniert. ca 100g',
@@ -641,10 +630,21 @@ const snacks: SnackItem[] = [
     allergens: [9, 16, 26]
   },
   { name: 'Calamares Ringe', description: 'Tintenfischringe im Backteig', price: '7,5', veggie: false, keto: false, image: calamares, allergens: [9, 11, 13, 20] },
+  
+ {
+    name: 'Rote Bete-Ingwer Bällchen',
+    description: 'Veganer Snack aus proteinreichen Kichererbsen, Rote Bete und Ingwer mit Karotten-Quinoa Panade',
+    price: '7,5',
+    veggie: true,
+    keto: false,
+    image: rotebete,
+    allergens: [9, 27, 28, 29, 30]
+  },
 ];
 // { name: 'Palta Rebozada', description: 'Avocadospalten paniert', price: '8,5', veggie: true, keto: false },
 // { name: 'Tapas Mix (2p)', description: 'Mix aus verschiedenen Tapas', price: '24,5', veggie: false, keto: false },
 // { name: 'Veggi Mix (2p)', description: 'Mix aus verschiedenen Veggie Tapas.', price: '24,5', veggie: true, keto: false },
+// { name: 'Aros de Cebolla', description: 'Zwiebelringe', price: '6', veggie: true, keto: false, image: zwiebelringeImage, allergens: [9, 11, 13] },
 
 const filteredSnacks = computed(() => {
   let filtered = [...snacks];
@@ -782,6 +782,85 @@ ul {
   }
 }
 
+.supply-hint {
+  margin: 1rem auto 0;
+  max-width: 90%;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(206, 170, 114, 0.7);
+  border-radius: 8px;
+  background: rgba(206, 170, 114, 0.15);
+  color: $text-color;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.flamm-feature {
+  margin: 1.5rem auto 0;
+  max-width: 920px;
+  padding: 1.8rem 1.5rem 1rem;
+  border: 1px solid rgba(206, 170, 114, 0.6);
+  border-radius: 22px;
+  background: rgba(22, 14, 46, 0.9);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+  margin: 0 1rem;
+}
+
+.flamm-content {
+  color: $text-color;
+}
+
+.flamm-kicker {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.14rem;
+  font-size: 0.65rem;
+  color: rgba(206, 170, 114, 0.9);
+  margin-bottom: 0.4rem;
+}
+
+.flamm-content h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.5rem;
+  color: $accent-color;
+}
+
+.flamm-content p {
+  margin: 0 0 0.9rem;
+  line-height: 1.55;
+}
+
+.flamm-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.flamm-price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $accent-color;
+}
+
+.flamm-tag {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.flamm-figure {
+  margin: 1rem 0 0;
+  text-align: center;
+}
+
+.flamm-photo {
+  width: min(320px, 80%);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 25px rgba(0, 0, 0, 0.4));
+}
+
 .hint {
   text-shadow: 1px 1px 2px #ceaa72;
   border: 2px solid #ceaa72;
@@ -825,72 +904,6 @@ hr {
       }
     }
   }
-}
-
-.featured-snacks {
-  margin: 2rem auto 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 100%;
-}
-
-.featured-card {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  border: 1px solid rgba(206, 170, 114, 0.6);
-  border-radius: 16px;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
-  flex-wrap: wrap;
-}
-
-.featured-text {
-  flex: 1 1 220px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.featured-badge {
-  align-self: flex-start;
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  letter-spacing: 0.08rem;
-  padding: 0.15rem 0.5rem;
-  border-radius: 999px;
-  background: rgba(206, 170, 114, 0.22);
-  color: $accent-color;
-  border: 1px solid rgba(206, 170, 114, 0.5);
-}
-
-.featured-name {
-  margin: 0;
-  font-size: 1.4rem;
-  color: $accent-color;
-}
-
-.featured-description {
-  margin: 0;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.featured-price {
-  font-size: 1rem;
-  font-weight: 600;
-  color: $accent-color;
-}
-
-.featured-image {
-  width: 160px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 12px;
-  flex: 0 0 auto;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
 .top-toast {
@@ -1225,23 +1238,6 @@ hr {
 @media (max-width: 768px) {
   .snacks-menu {
     padding: 1.5rem 1rem 3rem;
-  }
-
-  .featured-card {
-    text-align: center;
-  }
-
-  .featured-text {
-    align-items: center;
-  }
-
-  .featured-badge {
-    align-self: center;
-  }
-
-  .featured-image {
-    width: 100%;
-    height: 180px;
   }
 }
 

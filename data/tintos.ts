@@ -94,7 +94,7 @@ export const tintos: Wine[] = [
         longDescription: 'Der Doppio Passo Primitivo ist ein Genussgarant aus der berühmten Weinregion Apuliens. Mit seinem warmwürzigen Schmelz und seiner intensiven Frucht verströmt dieser Süditaliener eine heitere Stimmung und mediterrane Lebensfreude. Im Glas funkelt der Wein in tiefem Rubinrot. Seine Aromen klingen an schwarze Beeren, Kakao und Vanille an. Charakteristisch ist eine großartige Fülle und die weichen Tannine, die sich wie Samt über die Zunge legen. Eine feine Spur Restsüße macht ihn sowohl für Trocken-Trinker als auch für Einsteiger höchst attraktiv. Ein Klassiker – egal wer mittrinkt, sie oder er wird diesen Tropfen garantiert ins Herz schließen. Mit 13% Alkoholgehalt und 4 Jahren Lagerfähigkeit.',
         image: null,
         characteristics: 'Halbtrocken, fruchtig, würzig, samtig',
-        available: false
+        available: true
     },
     {
         name: 'Viña Albali - Gran Reserva',

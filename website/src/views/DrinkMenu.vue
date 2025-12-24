@@ -1,5 +1,7 @@
 <template>
 
+  <FeaturedSlider :items="sliderItems" />
+
   <!--  <div class="hint">-->
   <!--    Bundle des Tages 12,-  <br> 1 Glas Hauswein weiß <br>+ 1 x Käseplatte-->
   <!--  </div>-->
@@ -332,6 +334,8 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import FeaturedSlider from "../components/FeaturedSlider.vue";
+import { featuredPromos } from "../data/featuredPromos";
 import scheibelImage from "../assets/images/scheibel_marille.png";
 
 interface Drink {
@@ -347,6 +351,7 @@ interface Drink {
 
 const nonAlcoholic = ref(false);
 const showTopToast = ref(false);
+const sliderItems = featuredPromos;
 
 function toggleNonAlcoholic() {
   nonAlcoholic.value = !nonAlcoholic.value;
